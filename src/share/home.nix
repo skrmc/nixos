@@ -140,9 +140,7 @@
           "col.active_border" = "rgb(bd93f9)";
           "col.inactive_border" = "rgba(44475aaa)";
         };
-        gestures = {
-          workspace_swipe = true;
-        };
+        gesture = "3, horizontal, scale: 1.5, workspace";
         bind = [
           "$MOD, RETURN, exec, $TERM"
           "$MOD, D, exec, bash -c \"pgrep -x $MENU && pkill -x $MENU || $MENU\""
