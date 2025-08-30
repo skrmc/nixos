@@ -20,18 +20,19 @@ in
     };
   };
 
-  # services.getty.autologinUser = "${username}";
+  services.getty.autologinUser = "${username}";
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "${session}";
-        user = "${username}";
-      };
-      default_session = {
-        user = "${username}";
-      };
-    };
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     initial_session = {
+  #       command = "${session}";
+  #       user = "${username}";
+  #     };
+  #     default_session = {
+  #       command = "ls -a";
+  #       user = "${username}";
+  #     };
+  #   };
+  # };
 }
