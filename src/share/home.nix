@@ -83,11 +83,12 @@
     };
     wayland.windowManager.hyprland = {
       enable = true;
-      # plugins = with pkgs.hyprlandPlugins; [
+      # plugins = with pkgs.hyprlandPlugins;
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       ];
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       settings = {
         "$MOD" = "SUPER";
         "$TERM" = "foot";
@@ -234,7 +235,8 @@
         ];
         misc = {
           disable_hyprland_logo = true;
-          background_color = "0x282a36";
+          background_color = "0x000000";
+          # background_color = "0x282a36";
         };
         plugin = {
           hyprexpo = {
