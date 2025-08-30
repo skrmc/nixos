@@ -1,37 +1,36 @@
 { pkgs, ... }:
 
+let
+  session = "${pkgs.hyprland}/bin/Hyprland";
+  username = "anon";
+in
+
 {
   users = {
     mutableUsers = false;
     users = {
-      anon = {
-        description = "ANON";
+      ${username} = {
         isNormalUser = true;
         uid = 1000;
         extraGroups = [
           "wheel"
-          # "networkmanager"
         ];
         hashedPassword = "$y$j9T$KbNyfJhGdAopilIWPoXQc1$h/CPGxQdYAK/4Q.PMUVdSyJLNjNX5kdFEPDwq.x4Ls0";
       };
     };
   };
 
-  /*
-    services.displayManager.autoLogin = {
-      enable = true;
-      user = "anon";
-    };
-
-    services.getty.autologinUser = "anon";
-  */
+  # services.getty.autologinUser = "${username}";
 
   services.greetd = {
     enable = true;
     settings = {
+      initial_session = {
+        command = "${session}";
+        user = "${username}";
+      };
       default_session = {
-        command = "Hyprland";
-        user = "anon";
+        user = "${username}";
       };
     };
   };
