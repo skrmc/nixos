@@ -117,8 +117,9 @@
           "[workspace 10 silent] foot -e btop"
         ];
         input = {
-          accel_profile = "flat";
+          # accel_profile = "flat";
           touchpad = {
+            scroll_factor = "0.5";
             natural_scroll = true;
           };
         };
