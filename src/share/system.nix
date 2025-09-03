@@ -26,21 +26,7 @@
   # Network Settings
   # services.tailscale.enable = true;
   networking = {
-    firewall = {
-      enable = false;
-      allowedTCPPorts = [
-        443
-        3000
-        5173
-        5900
-      ];
-      allowedUDPPortRanges = [
-        {
-          from = 60000;
-          to = 65535;
-        }
-      ];
-    };
+    firewall.enable = false;
     wireless.iwd.enable = true;
     # networkmanager.enable = true;
     # networkmanager.wifi.backend = "iwd";
@@ -93,10 +79,12 @@
 
   zramSwap.enable = true;
 
-  # services.openssh.enable = true;
-  # security.polkit.enable = true;
+  services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
+
+  security.polkit.enable = true;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
