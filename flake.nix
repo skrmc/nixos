@@ -37,7 +37,7 @@
     {
       nixosConfigurations.SAKURA = mkSystem "SAKURA";
       nixosConfigurations.KAGURA = mkSystem "KAGURA";
-      nixosConfigurations.SAKIKO = mkSystem "SAKIKO";
+      nixosConfigurations.SAKUYA = mkSystem "SAKUYA";
       nixosConfigurations.HARUKA = mkSystem "HARUKA";
     };
 }

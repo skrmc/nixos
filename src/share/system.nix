@@ -24,6 +24,7 @@
   ];
 
   # Network Settings
+  # services.tailscale.enable = true;
   networking = {
     firewall = {
       enable = false;
