@@ -40,6 +40,7 @@
     ncdu
     nixfmt-rfc-style
     powertop
+    rclone
     tree
     unzip
   ];
