@@ -7,7 +7,6 @@
     ./hardware-configuration.nix
   ];
 
-  # Custom Packages
   environment.systemPackages = with pkgs; [
     spotify
     google-chrome
@@ -32,6 +31,7 @@
       };
     };
   };
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [

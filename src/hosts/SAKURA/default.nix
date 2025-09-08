@@ -27,7 +27,7 @@
     wantedBy = [ "network.target" ];
   };
 
-  # Steam Settings
+  # Game-related
   programs = {
     gamescope = {
       enable = true;
@@ -71,6 +71,8 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
+
+  # Home Manager
   home-manager.users.anon = {
     wayland.windowManager.hyprland = {
       settings = {

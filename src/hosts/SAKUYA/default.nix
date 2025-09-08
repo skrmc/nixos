@@ -19,6 +19,7 @@
   ];
 
   # Graphic Settings
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -27,7 +28,6 @@
       libvdpau-va-gl
     ];
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -37,6 +37,9 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
+  hardware.nvidia-container-toolkit.enable = true;
+
+  # Home Manager
   home-manager.users.anon = {
     wayland.windowManager.hyprland = {
       settings = {
@@ -62,9 +65,8 @@
           };
         */
         monitor = [
-          "eDP-1, 2560x1440@165, auto, 1.6666"
-          # "eDP-1, 2560x1600@165, -1280x0, 2"
-          # "eDP-1, disable"
+          "eDP-1, disable"
+          # "eDP-1, 2560x1440@165, auto, 1.6666"
           # "DP-2, 2560x1440@240, auto, 1.33"
           # "HDMI-A-1, 2560x1440@240, auto, 1.33"
           # "HDMI-A-1, 1920x1080@120, 0x0, 1.25"
