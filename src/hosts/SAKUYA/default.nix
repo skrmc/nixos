@@ -13,6 +13,25 @@
     ./hardware-configuration.nix
   ];
 
+  systemd.services.startup-tasks = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash /opt/boot.sh";
+    };
+    path = with pkgs; [
+      util-linux
+      coreutils
+      iputils
+      systemd
+      rclone
+      podman
+      docker-compose
+    ];
+  };  
+
   # Custom Packages
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
