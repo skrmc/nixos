@@ -10,7 +10,7 @@
   networking.hostName = "SAKURA";
 
   imports = [
-    ../../../hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   systemd.services."enable-wifi" = {
