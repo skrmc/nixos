@@ -78,6 +78,7 @@
       settings = {
         exec-once = [
           "hyprctl hyprsunset temperature 6200"
+          "iwctl adapter phy0 set-property power on"
         ];
         env = [
           "NVD_BACKEND, direct"
@@ -98,12 +99,12 @@
           };
         */
         monitor = [
-          "eDP-1, 2560x1600@165, auto, 1.6666"
+          # "eDP-1, 2560x1600@165, auto, 1.6666"
           # "eDP-1, 2560x1600@165, -1280x0, 2"
-          # "eDP-1, disable"
+          "eDP-1, disable"
           # "DP-2, 2560x1440@240, auto, 1.33"
           # "HDMI-A-1, 2560x1440@240, auto, 1.33"
-          # "HDMI-A-1, 1920x1080@120, 0x0, 1.25"
+          "HDMI-A-1, 1920x1080@120, 0x0, 1.25"
         ];
       };
     };
