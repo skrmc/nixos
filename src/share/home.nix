@@ -88,7 +88,8 @@
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       ];
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       settings = {
         "$MOD" = "SUPER";
         "$TERM" = "foot";

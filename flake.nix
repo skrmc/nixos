@@ -16,9 +16,11 @@
     };
   };
 
-  outputs = { self, ... }@inputs:
+  outputs =
+    { self, ... }@inputs:
     let
-      mkSystem = name:
+      mkSystem =
+        name:
         inputs.nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs name; };
           modules = [

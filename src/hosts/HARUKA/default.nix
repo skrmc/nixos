@@ -1,4 +1,3 @@
-{ pkgs, name, ... }:
 {
   nixpkgs.system = "aarch64-linux";
   networking.hostName = "HARUKA";

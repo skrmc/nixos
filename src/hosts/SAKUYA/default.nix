@@ -1,8 +1,6 @@
 {
-  lib,
   pkgs,
   config,
-  name,
   ...
 }:
 {
@@ -30,7 +28,7 @@
       podman
       docker-compose
     ];
-  };  
+  };
 
   # Custom Packages
   environment.systemPackages = with pkgs; [
