@@ -9,7 +9,6 @@
     # moonlight-qt
     # termius
     # vscode
-    chromium
     mpv
 
     # --- Hyprland ---
@@ -55,10 +54,10 @@
       shellAliases = {
         se = "sudoedit";
         ls = "ls --color=auto";
-        ll = "ls --color=auto -la";
+        ll = "ls --color=auto -lha";
         build = "sudo nixos-rebuild switch --flake /etc/nixos";
         clean = "sudo nix-collect-garbage --delete-old";
-        undo = "sudo nixos-rebuild switch --rollback";
+        # rollback = "sudo nixos-rebuild switch --rollback";
       };
     };
     git = {

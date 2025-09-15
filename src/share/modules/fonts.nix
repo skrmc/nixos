@@ -4,7 +4,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      overpass
+      ibm-plex
       font-awesome
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif

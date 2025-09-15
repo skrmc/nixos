@@ -34,7 +34,7 @@
         enable = true;
         settings = {
           main = {
-            font = "Overpass:size=12";
+            font = "IBM Plex Sans:size=12";
             icon-theme = "Papirus";
             horizontal-pad = 20;
             vertical-pad = 15;
@@ -70,7 +70,7 @@
         name = "Papirus";
       };
       font = {
-        name = "Overpass";
+        name = "IBM Plex Sans";
         size = 10;
       };
     };

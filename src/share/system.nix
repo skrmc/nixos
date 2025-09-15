@@ -100,9 +100,10 @@
     NIXPKGS_ALLOW_UNFREE = "1";
   };
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    download-buffer-size = 1073741824; # 1GB
+  };
 
   system.stateVersion = "25.05";
 }
