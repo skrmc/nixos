@@ -24,7 +24,7 @@
   ];
 
   # Network Settings
-  # services.tailscale.enable = true;
+  services.tailscale.enable = true;
   networking = {
     firewall.enable = false;
     wireless.iwd.enable = true;
