@@ -8,8 +8,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    spotify
     google-chrome
+    obsidian
+    spotify
     termius
     vscode
     moonlight-qt

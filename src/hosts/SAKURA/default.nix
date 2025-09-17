@@ -43,8 +43,9 @@
   # Custom Packages
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
-    spotify
     google-chrome
+    obsidian
+    spotify
     termius
     vscode
     moonlight-qt

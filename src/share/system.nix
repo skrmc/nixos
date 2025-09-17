@@ -101,7 +101,10 @@
   };
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     download-buffer-size = 1073741824; # 1GB
   };
 
