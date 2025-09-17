@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  user,
   ...
 }:
 {
@@ -41,15 +42,20 @@
   # };
 
   # Custom Packages
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.full
-    google-chrome
-    obsidian
-    spotify
-    termius
-    vscode
-    moonlight-qt
-  ];
+  environment = {
+    variables = {
+      NVD_BACKEND = "direct";
+    };
+    systemPackages = with pkgs; [
+      nvtopPackages.full
+      google-chrome
+      obsidian
+      spotify
+      termius
+      vscode
+      moonlight-qt
+    ];
+  };
 
   # Graphic Settings
   hardware.graphics = {
@@ -72,38 +78,28 @@
   };
 
   # Home Manager
-  home-manager.users.anon = {
-    wayland.windowManager.hyprland = {
-      settings = {
-        exec-once = [
-          "hyprctl hyprsunset temperature 6200"
-          "iwctl adapter phy0 set-property power on"
-        ];
-        env = [
-          "NVD_BACKEND, direct"
-        ];
-        /*
-          cursor = {
-            no_hardware_cursors = 1;
-            no_break_fs_vrr = 1;
+  home-manager.users.${user} = {
+    wayland.windowManager.sway = {
+      config = {
+        output = {
+          eDP-1 = {
+            disable = "";
           };
-          render = {
-            explicit_sync	= 0;
+          HDMI-A-1 = {
+            mode = "1920x1080@120Hz";
+            scale = "1";
           };
-          opengl = {
-            nvidia_anti_flicker = 0;
-          };
-          misc = {
-            vfr = 0;
-          };
-        */
-        monitor = [
-          # "eDP-1, 2560x1600@165, auto, 1.6666"
-          # "eDP-1, 2560x1600@165, -1280x0, 2"
-          "eDP-1, disable"
-          # "DP-2, 2560x1440@240, auto, 1.33"
-          # "HDMI-A-1, 2560x1440@240, auto, 1.33"
-          "HDMI-A-1, 1920x1080@120, 0x0, 1"
+        };
+
+        startup = [
+          {
+            command = "wlsunset -T 6200";
+            always = true;
+          }
+          {
+            command = "iwctl adapter phy0 set-property power on";
+            always = true;
+          }
         ];
       };
     };

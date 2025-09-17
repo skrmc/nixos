@@ -1,15 +1,10 @@
-{ pkgs, ... }:
-
-let
-  session = "${pkgs.hyprland}/bin/Hyprland";
-  username = "anon";
-in
+{ pkgs, user, ... }:
 
 {
   users = {
     mutableUsers = false;
     users = {
-      ${username} = {
+      ${user} = {
         isNormalUser = true;
         uid = 1000;
         extraGroups = [
@@ -23,19 +18,5 @@ in
     };
   };
 
-  services.getty.autologinUser = "${username}";
-
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     initial_session = {
-  #       command = "${session}";
-  #       user = "${username}";
-  #     };
-  #     default_session = {
-  #       command = "ls -a";
-  #       user = "${username}";
-  #     };
-  #   };
-  # };
+  services.getty.autologinUser = "${user}";
 }

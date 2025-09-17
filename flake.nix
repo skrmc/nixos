@@ -9,23 +9,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
   outputs =
     { self, ... }@inputs:
     let
       mkSystem =
-        name:
+        host: user:
         inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs name; };
+          specialArgs = { inherit inputs host user; };
           modules = [
             ./src/share
-            ./src/hosts/${name}
+            ./src/hosts/${host}
             inputs.nixvim.nixosModules.nixvim
             inputs.home-manager.nixosModules.home-manager
             {
@@ -37,9 +32,9 @@
         };
     in
     {
-      nixosConfigurations.SAKURA = mkSystem "SAKURA";
-      nixosConfigurations.KAGURA = mkSystem "KAGURA";
-      nixosConfigurations.SAKUYA = mkSystem "SAKUYA";
-      nixosConfigurations.HARUKA = mkSystem "HARUKA";
+      nixosConfigurations.SAKURA = mkSystem "SAKURA" "anon";
+      nixosConfigurations.KAGURA = mkSystem "KAGURA" "anon";
+      nixosConfigurations.SAKUYA = mkSystem "SAKUYA" "anon";
+      nixosConfigurations.HARUKA = mkSystem "HARUKA" "anon";
     };
 }

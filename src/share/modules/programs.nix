@@ -1,7 +1,22 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    config = {
+      common.default = [
+        "gtk"
+        "wlr"
+      ];
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     # spotify
@@ -11,10 +26,10 @@
     # vscode
     mpv
 
-    # --- Hyprland ---
     waycorner
     pwvucontrol
     wl-clipboard
+    wlsunset
     nautilus
 
     # --- Visuals ---
@@ -43,7 +58,9 @@
     tree
     unzip
   ];
+
   users.defaultUserShell = pkgs.fish;
+
   programs = {
     nix-ld.enable = true;
     # dconf.enable = true;
@@ -76,10 +93,15 @@
     #     obs-backgroundremoval
     #   ];
     # };
-    # --- Hyprland ---
-    hyprland = {
+    uwsm = {
       enable = true;
-      withUWSM = true;
+      waylandCompositors = {
+        sway = {
+          prettyName = "Sway";
+          comment = "Sway compositor managed by UWSM";
+          binPath = "/run/current-system/sw/bin/sway";
+        };
+      };
     };
     foot = {
       enable = true;
