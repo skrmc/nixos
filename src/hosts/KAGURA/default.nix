@@ -32,8 +32,6 @@
       };
     };
   };
-}
-
 
   hardware.graphics = {
     enable = true;
