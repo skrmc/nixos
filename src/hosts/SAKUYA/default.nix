@@ -64,13 +64,15 @@
 
   # Home Manager
   home-manager.users.${user} = {
-    wayland.windowManager.sway = {
-      config = {
-        output = {
-          eDP-1 = {
-            disable = "";
-          };
-        };
+    wayland.windowManager.hyprland = {
+      settings = {
+        monitor = [
+          "eDP-1, disable"
+          # "eDP-1, 2560x1440@165, auto, 1.6666"
+          # "DP-2, 2560x1440@240, auto, 1.3333"
+          # "HDMI-A-1, 2560x1440@240, auto, 1.3333"
+          # "HDMI-A-1, 1920x1080@120, 0x0, 1.25"
+        ];
       };
     };
   };

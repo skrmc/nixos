@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   services.flatpak.enable = true;
@@ -93,16 +93,6 @@
     #     obs-backgroundremoval
     #   ];
     # };
-    uwsm = {
-      enable = true;
-      waylandCompositors = {
-        sway = {
-          prettyName = "Sway";
-          comment = "Sway compositor managed by UWSM";
-          binPath = "/run/current-system/sw/bin/sway";
-        };
-      };
-    };
     foot = {
       enable = true;
       theme = "dracula";

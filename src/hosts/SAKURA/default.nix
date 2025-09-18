@@ -79,27 +79,19 @@
 
   # Home Manager
   home-manager.users.${user} = {
-    wayland.windowManager.sway = {
-      config = {
-        output = {
-          eDP-1 = {
-            disable = "";
-          };
-          HDMI-A-1 = {
-            mode = "1920x1080@120Hz";
-            scale = "1";
-          };
-        };
-
-        startup = [
-          {
-            command = "wlsunset -T 6200";
-            always = true;
-          }
-          {
-            command = "iwctl adapter phy0 set-property power on";
-            always = true;
-          }
+    wayland.windowManager.hyprland = {
+      settings = {
+        exec-once = [
+          "hyprctl hyprsunset temperature 6200"
+          "iwctl adapter phy0 set-property power on"
+        ];
+        monitor = [
+          # "eDP-1, 2560x1600@165, auto, 1.6666"
+          # "eDP-1, 2560x1600@165, -1280x0, 2"
+          "eDP-1, disable"
+          # "DP-2, 2560x1440@240, auto, 1.3333"
+          # "HDMI-A-1, 2560x1440@240, auto, 1.3333"
+          "HDMI-A-1, 1920x1080@120, 0x0, 1"
         ];
       };
     };
