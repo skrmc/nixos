@@ -51,7 +51,6 @@
       google-chrome
       obsidian
       spotify
-      termius
       vscode
       moonlight-qt
     ];
