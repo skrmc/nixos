@@ -1,22 +1,6 @@
 { pkgs, user, ... }:
 
 {
-  services.flatpak.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-    ];
-    config = {
-      common.default = [
-        "gtk"
-        "wlr"
-      ];
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     # spotify

@@ -10,5 +10,6 @@
     ./modules/fonts.nix
     ./modules/neovim.nix
     ./modules/programs.nix
+    ./modules/flatpak.nix
   ];
 }
