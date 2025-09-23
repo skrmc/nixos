@@ -40,7 +40,7 @@
             icon-theme = "Papirus";
             horizontal-pad = 20;
             vertical-pad = 15;
-            width = 20;
+            width = 30;
           };
           colors = {
             background = "282a36ff";
