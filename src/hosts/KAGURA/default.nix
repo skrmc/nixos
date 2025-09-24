@@ -9,10 +9,9 @@
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    obsidian
-    spotify
-    vscode
     moonlight-qt
+    obsidian
+    vscode
   ];
 
   home-manager.users.anon = {

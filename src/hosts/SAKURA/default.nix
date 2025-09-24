@@ -49,10 +49,9 @@
     systemPackages = with pkgs; [
       nvtopPackages.full
       google-chrome
-      obsidian
-      spotify
-      vscode
       moonlight-qt
+      obsidian
+      vscode
     ];
   };
 
