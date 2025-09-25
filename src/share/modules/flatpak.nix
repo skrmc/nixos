@@ -17,14 +17,16 @@ in
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    # wlr.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
+      # pkgs.xdg-desktop-portal-gtk
+      # pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
     ];
     config.common.default = [
-      "gtk"
-      "wlr"
+      # "gtk"
+      # "wlr"
+      "hyprland"
     ];
   };
 

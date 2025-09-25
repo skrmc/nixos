@@ -3,13 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
-    # spotify
-    # google-chrome
-    # moonlight-qt
-    # termius
-    # vscode
     mpv
-
     waycorner
     pwvucontrol
     wl-clipboard
