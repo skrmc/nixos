@@ -26,22 +26,16 @@
     wantedBy = [ "network.target" ];
   };
 
-  # Game-related
-  # programs = {
-  #   gamescope = {
-  #     enable = true;
-  #     capSysNice = true;
-  #   };
-  #   steam = {
-  #     enable = true;
-  #     gamescopeSession.enable = true;
-  #     remotePlay.openFirewall = true;
-  #     dedicatedServer.openFirewall = true;
-  #     localNetworkGameTransfers.openFirewall = true;
-  #   };
-  # };
+  programs = {
+    obs-studio = {
+      package = (
+        pkgs.obs-studio.override {
+          cudaSupport = true;
+        }
+      );
+    };
+  };
 
-  # Custom Packages
   environment = {
     variables = {
       NVD_BACKEND = "direct";

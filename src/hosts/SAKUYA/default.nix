@@ -31,7 +31,6 @@
     ];
   };
 
-  # Custom Packages
   environment = {
     variables = {
       NVD_BACKEND = "direct";
@@ -41,7 +40,6 @@
     ];
   };
 
-  # Graphic Settings
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
@@ -62,7 +60,6 @@
   };
   hardware.nvidia-container-toolkit.enable = true;
 
-  # Home Manager
   home-manager.users.${user} = {
     wayland.windowManager.hyprland = {
       settings = {

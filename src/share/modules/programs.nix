@@ -68,14 +68,13 @@
         user.email = "Yejia995@gmail.com";
       };
     };
+    tmux = {
+      enable = true;
+      historyLimit = 5000;
+    };
     # --- Desktop ---
     obs-studio = {
       enable = true;
-      package = (
-        pkgs.obs-studio.override {
-          cudaSupport = true;
-        }
-      );
       enableVirtualCamera = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-vaapi
@@ -106,10 +105,6 @@
     nautilus-open-any-terminal = {
       enable = true;
       terminal = "foot";
-    };
-    tmux = {
-      enable = true;
-      historyLimit = 5000;
     };
   };
 }
