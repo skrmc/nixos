@@ -1,3 +1,5 @@
+# /etc/nixos/src/share/modules/flatpak.nix
+
 { lib, pkgs, ... }:
 
 let

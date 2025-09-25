@@ -69,14 +69,20 @@
       };
     };
     # --- Desktop ---
-    # obs-studio = {
-    #   enable = true;
-    #   enableVirtualCamera = true;
-    #   plugins = with pkgs.obs-studio-plugins; [
-    #     obs-vaapi
-    #     obs-backgroundremoval
-    #   ];
-    # };
+    obs-studio = {
+      enable = true;
+      package = (
+        pkgs.obs-studio.override {
+          cudaSupport = true;
+        }
+      );
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-vaapi
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    };
     foot = {
       enable = true;
       theme = "dracula";
