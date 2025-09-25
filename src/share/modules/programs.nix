@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     mpv
-    waycorner
+    xdg-utils
     pwvucontrol
     wl-clipboard
     wlsunset
