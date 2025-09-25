@@ -22,7 +22,10 @@ in
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
     ];
-    config.common.default = [ "gtk" "wlr" ];
+    config.common.default = [
+      "gtk"
+      "wlr"
+    ];
   };
 
   systemd.services.flatpak-tasks = {
