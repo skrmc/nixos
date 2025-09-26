@@ -27,9 +27,8 @@ in
 
   systemd.services.flatpak-tasks = {
     description = "Flatpak tasks (only on AC power, after network is online)";
+    after = [ "systemd-networkd-wait-online.service" ];
     wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    wants = [ "network-online.target" ];
     unitConfig.ConditionACPower = true;
     restartIfChanged = true;
 

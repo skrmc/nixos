@@ -32,6 +32,11 @@
     # networkmanager.wifi.backend = "iwd";
   };
 
+  systemd.network = {
+    enable = true;
+    wait-online.enable = true;
+  };
+
   time.timeZone = "America/New_York";
   i18n = {
     defaultLocale = "en_US.UTF-8";
