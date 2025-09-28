@@ -9,10 +9,10 @@
       "$MOD" = "SUPER";
       "$TERM" = "foot";
       "$MENU" = "fuzzel";
-      "$ROUND" = "10";
+      "$ROUND" = "8";
       "$BORDER" = "1";
-      "$GAPS_IN" = "3";
-      "$GAPS_OUT" = "9";
+      "$GAPS_IN" = "2";
+      "$GAPS_OUT" = "4";
       xwayland = {
         enabled = true;
         force_zero_scaling = true;
