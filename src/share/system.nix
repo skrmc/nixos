@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   boot = {
@@ -10,18 +10,39 @@
     supportedFilesystems = [ "ntfs" ];
   };
 
-  # Podman Settings
-  virtualisation.containers.enable = true;
+  # Containers and Virtualization
+  environment.systemPackages = with pkgs; [
+    docker-compose
+    virt-manager
+  ];
+  users.users.${user}.extraGroups = [
+    "libvirtd"
+    "kvm"
+  ];
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+      };
+    };
   };
-  environment.systemPackages = with pkgs; [
-    docker-compose
-  ];
 
   # Network Settings
   services.resolved.enable = true;
