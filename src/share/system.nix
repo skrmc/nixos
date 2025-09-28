@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     virt-manager
+    quickemu
   ];
   users.users.${user}.extraGroups = [
     "libvirtd"

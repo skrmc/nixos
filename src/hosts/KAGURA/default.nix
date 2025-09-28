@@ -14,7 +14,7 @@
     vscode
   ];
 
-  home-manager.users.anon = {
+  home-manager.users.${user} = {
     wayland.windowManager.hyprland = {
       settings = {
         exec-once = [

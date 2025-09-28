@@ -12,20 +12,6 @@
     ./hardware-configuration.nix
   ];
 
-  systemd.services."enable-wifi" = {
-    description = "Enable WiFi Adapter after iwd starts";
-    after = [ "iwd.service" ];
-    wants = [ "iwd.service" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = [
-        "/run/current-system/sw/bin/sh -c 'sleep 5 && /run/current-system/sw/bin/iwctl adapter phy0 set-property Powered on &'"
-      ];
-      RemainAfterExit = true;
-    };
-    wantedBy = [ "network.target" ];
-  };
-
   programs = {
     obs-studio = {
       package = (
@@ -75,7 +61,6 @@
       settings = {
         exec-once = [
           "hyprctl hyprsunset temperature 6200"
-          "iwctl adapter phy0 set-property power on"
         ];
         monitor = [
           # "eDP-1, 2560x1600@165, auto, 1.6666"
