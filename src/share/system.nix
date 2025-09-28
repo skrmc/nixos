@@ -13,11 +13,13 @@
   # Containers and Virtualization
   environment.systemPackages = with pkgs; [
     docker-compose
-    virt-manager
+    # virt-manager
+    spice-gtk
     quickemu
+    qemu
   ];
   users.users.${user}.extraGroups = [
-    "libvirtd"
+    # "libvirtd"
     "kvm"
   ];
   virtualisation = {
@@ -27,22 +29,22 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [
-            (pkgs.OVMF.override {
-              secureBoot = true;
-              tpmSupport = true;
-            }).fd
-          ];
-        };
-      };
-    };
+    # libvirtd = {
+    #   enable = true;
+    #   qemu = {
+    #     package = pkgs.qemu_kvm;
+    #     swtpm.enable = true;
+    #     ovmf = {
+    #       enable = true;
+    #       packages = [
+    #         (pkgs.OVMF.override {
+    #           secureBoot = true;
+    #           tpmSupport = true;
+    #         }).fd
+    #       ];
+    #     };
+    #   };
+    # };
   };
 
   # Network Settings
