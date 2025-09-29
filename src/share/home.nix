@@ -1,20 +1,11 @@
 # /etc/nixos/src/share/home.nix
 
 {
-  lib,
   pkgs,
   colors,
   user,
   ...
 }:
-let
-  hexify =
-    {
-      hex,
-      alpha ? null,
-    }:
-    lib.strings.removePrefix "#" hex + lib.optionalString (alpha != null) alpha;
-in
 {
   home-manager.users.${user} = {
     home = {
@@ -28,6 +19,10 @@ in
       ];
     };
     imports = [ ./modules/hyprland.nix ];
+    wayland.windowManager.hyprland.settings.general = {
+      "col.active_border" = "rgb(${colors."70"})";
+      "col.inactive_border" = "rgb(${colors."30"})";
+    };
     xdg.desktopEntries = {
       btop = {
         name = "Btop";
@@ -57,34 +52,17 @@ in
             width = 30;
           };
           colors = {
-            background = hexify {
-              hex = colors."15";
-              alpha = "ff";
-            };
-            text = hexify {
-              hex = colors."98";
-              alpha = "ff";
-            };
-            match = hexify {
-              hex = colors."70";
-              alpha = "ff";
-            };
-            selection = hexify {
-              hex = colors."30";
-              alpha = "dd";
-            };
-            selection-text = hexify {
-              hex = colors."98";
-              alpha = "ff";
-            };
-            selection-match = hexify {
-              hex = colors."70";
-              alpha = "ff";
-            };
-            border = hexify {
-              hex = colors."80";
-              alpha = "ff";
-            };
+            background = "${colors."15"}ff";
+            prompt = "${colors."98"}ff";
+            placeholder = "${colors."70"}ff";
+            input = "${colors."98"}ff";
+            text = "${colors."98"}ff";
+            match = "${colors."70"}ff";
+            selection = "${colors."30"}ff";
+            selection-text = "${colors."98"}ff";
+            selection-match = "${colors."70"}ff";
+            border = "${colors."70"}ff";
+            counter = "${colors."70"}ff";
           };
           border = {
             width = 2;
@@ -105,10 +83,10 @@ in
             clipboard-paste = "BTN_RIGHT";
             select-extend = "none";
           };
-          color = {
-            cursor = "${hexify { hex = colors."15"; }} ${hexify { hex = colors."98"; }}";
-            foreground = hexify { hex = colors."98"; };
-            background = hexify { hex = colors."15"; };
+          colors = {
+            cursor = "${colors."15"} ${colors."98"}";
+            foreground = colors."98";
+            background = colors."15";
           };
           csd = {
             hide-when-maximized = "yes";

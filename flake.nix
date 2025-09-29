@@ -19,6 +19,7 @@
   outputs =
     { self, ... }@inputs:
     let
+      # https://material-foundation.github.io/material-theme-builder
       colors = builtins.fromJSON (builtins.readFile ./colors.json);
       mkSystem =
         host: user:

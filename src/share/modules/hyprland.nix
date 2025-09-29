@@ -47,8 +47,6 @@
         "gaps_in" = "$GAPS_IN";
         "gaps_out" = "$GAPS_OUT";
         "border_size" = "$BORDER";
-        "col.active_border" = "rgb(bd93f9)";
-        "col.inactive_border" = "rgba(44475aaa)";
       };
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
