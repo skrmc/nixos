@@ -13,10 +13,7 @@ let
       hex,
       alpha ? null,
     }:
-    let
-      base = lib.strings.removePrefix "#" hex;
-    in
-    if alpha == null then base else "${base}${alpha}";
+    lib.strings.removePrefix "#" hex + lib.optionalString (alpha != null) alpha;
 in
 {
   home-manager.users.${user} = {
