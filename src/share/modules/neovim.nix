@@ -15,13 +15,11 @@
       expandtab = true;
       clipboard = "unnamedplus";
     };
-    colorschemes.dracula = {
+    colorschemes.rose-pine = {
       enable = true;
       settings = {
-        bold = true;
-        italic = true;
-        underline = true;
-        strikethrough = true;
+        variant = "moon";
+        styles.transparency = true;
       };
     };
     plugins = {

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, colors, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -75,26 +75,6 @@
         obs-backgroundremoval
         obs-pipewire-audio-capture
       ];
-    };
-    foot = {
-      enable = true;
-      theme = "dracula";
-      enableFishIntegration = true;
-      settings = {
-        main = {
-          font = "JetBrainsMono Nerd Font:size=11";
-          selection-target = "both";
-          initial-window-size-chars = "120x40";
-          pad = "10x10";
-        };
-        mouse-bindings = {
-          clipboard-paste = "BTN_RIGHT";
-          select-extend = "none";
-        };
-        csd = {
-          hide-when-maximized = "yes";
-        };
-      };
     };
     nautilus-open-any-terminal = {
       enable = true;

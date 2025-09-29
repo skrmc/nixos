@@ -145,7 +145,6 @@
       misc = {
         disable_hyprland_logo = true;
         background_color = "0x000000";
-        # background_color = "0x282a36";
       };
       plugin = {
         hyprexpo = {

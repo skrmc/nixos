@@ -1,6 +1,23 @@
 # /etc/nixos/src/share/home.nix
 
-{ pkgs, user, ... }:
+{
+  lib,
+  pkgs,
+  colors,
+  user,
+  ...
+}:
+let
+  hexify =
+    {
+      hex,
+      alpha ? null,
+    }:
+    let
+      base = lib.strings.removePrefix "#" hex;
+    in
+    if alpha == null then base else "${base}${alpha}";
+in
 {
   home-manager.users.${user} = {
     home = {
@@ -43,17 +60,61 @@
             width = 30;
           };
           colors = {
-            background = "282a36ff";
-            text = "f8f8f2ff";
-            match = "8be9fdff";
-            selection = "44475add";
-            selection-text = "f8f8f2ff";
-            selection-match = "8be9fdff";
-            border = "bd93f9ff";
+            background = hexify {
+              hex = colors."15";
+              alpha = "ff";
+            };
+            text = hexify {
+              hex = colors."98";
+              alpha = "ff";
+            };
+            match = hexify {
+              hex = colors."70";
+              alpha = "ff";
+            };
+            selection = hexify {
+              hex = colors."30";
+              alpha = "dd";
+            };
+            selection-text = hexify {
+              hex = colors."98";
+              alpha = "ff";
+            };
+            selection-match = hexify {
+              hex = colors."70";
+              alpha = "ff";
+            };
+            border = hexify {
+              hex = colors."80";
+              alpha = "ff";
+            };
           };
           border = {
             width = 2;
             radius = 10;
+          };
+        };
+      };
+      foot = {
+        enable = true;
+        settings = {
+          main = {
+            font = "JetBrainsMono Nerd Font:size=11";
+            selection-target = "both";
+            initial-window-size-chars = "120x40";
+            pad = "10x10";
+          };
+          mouse-bindings = {
+            clipboard-paste = "BTN_RIGHT";
+            select-extend = "none";
+          };
+          color = {
+            cursor = "${hexify { hex = colors."15"; }} ${hexify { hex = colors."98"; }}";
+            foreground = hexify { hex = colors."98"; };
+            background = hexify { hex = colors."15"; };
+          };
+          csd = {
+            hide-when-maximized = "yes";
           };
         };
       };
@@ -64,10 +125,6 @@
     };
     gtk = {
       enable = true;
-      theme = {
-        name = "dracula";
-        package = pkgs.dracula-theme;
-      };
       iconTheme = {
         name = "Papirus";
       };

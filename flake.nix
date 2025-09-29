@@ -19,10 +19,18 @@
   outputs =
     { self, ... }@inputs:
     let
+      colors = builtins.fromJSON (builtins.readFile ./colors.json);
       mkSystem =
         host: user:
         inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs host user; };
+          specialArgs = {
+            inherit
+              inputs
+              colors
+              host
+              user
+              ;
+          };
           modules = [
             ./src/share
             ./src/hosts/${host}
