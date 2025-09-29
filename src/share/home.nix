@@ -37,7 +37,6 @@
       btop = {
         enable = true;
         settings = {
-          color_theme = "dracula";
           theme_background = false;
         };
       };
@@ -72,12 +71,17 @@
       };
       foot = {
         enable = true;
+
         settings = {
           main = {
             font = "JetBrainsMono Nerd Font:size=11";
             selection-target = "both";
             initial-window-size-chars = "120x40";
             pad = "10x10";
+          };
+          cursor = {
+            style = "beam";
+            blink = "yes";
           };
           mouse-bindings = {
             clipboard-paste = "BTN_RIGHT";
@@ -87,6 +91,25 @@
             cursor = "${colors."15"} ${colors."98"}";
             foreground = colors."98";
             background = colors."15";
+            /*
+              Rose Pine Moon
+               regular0=393552     # black (Overlay)
+               regular1=eb6f92     # red (Love)
+               regular2=9ccfd8     # green (Foam)
+               regular3=f6c177     # yellow (Gold)
+               regular4=3e8fb0     # blue (Pine)
+               regular5=c4a7e7     # magenta (Iris)
+               regular6=ea9a97     # cyan (Rose)
+               regular7=e0def4     # white (Text)
+            */
+            regular0 = "393552";
+            regular1 = "eb6f92";
+            regular2 = "9ccfd8";
+            regular3 = "f6c177";
+            regular4 = "3e8fb0";
+            regular5 = "c4a7e7";
+            regular6 = "ea9a97";
+            regular7 = "e0def4";
           };
           csd = {
             hide-when-maximized = "yes";
