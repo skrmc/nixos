@@ -22,7 +22,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "[workspace 1 silent] $MENU"
-        "[workspace 10 silent] foot -e btop"
+        "[workspace 10 silent; tile] foot -e btop"
       ];
       input = {
         accel_profile = "flat";
