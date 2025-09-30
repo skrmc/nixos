@@ -71,13 +71,12 @@
       };
       foot = {
         enable = true;
-
         settings = {
           main = {
             font = "JetBrainsMono Nerd Font:size=11";
             selection-target = "both";
-            initial-window-size-chars = "120x40";
-            pad = "10x10";
+            initial-window-size-chars = "80x24";
+            pad = "20x20";
           };
           cursor = {
             style = "beam";

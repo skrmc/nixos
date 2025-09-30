@@ -54,6 +54,7 @@
         "$MOD, D, exec, bash -c \"pgrep -x $MENU && pkill -x $MENU || $MENU\""
         "$MOD, E, exec, $TERM -e yazi"
         "$MOD, Q, killactive"
+        "$MOD, C, centerwindow"
         "$MOD, F, togglefloating"
         # "$MOD, P, pseudo"
         # "$MOD, J, togglesplit"
@@ -122,20 +123,19 @@
         "$MOD, EQUAL, splitratio, 0.1"
       ];
       workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-        "s[1], gapsout:$GAPS_OUT, gapsin:$GAPS_IN"
+        "w[tv1]s[0], gapsout:0, gapsin:0"
+        "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
-        "noblur, title:^(.*)$"
+        "float, class:$TERM"
+        # "noblur, class:^(.*)$"
         "float, title:^(Open File)(.*)$"
         "float, title:^(Save File)(.*)$"
-        "bordersize 0, floating:0, onworkspace:w[tv1]"
-        "rounding 0, floating:0, onworkspace:w[tv1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
-        "rounding $ROUND, onworkspace:s[1]"
-        "opacity 0.8, floating:1, focus:0"
+        "bordersize 0, floating:0, onworkspace:w[tv1]s[0]"
+        "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
+        "bordersize 0, floating:0, onworkspace:f[1]s[0]"
+        "rounding 0, floating:0, onworkspace:f[1]s[0]"
+        "opacity 0.8, center, floating:1, focus:0"
       ];
       layerrule = [
         "noanim, selection"
