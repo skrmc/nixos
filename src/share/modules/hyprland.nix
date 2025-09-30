@@ -135,7 +135,8 @@
         "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
         "bordersize 0, floating:0, onworkspace:f[1]s[0]"
         "rounding 0, floating:0, onworkspace:f[1]s[0]"
-        "opacity 0.8, center, floating:1, focus:0"
+        "opacity 0.6, center, floating:1, focus:0"
+        "opacity 0.9, floating:0, focus:0"
       ];
       layerrule = [
         "noanim, selection"
