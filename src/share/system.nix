@@ -1,6 +1,13 @@
 { pkgs, user, ... }:
 
 {
+  imports = [
+    ./system/battery.nix
+    ./system/fonts.nix
+    ./system/neovim.nix
+    ./system/programs.nix
+    ./system/flatpak.nix
+  ];
   boot = {
     loader = {
       timeout = 0;

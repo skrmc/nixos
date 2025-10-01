@@ -21,6 +21,11 @@
     let
       # https://material-foundation.github.io/material-theme-builder
       colors = builtins.fromJSON (builtins.readFile ./colors.json);
+      fonts = {
+        sans = "IBM Plex Sans";
+        serif = "IBM Plex Serif";
+        mono = "Fira Code";
+      };
       mkSystem =
         host: user:
         inputs.nixpkgs.lib.nixosSystem {
@@ -28,6 +33,7 @@
             inherit
               inputs
               colors
+              fonts
               host
               user
               ;

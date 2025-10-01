@@ -1,6 +1,11 @@
-# /etc/nixos/src/share/modules/hyprland.nix
+# /etc/nixos/src/share/home/hyprland.nix
 
-{ pkgs, ... }:
+{
+  pkgs,
+  fonts,
+  colors,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -9,10 +14,10 @@
       "$MOD" = "SUPER";
       "$TERM" = "foot";
       "$MENU" = "fuzzel";
-      "$ROUND" = "8";
       "$BORDER" = "1";
       "$GAPS_IN" = "2";
       "$GAPS_OUT" = "4";
+      "$ROUNDING" = "8";
       xwayland = {
         enabled = true;
         force_zero_scaling = true;
@@ -38,15 +43,17 @@
         ];
       };
       decoration = {
-        rounding = "$ROUND";
-        shadow = {
-          enabled = false;
-        };
+        blur.passes = 2;
+        shadow.enabled = false;
+        rounding = "$ROUNDING";
+        inactive_opacity = "0.9";
       };
       general = {
         "gaps_in" = "$GAPS_IN";
         "gaps_out" = "$GAPS_OUT";
         "border_size" = "$BORDER";
+        "col.active_border" = "rgb(${colors."70"})";
+        "col.inactive_border" = "rgb(${colors."30"})";
       };
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
@@ -136,12 +143,12 @@
         "bordersize 0, floating:0, onworkspace:f[1]s[0]"
         "rounding 0, floating:0, onworkspace:f[1]s[0]"
         "opacity 0.6, center, floating:1, focus:0"
-        "opacity 0.9, floating:0, focus:0"
       ];
       layerrule = [
         "noanim, selection"
       ];
       misc = {
+        font_family = fonts.sans;
         disable_hyprland_logo = true;
         background_color = "0x000000";
       };

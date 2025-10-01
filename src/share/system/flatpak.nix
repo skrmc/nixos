@@ -1,4 +1,4 @@
-# /etc/nixos/src/share/modules/flatpak.nix
+# /etc/nixos/src/share/system/flatpak.nix
 
 { lib, pkgs, ... }:
 
