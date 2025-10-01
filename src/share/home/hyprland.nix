@@ -43,7 +43,10 @@
         ];
       };
       decoration = {
-        blur.passes = 2;
+        blur = {
+          passes = 3;
+          xray = true;
+        };
         shadow.enabled = false;
         rounding = "$ROUNDING";
         inactive_opacity = "0.9";
@@ -135,14 +138,14 @@
       ];
       windowrule = [
         "float, class:$TERM"
-        # "noblur, class:^(.*)$"
         "float, title:^(Open File)(.*)$"
         "float, title:^(Save File)(.*)$"
         "bordersize 0, floating:0, onworkspace:w[tv1]s[0]"
         "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
         "bordersize 0, floating:0, onworkspace:f[1]s[0]"
         "rounding 0, floating:0, onworkspace:f[1]s[0]"
-        "opacity 0.6, center, floating:1, focus:0"
+        "opacity 0.8, floating:1, focus:0"
+        "opacity 0.9, floating:1"
       ];
       layerrule = [
         "noanim, selection"
@@ -150,7 +153,7 @@
       misc = {
         font_family = fonts.sans;
         disable_hyprland_logo = true;
-        background_color = "0x000000";
+        background_color = "0x${colors."0"}";
       };
       plugin = {
         hyprexpo = {
