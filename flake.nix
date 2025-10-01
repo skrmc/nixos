@@ -24,7 +24,7 @@
       fonts = {
         sans = "IBM Plex Sans";
         serif = "IBM Plex Serif";
-        mono = "Fira Code";
+        mono = "FiraCode Nerd Font";
       };
       mkSystem =
         host: user:

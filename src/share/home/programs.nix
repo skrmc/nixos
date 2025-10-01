@@ -11,7 +11,7 @@
       enable = true;
       settings = {
         main = {
-          font = "${fonts.sans}:size=12";
+          font = "${fonts.sans}:size=13";
           icon-theme = "Papirus";
           horizontal-pad = 20;
           vertical-pad = 15;
@@ -40,7 +40,7 @@
       enable = true;
       settings = {
         main = {
-          font = "${fonts.mono}:size=11";
+          font = "${fonts.mono}:size=12";
           selection-target = "both";
           initial-window-size-chars = "80x24";
           pad = "20x20";

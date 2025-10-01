@@ -5,12 +5,11 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       ibm-plex
-      fira-code
       font-awesome
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
-      nerd-fonts.symbols-only
+      nerd-fonts.fira-code
     ];
 
     fontconfig = {

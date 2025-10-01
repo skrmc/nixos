@@ -4,10 +4,11 @@
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     mpv
+    swaybg
     xdg-utils
     pwvucontrol
     wl-clipboard
-    wlsunset
+    # wlsunset
     nautilus
 
     # --- Visuals ---

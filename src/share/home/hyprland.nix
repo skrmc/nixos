@@ -26,8 +26,10 @@
         "fcitx5"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+
         "[workspace 1 silent] $MENU"
         "[workspace 10 silent; tile] foot -e btop"
+        "find $HOME/.local/share/wallpapers -maxdepth 1 -type f -print | head -n1 | xargs -r swaybg -m fill -i"
       ];
       input = {
         accel_profile = "flat";
@@ -49,7 +51,7 @@
         };
         shadow.enabled = false;
         rounding = "$ROUNDING";
-        inactive_opacity = "0.9";
+        inactive_opacity = 0.95;
       };
       general = {
         "gaps_in" = "$GAPS_IN";
@@ -61,7 +63,7 @@
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
         "$MOD, RETURN, exec, $TERM"
-        "$MOD, D, exec, bash -c \"pgrep -x $MENU && pkill -x $MENU || $MENU\""
+        "$MOD, D, exec, bash -c \"pkill -x -- $MENU || $MENU\""
         "$MOD, E, exec, $TERM -e yazi"
         "$MOD, Q, killactive"
         "$MOD, C, centerwindow"
@@ -144,8 +146,8 @@
         "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
         "bordersize 0, floating:0, onworkspace:f[1]s[0]"
         "rounding 0, floating:0, onworkspace:f[1]s[0]"
-        "opacity 0.8, floating:1, focus:0"
-        "opacity 0.9, floating:1"
+        "opacity 0.75, floating:1, focus:0"
+        "opacity 0.95, floating:1"
       ];
       layerrule = [
         "noanim, selection"
