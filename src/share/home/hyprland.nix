@@ -46,12 +46,14 @@
       };
       decoration = {
         blur = {
-          passes = 3;
-          xray = true;
+          enabled = false;
+          # xray = true;
+          passes = 2;
+          size = 6;
         };
         shadow.enabled = false;
         rounding = "$ROUNDING";
-        inactive_opacity = 0.95;
+        inactive_opacity = "0.95";
       };
       general = {
         "gaps_in" = "$GAPS_IN";
@@ -63,7 +65,7 @@
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
         "$MOD, RETURN, exec, $TERM"
-        "$MOD, D, exec, bash -c \"pkill -x -- $MENU || $MENU\""
+        "$MOD, D, exec, pkill -x -- $MENU || $MENU"
         "$MOD, E, exec, $TERM -e yazi"
         "$MOD, Q, killactive"
         "$MOD, C, centerwindow"
@@ -139,15 +141,13 @@
         "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
-        "float, class:$TERM"
-        "float, title:^(Open File)(.*)$"
-        "float, title:^(Save File)(.*)$"
+        "float, title:^(File)(.*)$"
+        "float, opacity 0.925, class:$TERM"
         "bordersize 0, floating:0, onworkspace:w[tv1]s[0]"
         "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
         "bordersize 0, floating:0, onworkspace:f[1]s[0]"
         "rounding 0, floating:0, onworkspace:f[1]s[0]"
         "opacity 0.75, floating:1, focus:0"
-        "opacity 0.95, floating:1"
       ];
       layerrule = [
         "noanim, selection"
