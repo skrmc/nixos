@@ -82,24 +82,23 @@
       lsp = {
         enable = true;
         servers = {
+          # rust_analyzer = {
+          #   enable = true;
+          #   installRustc = true;
+          #   installCargo = true;
+          # };
+          # cssls.enable = true; # CSS
+          # tailwindcss.enable = true; # TailwindCSS
+          # html.enable = true; # HTML
+          # svelte.enable = false; # Svelte
+          # dockerls.enable = true; # Docker
+          # bashls.enable = true; # Bash
+          # yamlls.enable = true; # YAML
           ts_ls.enable = true; # TS/JS
-          cssls.enable = true; # CSS
-          tailwindcss.enable = true; # TailwindCSS
-          html.enable = true; # HTML
-          svelte.enable = false; # Svelte
-          vuels.enable = false; # Vue
           pyright.enable = true; # Python
           marksman.enable = true; # Markdown
           nil_ls.enable = true; # Nix
-          dockerls.enable = true; # Docker
-          bashls.enable = true; # Bash
           clangd.enable = true; # C/C++
-          yamlls.enable = true; # YAML
-          rust_analyzer = {
-            enable = true;
-            installRustc = true;
-            installCargo = true;
-          };
         };
       };
     };
