@@ -39,9 +39,15 @@
         };
       };
       animations = {
+        bezier = [
+          "bounce, 0.38, 1.21, 0.22, 1"
+        ];
         animation = [
-          "global, 1, 5, default"
-          "specialWorkspace, 1, 6, default, slidefadevert 20%"
+          "global, 1, 3, default"
+          "workspaces, 1, 3, bounce, slide"
+          "specialWorkspace, 1, 3, bounce, slidevert"
+          "windowsIn, 1, 3, bounce, popin 60%"
+          "windowsMove, 1, 3, bounce, slide"
         ];
       };
       decoration = {
@@ -56,6 +62,7 @@
         inactive_opacity = "0.95";
       };
       general = {
+        "allow_tearing" = true;
         "gaps_in" = "$GAPS_IN";
         "gaps_out" = "$GAPS_OUT";
         "border_size" = "$BORDER";
@@ -70,6 +77,7 @@
         "$MOD, Q, killactive"
         "$MOD, C, centerwindow"
         "$MOD, F, togglefloating"
+        "$MOD SHIFT, F, fullscreen, 0"
         # "$MOD, P, pseudo"
         # "$MOD, J, togglesplit"
         "$MOD, LEFT, movefocus, l"
@@ -141,6 +149,7 @@
         "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
+        "immediate, fullscreen:0"
         "float, title:^(File)(.*)$"
         "float, opacity 0.925, class:$TERM"
         "bordersize 0, floating:0, onworkspace:w[tv1]s[0]"
