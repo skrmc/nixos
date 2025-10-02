@@ -1,5 +1,17 @@
-{ fonts, colors, ... }:
 {
+  pkgs,
+  fonts,
+  colors,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    brightnessctl
+    hyprpicker
+    playerctl
+    slurp
+    grim
+  ];
   programs = {
     btop = {
       enable = true;
@@ -82,6 +94,7 @@
         };
       };
     };
+    quickshell.enable = true;
   };
   services.cliphist = {
     enable = true;
