@@ -4,12 +4,13 @@
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     mpv
-    swaybg
-    xdg-utils
+    quickshell
     pwvucontrol
     wl-clipboard
     # wlsunset
+    # swaybg
     nautilus
+    xdg-utils
 
     # --- Visuals ---
     bibata-cursors

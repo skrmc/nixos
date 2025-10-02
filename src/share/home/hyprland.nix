@@ -27,9 +27,10 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
+        "quickshell"
         "[workspace 1 silent] $MENU"
         "[workspace 10 silent; tile] foot -e btop"
-        "find $HOME/.local/share/wallpapers -maxdepth 1 -type f -print | head -n1 | xargs -r swaybg -m fill -i"
+        # "find $HOME/.local/share/wallpapers -maxdepth 1 -type f -print | head -n1 | xargs -r swaybg -m fill -i"
       ];
       input = {
         accel_profile = "flat";
@@ -44,8 +45,8 @@
         ];
         animation = [
           "global, 1, 3, default"
-          "workspaces, 1, 3, bounce, slide"
-          "specialWorkspace, 1, 3, bounce, slidevert"
+          "workspaces, 1, 2, bounce, slide"
+          "specialWorkspace, 1, 2, bounce, slidevert"
           "windowsIn, 1, 3, bounce, popin 60%"
           "windowsMove, 1, 3, bounce, slide"
         ];
@@ -72,12 +73,11 @@
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
         "$MOD, RETURN, exec, $TERM"
-        "$MOD, D, exec, pkill -x -- $MENU || $MENU"
         "$MOD, E, exec, $TERM -e yazi"
         "$MOD, Q, killactive"
         "$MOD, C, centerwindow"
-        "$MOD, F, togglefloating"
-        "$MOD SHIFT, F, fullscreen, 0"
+        "$MOD, F, fullscreen, 0"
+        "$MOD, D, togglefloating"
         # "$MOD, P, pseudo"
         # "$MOD, J, togglesplit"
         "$MOD, LEFT, movefocus, l"
@@ -120,6 +120,9 @@
         "$MOD SHIFT, C, exec, hyprpicker -a"
         "$MOD, V, exec, cliphist list | $MENU --dmenu | cliphist decode | wl-copy"
       ];
+      bindr = [
+        "$MOD, $MOD_L, exec, pkill $MENU || $MENU"
+      ];
       bindm = [
         "$MOD, mouse:272, movewindow"
         "$MOD, mouse:273, resizewindow"
@@ -150,7 +153,7 @@
       ];
       windowrule = [
         "immediate, fullscreen:0"
-        "float, title:^(File)(.*)$"
+        "float, title:(.*)(File)(.*)"
         "float, opacity 0.925, class:$TERM"
         "bordersize 0, floating:0, onworkspace:w[tv1]s[0]"
         "rounding 0, floating:0, onworkspace:w[tv1]s[0]"
@@ -162,6 +165,8 @@
         "noanim, selection"
       ];
       misc = {
+        enable_swallow = true;
+        swallow_regex = "$TERM";
         font_family = fonts.sans;
         disable_hyprland_logo = true;
         background_color = "0x${colors."0"}";
