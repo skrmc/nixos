@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     mpv
-    pwvucontrol
+    pavucontrol
     wl-clipboard
     # wlsunset
     # swaybg

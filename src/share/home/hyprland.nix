@@ -45,8 +45,8 @@
         ];
         animation = [
           "global, 1, 3, default"
-          "workspaces, 1, 2, bounce, slide"
-          "specialWorkspace, 1, 2, bounce, slidevert"
+          "workspaces, 1, 3, bounce, slide"
+          "specialWorkspace, 1, 3, bounce, slidevert"
           "windowsIn, 1, 3, bounce, popin 60%"
           "windowsMove, 1, 3, bounce, slide"
         ];
@@ -77,13 +77,14 @@
         "$MOD, Q, killactive"
         "$MOD, C, centerwindow"
         "$MOD, F, fullscreen, 0"
-        "$MOD, D, togglefloating"
+        "$MOD, T, togglefloating"
+        "$MOD, D, exec, pkill $MENU || $MENU"
         # "$MOD, P, pseudo"
         # "$MOD, J, togglesplit"
-        "$MOD, LEFT, movefocus, l"
-        "$MOD, RIGHT, movefocus, r"
         "$MOD, UP, movefocus, u"
         "$MOD, DOWN, movefocus, d"
+        "$MOD, LEFT, movefocus, l"
+        "$MOD, RIGHT, movefocus, r"
         "$MOD SHIFT, LEFT, movewindow, l"
         "$MOD SHIFT, RIGHT, movewindow, r"
         "$MOD SHIFT, UP, movewindow, u"
