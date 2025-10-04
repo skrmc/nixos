@@ -121,9 +121,9 @@
         "$MOD SHIFT, C, exec, hyprpicker -a"
         "$MOD, V, exec, cliphist list | $MENU --dmenu | cliphist decode | wl-copy"
       ];
-      bindr = [
-        "$MOD, $MOD_L, exec, pkill $MENU || $MENU"
-      ];
+      # bindr = [
+      #   "$MOD, $MOD_L, exec, pkill $MENU || $MENU"
+      # ];
       bindm = [
         "$MOD, mouse:272, movewindow"
         "$MOD, mouse:273, resizewindow"
