@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   user,
   ...
 }:
@@ -9,6 +10,7 @@
   networking.hostName = "SAKUYA";
 
   imports = [
+    "${inputs.self}/src/share/system/nvidia.nix"
     ./hardware-configuration.nix
   ];
 
@@ -30,35 +32,6 @@
       docker-compose
     ];
   };
-
-  environment = {
-    variables = {
-      NVD_BACKEND = "direct";
-    };
-    systemPackages = with pkgs; [
-      nvtopPackages.full
-    ];
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      libva-vdpau-driver
-      nvidia-vaapi-driver
-      libvdpau-va-gl
-    ];
-  };
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    # forceFullCompositionPipeline = true;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
-  hardware.nvidia-container-toolkit.enable = true;
 
   home-manager.users.${user} = {
     wayland.windowManager.hyprland = {

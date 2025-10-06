@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   user,
   ...
 }:
@@ -9,8 +10,11 @@
   networking.hostName = "SAKURA";
 
   imports = [
+    "${inputs.self}/src/share/system/nvidia.nix"
     ./hardware-configuration.nix
   ];
+
+  boot.loader.timeout = 3;
 
   programs = {
     obs-studio = {
@@ -22,38 +26,13 @@
     };
   };
 
-  environment = {
-    variables = {
-      NVD_BACKEND = "direct";
-    };
-    systemPackages = with pkgs; [
-      nvtopPackages.full
-      google-chrome
-      moonlight-qt
-      obsidian
-      vscode
-    ];
-  };
-
-  # Graphic Settings
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      libva-vdpau-driver
-      nvidia-vaapi-driver
-      libvdpau-va-gl
-    ];
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    # forceFullCompositionPipeline = true;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.full
+    google-chrome
+    moonlight-qt
+    obsidian
+    vscode
+  ];
 
   # Home Manager
   home-manager.users.${user} = {

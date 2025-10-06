@@ -25,24 +25,18 @@
   outputs =
     { self, ... }@inputs:
     let
-      # https://material-foundation.github.io/material-theme-builder
-      colors = builtins.fromJSON (builtins.readFile ./colors.json);
-      fonts = {
-        sans = "IBM Plex Sans";
-        serif = "IBM Plex Serif";
-        mono = "FiraCode Nerd Font";
-      };
       mkSystem =
         host: user:
         inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit
-              inputs
-              colors
-              fonts
-              host
-              user
-              ;
+            inherit inputs host user;
+            # https://material-foundation.github.io/material-theme-builder
+            colors = builtins.fromJSON (builtins.readFile ./colors.json);
+            fonts = {
+              sans = "IBM Plex Sans";
+              serif = "IBM Plex Serif";
+              mono = "FiraCode Nerd Font";
+            };
           };
           modules = [
             ./src/share
