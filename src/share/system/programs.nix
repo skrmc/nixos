@@ -34,6 +34,7 @@
     nixfmt-rfc-style
     powertop
     rclone
+    sbctl
     tree
     unzip
   ];

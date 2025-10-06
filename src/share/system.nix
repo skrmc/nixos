@@ -11,8 +11,12 @@
   boot = {
     loader = {
       timeout = 0;
-      systemd-boot.enable = true;
+      # systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+    };
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
     supportedFilesystems = [ "ntfs" ];
   };
