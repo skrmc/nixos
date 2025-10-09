@@ -18,6 +18,10 @@
     };
   };
   xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
     configFile = {
       "quickshell" = {
         force = true;
