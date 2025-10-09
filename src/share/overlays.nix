@@ -7,7 +7,7 @@
     (final: prev: {
       hyprland = inputs.hyprland.packages.${final.system}.hyprland;
       xdg-desktop-portal-hyprland = inputs.hyprland.packages.${final.system}.xdg-desktop-portal-hyprland;
-      hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.system}.hyprexpo;
+      # hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.system}.hyprexpo;
     })
 
     # (final: prev: {

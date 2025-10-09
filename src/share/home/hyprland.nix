@@ -18,7 +18,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = with pkgs.hyprlandPlugins; [ hyprexpo ];
+    # plugins = with pkgs.hyprlandPlugins; [ hyprexpo ];
     settings = {
       xwayland = {
         enabled = true;
@@ -91,7 +91,7 @@ in
         "${MOD} SHIFT, RIGHT, movewindow, r"
         "${MOD} SHIFT, UP, movewindow, u"
         "${MOD} SHIFT, DOWN, movewindow, d"
-        "${MOD}, O, hyprexpo:expo, toggle"
+        # "${MOD}, O, hyprexpo:expo, toggle"
         "${MOD}, 1, workspace, 1"
         "${MOD}, 2, workspace, 2"
         "${MOD}, 3, workspace, 3"

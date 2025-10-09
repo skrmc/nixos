@@ -15,7 +15,6 @@
       extraPackages = with pkgs; [
         libva-vdpau-driver
         nvidia-vaapi-driver
-        # libvdpau-va-gl
       ];
     };
     nvidia-container-toolkit.enable = true;
