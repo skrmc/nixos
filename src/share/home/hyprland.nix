@@ -79,7 +79,7 @@ in
         "${MOD}, Q, killactive"
         "${MOD}, C, centerwindow"
         "${MOD}, F, fullscreen, 0"
-        "${MOD}, T, togglefloating"
+        "${MOD}, W, togglefloating"
         "${MOD}, D, exec, pkill ${MENU} || ${MENU}"
         "${MOD}, P, pseudo"
         "${MOD}, J, togglesplit"
