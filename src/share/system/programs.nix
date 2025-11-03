@@ -41,6 +41,12 @@
 
   users.defaultUserShell = pkgs.fish;
 
+  services.sunshine = {
+    enable = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+
   programs = {
     nix-ld.enable = true;
     # dconf.enable = true;

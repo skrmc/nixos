@@ -8,6 +8,7 @@
       nvtopPackages.full
     ];
   };
+  nixpkgs.config.cudaSupport = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     graphics = {
@@ -25,7 +26,7 @@
       # forceFullCompositionPipeline = true;
       open = true;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
 }

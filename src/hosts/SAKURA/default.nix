@@ -6,23 +6,12 @@
   ...
 }:
 {
+  boot.loader.timeout = 3;
   networking.hostName = "SAKURA";
   imports = [
     "${inputs.self}/src/share/system/nvidia.nix"
     ./hardware-configuration.nix
   ];
-
-  boot.loader.timeout = 3;
-
-  programs = {
-    obs-studio = {
-      package = (
-        pkgs.obs-studio.override {
-          cudaSupport = true;
-        }
-      );
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
