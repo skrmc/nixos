@@ -1,8 +1,6 @@
 { pkgs, user, ... }:
 {
-  nixpkgs.system = "x86_64-linux";
   networking.hostName = "KAGURA";
-
   imports = [
     ./hardware-configuration.nix
   ];

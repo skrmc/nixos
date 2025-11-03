@@ -9,9 +9,6 @@
     home-manager.url = "github:nix-community/home-manager"; # release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    lanzaboote.url = "github:nix-community/lanzaboote";
-    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -41,9 +38,8 @@
           modules = [
             ./src/share
             ./src/hosts/${host}
-            inputs.home-manager.nixosModules.home-manager
-            inputs.lanzaboote.nixosModules.lanzaboote
             inputs.nixvim.nixosModules.nixvim
+            inputs.home-manager.nixosModules.home-manager
             {
               nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;

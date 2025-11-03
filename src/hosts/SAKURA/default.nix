@@ -6,9 +6,7 @@
   ...
 }:
 {
-  nixpkgs.system = "x86_64-linux";
   networking.hostName = "SAKURA";
-
   imports = [
     "${inputs.self}/src/share/system/nvidia.nix"
     ./hardware-configuration.nix

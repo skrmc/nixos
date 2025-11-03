@@ -16,13 +16,13 @@
   boot = {
     loader = {
       timeout = lib.mkDefault 0;
-      # systemd-boot.enable = true;
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-    };
+    # lanzaboote = {
+    #   enable = true;
+    #   pkiBundle = "/var/lib/sbctl";
+    # };
     supportedFilesystems = [ "ntfs" ];
   };
 
@@ -88,8 +88,7 @@
       fcitx5 = {
         waylandFrontend = true;
         addons = with pkgs; [
-          fcitx5-gtk
-          fcitx5-chinese-addons
+          qt6Packages.fcitx5-chinese-addons
           fcitx5-pinyin-moegirl
           fcitx5-pinyin-zhwiki
         ];

@@ -5,9 +5,10 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      hyprland = inputs.hyprland.packages.${final.system}.hyprland;
-      xdg-desktop-portal-hyprland = inputs.hyprland.packages.${final.system}.xdg-desktop-portal-hyprland;
-      # hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.system}.hyprexpo;
+      hyprland = inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.hyprland;
+      xdg-desktop-portal-hyprland =
+        inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.stdenv.hostPlatform.system}.hyprexpo;
     })
 
     # (final: prev: {
