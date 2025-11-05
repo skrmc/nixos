@@ -67,11 +67,6 @@
   services = {
     resolved.enable = true;
     tailscale.enable = true;
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      reflector = true;
-    };
   };
   networking = {
     useDHCP = true;

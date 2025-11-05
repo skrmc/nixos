@@ -58,9 +58,9 @@
         se = "sudoedit";
         ls = "ls --color=auto";
         ll = "ls --color=auto -lha";
-        build = "sudo nixos-rebuild switch --flake /etc/nixos";
-        clean = "sudo nix-collect-garbage --delete-old";
-        # rollback = "sudo nixos-rebuild switch --rollback";
+        nixos-clean = "sudo nix-collect-garbage --delete-old";
+        nixos-update = "sudo nixos-rebuild switch --flake /etc/nixos";
+        nixos-rollback = "sudo nixos-rebuild switch --rollback";
       };
     };
     git = {
