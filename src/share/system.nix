@@ -64,8 +64,15 @@
   };
 
   # Network Settings
-  services.resolved.enable = true;
-  services.tailscale.enable = true;
+  services = {
+    resolved.enable = true;
+    tailscale.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      reflector = true;
+    };
+  };
   networking = {
     useDHCP = true;
     useNetworkd = true;
