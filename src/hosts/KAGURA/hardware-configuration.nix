@@ -18,20 +18,18 @@
     "xhci_pci"
     "thunderbolt"
     "nvme"
-    "usb_storage"
-    "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/3975a522-c93b-4ea8-88c7-af9b2abf2d41";
-    fsType = "xfs";
+    device = "/dev/disk/by-uuid/c55e6380-2705-4401-872b-4336b99cef2a";
+    fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5938-96F2";
+    device = "/dev/disk/by-uuid/3C18-0CB4";
     fsType = "vfat";
     options = [
       "fmask=0077"
