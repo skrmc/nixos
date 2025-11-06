@@ -1,7 +1,12 @@
 { pkgs, config, ... }:
 {
   environment = {
-    variables = {
+    sessionVariables = {
+      CUDA_PATH = "${pkgs.cudatoolkit}";
+      LD_LIBRARY_PATH = [
+        "/run/opengl-driver/lib"
+        "/run/opengl-driver-32/lib"
+      ];
       NVD_BACKEND = "direct";
     };
     systemPackages = with pkgs; [

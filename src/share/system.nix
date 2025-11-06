@@ -141,13 +141,11 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  environment.variables = {
+  environment.sessionVariables = {
     NIX_PAGER = "cat";
     NIXOS_OZONE_WL = "1";
-    NIXPKGS_ALLOW_UNFREE = "1";
-
     QT_QPA_PLATFORM = "wayland";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
