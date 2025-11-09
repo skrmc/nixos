@@ -41,11 +41,11 @@
 
   users.defaultUserShell = pkgs.fish;
 
-  services.sunshine = {
-    enable = true;
-    capSysAdmin = true;
-    openFirewall = true;
-  };
+  # services.sunshine = {
+  #   enable = true;
+  #   capSysAdmin = true;
+  #   openFirewall = true;
+  # };
 
   programs = {
     nix-ld.enable = true;
@@ -55,12 +55,11 @@
     fish = {
       enable = true;
       shellAliases = {
-        se = "sudoedit";
         ls = "ls --color=auto";
         ll = "ls --color=auto -lha";
-        nixos-clean = "sudo nix-collect-garbage --delete-old";
-        nixos-update = "sudo nixos-rebuild switch --flake /etc/nixos";
-        nixos-rollback = "sudo nixos-rebuild switch --rollback";
+        cln = "sudo nix-collect-garbage --delete-old";
+        bld = "sudo nixos-rebuild switch --flake /etc/nixos";
+        rbk = "sudo nixos-rebuild switch --rollback";
       };
     };
     git = {
