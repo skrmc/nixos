@@ -14,11 +14,6 @@
     ];
   };
   # nixpkgs.config.cudaSupport = true;
-  programs.obs-studio.package = (
-    pkgs.obs-studio.override {
-      cudaSupport = true;
-    }
-  );
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     graphics = {

@@ -21,6 +21,12 @@
     vscode
   ];
 
+  programs.obs-studio.package = (
+    pkgs.obs-studio.override {
+      cudaSupport = true;
+    }
+  );
+
   # Home Manager
   home-manager.users.${user} = {
     wayland.windowManager.hyprland = {
