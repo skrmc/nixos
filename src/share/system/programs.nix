@@ -49,9 +49,7 @@
 
   programs = {
     nix-ld.enable = true;
-    # dconf.enable = true;
     yazi.enable = true;
-    openvpn3.enable = true;
     fish = {
       enable = true;
       shellAliases = {
@@ -74,6 +72,8 @@
       historyLimit = 5000;
     };
     # --- Desktop ---
+    # dconf.enable = true;
+    # openvpn3.enable = true;
     obs-studio = {
       enable = true;
       enableVirtualCamera = true;
