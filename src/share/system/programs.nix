@@ -48,7 +48,20 @@
   # };
 
   programs = {
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        curl
+        openssl
+        attr
+        libssh
+        util-linux
+        systemd
+        glib
+        libglvnd
+      ];
+    };
     yazi.enable = true;
     fish = {
       enable = true;
