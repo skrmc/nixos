@@ -105,6 +105,8 @@ in
         "${MOD}, 0, workspace, 10"
         "${MOD}, LEFT, workspace, -1"
         "${MOD}, RIGHT, workspace, +1"
+        "${MOD}, mouse_up, workspace, +1"
+        "${MOD}, mouse_down, workspace, -1"
         "${MOD} SHIFT, 1, movetoworkspace, 1"
         "${MOD} SHIFT, 2, movetoworkspace, 2"
         "${MOD} SHIFT, 3, movetoworkspace, 3"
