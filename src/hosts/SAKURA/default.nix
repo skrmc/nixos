@@ -17,6 +17,7 @@
     nvtopPackages.full
     google-chrome
     moonlight-qt
+    texliveSmall
     obsidian
     vscode
   ];
