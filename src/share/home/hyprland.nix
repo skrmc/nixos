@@ -158,15 +158,12 @@ in
         "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
-        "immediate, fullscreen:0"
-        "float, title:(.*)(File)(.*)"
-        "float, opacity 0.95, class:${TERM}"
-        "opacity 0.75, floating:1, focus:0"
-        "bordersize 0, rounding 0, floating:0, onworkspace:w[tv1]s[0]"
-        "bordersize 0, rounding 0, floating:0, onworkspace:f[1]s[0]"
-      ];
-      layerrule = [
-        "noanim, selection"
+        "match:fullscreen false, immediate on"
+        "match:title (.*)(File)(.*), float on"
+        "match:class ${TERM}, float on, opacity 0.95"
+        "match:float true, match:focus false, opacity 0.75"
+        "match:float false, match:workspace w[tv1]s[false], rounding 0"
+        "match:float false, match:workspace w[tv1]s[false], border_size 0"
       ];
       misc = {
         enable_swallow = true;
