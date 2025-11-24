@@ -54,7 +54,6 @@
         main = {
           font = "${fonts.mono}:size=12";
           selection-target = "both";
-          initial-window-size-chars = "80x24";
           pad = "20x20";
         };
         cursor = {

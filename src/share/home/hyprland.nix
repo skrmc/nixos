@@ -158,9 +158,9 @@ in
         "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
-        "match:class ${TERM}, float on"
         "match:fullscreen false, immediate on"
         "match:title (.*)(File)(.*), float on"
+        "match:class ${TERM}, float on, size 768 512"
         "match:float true, match:focus false, opacity 0.75"
         "match:float false, match:workspace w[tv1]s[false], rounding 0"
         "match:float false, match:workspace w[tv1]s[false], border_size 0"
