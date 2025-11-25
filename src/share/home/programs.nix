@@ -13,6 +13,8 @@
     grim
   ];
   programs = {
+    fish.enable = true;
+    quickshell.enable = true;
     btop = {
       enable = true;
       settings = {
@@ -93,7 +95,11 @@
         };
       };
     };
-    quickshell.enable = true;
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+      enableFishIntegration = true;
+    };
   };
   services.cliphist = {
     enable = true;

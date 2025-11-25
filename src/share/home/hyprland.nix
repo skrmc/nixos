@@ -75,7 +75,7 @@ in
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
         "${MOD}, RETURN, exec, ${TERM}"
-        "${MOD}, E, exec, ${TERM} -e yazi"
+        "${MOD}, E, exec, ${TERM}"
         "${MOD}, Q, killactive"
         "${MOD}, C, centerwindow"
         "${MOD}, F, fullscreen, 0"

@@ -41,9 +41,9 @@
         };
 
         keybindings = {
+          "${modifier}+e" = "exec ${terminal}";
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+d" = "exec bash -c 'pgrep -x ${menu} && pkill -x ${menu} || ${menu}'";
-          "${modifier}+e" = "exec ${terminal} -e yazi";
 
           "${modifier}+q" = "kill";
           "${modifier}+f" = "fullscreen toggle";

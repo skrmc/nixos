@@ -8,8 +8,9 @@
     wl-clipboard
     # wlsunset
     # swaybg
-    nautilus
     xdg-utils
+    xfce.thunar
+    xfce.thunar-volman
 
     # --- Visuals ---
     bibata-cursors
@@ -37,6 +38,7 @@
     sbctl
     tree
     unzip
+    zip
   ];
 
   users.defaultUserShell = pkgs.fish;
@@ -62,7 +64,6 @@
         libglvnd
       ];
     };
-    yazi.enable = true;
     fish = {
       enable = true;
       shellAliases = {
@@ -84,9 +85,12 @@
       enable = true;
       historyLimit = 5000;
     };
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
     # --- Desktop ---
-    # dconf.enable = true;
-    # openvpn3.enable = true;
+    dconf.enable = true;
     obs-studio = {
       enable = true;
       enableVirtualCamera = true;
@@ -95,10 +99,6 @@
         obs-backgroundremoval
         obs-pipewire-audio-capture
       ];
-    };
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "foot";
     };
   };
 }
