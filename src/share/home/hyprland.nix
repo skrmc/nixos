@@ -160,8 +160,8 @@ in
       windowrule = [
         "match:fullscreen false, immediate on"
         "match:title (.*)(File)(.*), float on"
-        "match:class ${TERM}, float on, size 768 512"
         "match:float true, match:focus false, opacity 0.75"
+        "match:class ${TERM}, float on, size 768 512, center on"
         "match:float false, match:workspace w[tv1]s[false], rounding 0"
         "match:float false, match:workspace w[tv1]s[false], border_size 0"
       ];
