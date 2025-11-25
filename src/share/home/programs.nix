@@ -13,6 +13,7 @@
     grim
   ];
   programs = {
+    bash.enable = true;
     fish.enable = true;
     quickshell.enable = true;
     btop = {
@@ -98,6 +99,7 @@
     yazi = {
       enable = true;
       shellWrapperName = "y";
+      enableBashIntegration = true;
       enableFishIntegration = true;
     };
   };

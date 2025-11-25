@@ -87,6 +87,7 @@
     };
     zoxide = {
       enable = true;
+      enableBashIntegration = true;
       enableFishIntegration = true;
     };
     # --- Desktop ---
