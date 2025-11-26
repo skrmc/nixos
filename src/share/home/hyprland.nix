@@ -10,6 +10,7 @@ let
   MOD = "SUPER";
   TERM = "foot";
   MENU = "fuzzel";
+  FILE = "thunar";
   BORDER = "1";
   GAPS_IN = "2";
   GAPS_OUT = "4";
@@ -75,7 +76,7 @@ in
       gesture = "3, horizontal, scale: 1.5, workspace";
       bind = [
         "${MOD}, RETURN, exec, ${TERM}"
-        "${MOD}, E, exec, ${TERM}"
+        "${MOD}, E, exec, ${FILE}"
         "${MOD}, Q, killactive"
         "${MOD}, C, centerwindow"
         "${MOD}, F, fullscreen, 0"

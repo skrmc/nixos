@@ -11,6 +11,8 @@
     xdg-utils
     xfce.thunar
     xfce.thunar-volman
+    kdePackages.breeze
+    kdePackages.kdenlive
 
     # --- Visuals ---
     bibata-cursors
