@@ -67,6 +67,7 @@
   services = {
     resolved.enable = true;
     tailscale.enable = true;
+    zerotierone.enable = true;
   };
   networking = {
     useDHCP = true;
