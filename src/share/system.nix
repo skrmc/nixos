@@ -12,6 +12,7 @@
     ./system/neovim.nix
     ./system/programs.nix
     ./system/flatpak.nix
+    ./system/share.nix
   ];
   boot = {
     loader = {
