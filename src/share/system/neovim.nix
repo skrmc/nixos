@@ -27,56 +27,36 @@
         enable = true;
         settings = {
           indent = {
-            char = "|";
+            char = "│";
           };
         };
       };
-      # avante = {
-      #   enable = true;
-      #   settings = {
-      #     auto_suggestions_provider = "openai";
-      #     provider = "openai";
-      #     behaviour = {
-      #       auto_suggestions = false;
-      #     };
-      #     openai = {
-      #       endpoint = "https://chat.sakiko.work/api";
-      #       model = "xai/grok-2";
-      #       timeout = 30000;
-      #       max_tokens = 131072;
-      #     };
-      #   };
-      # };
       blink-cmp = {
         enable = true;
         setupLspCapabilities = true;
+        settings.keymap.preset = "super-tab";
       };
-      # Nix expressions in Neovim
       nix = {
         enable = true;
       };
-
-      # Language server
       lsp = {
         enable = true;
         servers = {
-          # rust_analyzer = {
-          #   enable = true;
-          #   installRustc = true;
-          #   installCargo = true;
-          # };
-          # cssls.enable = true; # CSS
-          # tailwindcss.enable = true; # TailwindCSS
-          # html.enable = true; # HTML
-          # svelte.enable = false; # Svelte
-          # dockerls.enable = true; # Docker
-          # bashls.enable = true; # Bash
-          # yamlls.enable = true; # YAML
-          ts_ls.enable = true; # TS/JS
-          pyright.enable = true; # Python
-          marksman.enable = true; # Markdown
-          nil_ls.enable = true; # Nix
-          clangd.enable = true; # C/C++
+          clangd.enable = true;
+          marksman.enable = true;
+          nil_ls.enable = true;
+          pyright.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installRustc = false;
+            installCargo = false;
+          };
+          # bashls.enable = true;
+          # dockerls.enable = true;
+          # html.enable = true;
+          # svelte.enable = false;
+          # tailwindcss.enable = true;
+          # ts_ls.enable = true;
         };
       };
     };
