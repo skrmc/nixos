@@ -6,6 +6,7 @@ let
   flatpaks = [
     "com.github.tchx84.Flatseal"
     "com.valvesoftware.Steam"
+    "com.steamgriddb.SGDBoop"
     "com.discordapp.Discord"
     "com.termius.Termius"
     "com.spotify.Client"
@@ -38,7 +39,6 @@ in
 
     path = [
       pkgs.flatpak
-      pkgs.gnugrep
     ];
 
     serviceConfig = {
@@ -48,23 +48,10 @@ in
     script = ''
       set -euo pipefail
 
-      declared=$'${lib.concatStringsSep "\\n" flatpaks}\n'
-
       flatpak remote-add --if-not-exists --system flathub \
         https://flathub.org/repo/flathub.flatpakrepo
-      flatpak update --system -y --noninteractive
 
-      installed="$(flatpak list --app --columns=application --system || true)"
-
-      if [ -n "$installed" ]; then
-        for app in $installed; do
-          if ! printf '%s' "$declared" | grep -F -x -q -- "$app"; then
-            flatpak uninstall --system -y --noninteractive "$app"
-          fi
-        done
-      fi
-
-      for app in $declared; do
+      for app in ${lib.concatStringsSep " " flatpaks}; do
         [ -z "$app" ] && continue
         flatpak install --system -y --noninteractive --app --or-update flathub "$app"
       done

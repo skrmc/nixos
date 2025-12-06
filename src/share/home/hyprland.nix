@@ -154,6 +154,10 @@ in
         "${MOD}, MINUS, splitratio, -0.1"
         "${MOD}, EQUAL, splitratio, 0.1"
       ];
+      layerrule = [
+        "match:namespace selection, no_anim on"
+        "match:namespace (quickshell)(.*), no_anim on"
+      ];
       workspace = [
         "w[tv1]s[0], gapsout:0, gapsin:0"
         "f[1]s[0], gapsout:0, gapsin:0"
