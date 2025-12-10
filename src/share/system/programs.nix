@@ -1,4 +1,9 @@
-{ pkgs, colors, ... }:
+{
+  pkgs,
+  user,
+  colors,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [
@@ -13,6 +18,7 @@
     xfce.thunar-volman
     kdePackages.breeze
     kdePackages.kdenlive
+    google-chrome
 
     # --- Visuals ---
     bibata-cursors
@@ -45,11 +51,13 @@
 
   users.defaultUserShell = pkgs.fish;
 
-  # services.sunshine = {
-  #   enable = true;
-  #   capSysAdmin = true;
-  #   openFirewall = true;
-  # };
+  hardware.uinput.enable = true;
+  users.users.${user}.extraGroups = [ "uinput" ];
+  services.sunshine = {
+    enable = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
 
   programs = {
     nix-ld = {

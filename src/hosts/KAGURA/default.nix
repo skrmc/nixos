@@ -6,7 +6,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    google-chrome
     moonlight-qt
     obsidian
     vscode

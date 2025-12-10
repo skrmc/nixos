@@ -79,8 +79,9 @@ in
         "${MOD}, E, exec, ${FILE}"
         "${MOD}, Q, killactive"
         "${MOD}, C, centerwindow"
-        "${MOD}, F, fullscreen, 0"
         "${MOD}, W, togglefloating"
+        "${MOD}, F, fullscreen, 0"
+        "${MOD} SHIFT, F, fullscreenstate, 0 2"
         "${MOD}, D, exec, pkill ${MENU} || ${MENU}"
         "${MOD}, J, togglesplit"
         "${MOD}, P, pseudo"
@@ -163,7 +164,7 @@ in
         "f[1]s[0], gapsout:0, gapsin:0"
       ];
       windowrule = [
-        "match:fullscreen false, immediate on"
+        "match:fullscreen true, immediate on"
         "match:title (.*)(File)(.*), float on"
         "match:float true, match:focus false, opacity 0.75"
         "match:class ${TERM}, float on, size 768 512, center on"

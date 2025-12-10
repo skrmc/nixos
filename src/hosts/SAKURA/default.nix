@@ -15,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
-    google-chrome
     moonlight-qt
     texliveFull
     obsidian
