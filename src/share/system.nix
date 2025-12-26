@@ -127,6 +127,7 @@
   };
 
   zramSwap.enable = true;
+  swapDevices = lib.mkForce [ ];
 
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
