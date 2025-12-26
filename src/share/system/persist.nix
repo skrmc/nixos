@@ -7,24 +7,22 @@
 {
   boot.initrd.supportedFilesystems = [ "btrfs" ];
   boot.initrd.postResumeCommands = lib.mkAfter ''
-    set -euo pipefail
+    (set -euo pipefail
+    storage="/run/btrfs"
 
-    mkdir -p /run/btrfs
-    mount -t btrfs -o subvol=/ "${config.fileSystems."/".device}" /run/btrfs
+    mkdir -p "$storage"
+    mount -t btrfs -o subvol=/ "${config.fileSystems."/".device}" "$storage"
 
-    mkdir -p /run/btrfs/roots
-
-    if [ -d /run/btrfs/root ]; then
-      mv /run/btrfs/root "/run/btrfs/roots/$(date -u +%Y%m%d-%H%M%S)"
+    if [ -e "$storage/root" ]; then
+        mv "$storage/root" "$storage/root-archive/$(date -u +%Y%m%d-%H%M%S)"
     fi
 
-    for p in $(ls -1dt /run/btrfs/roots/* 2>/dev/null | tail -n +11); do
-      btrfs subvolume delete --recursive "$p"
-    done
+    find "$storage/root-archive" -mindepth 1 -maxdepth 1 \
+        | sort | head -n -10 | xargs -r btrfs subvolume delete --recursive
 
-    btrfs subvolume snapshot /run/btrfs/root-blank /run/btrfs/root
+    btrfs subvolume snapshot "$storage/root-blank" "$storage/root"
 
-    umount /run/btrfs
+    umount "$storage")
   '';
 
   environment.persistence."/persist" = {
@@ -35,6 +33,9 @@
     ];
 
     directories = [
+      "/etc/ssh"
+      "/etc/nixos"
+
       "/var/log"
       "/var/lib/iwd"
       "/var/lib/nixos"
@@ -48,7 +49,7 @@
 
   services.btrfs.autoScrub = {
     enable = true;
-    interval = "monthly";
+    interval = "weekly";
     fileSystems = [ "/" ];
   };
 }

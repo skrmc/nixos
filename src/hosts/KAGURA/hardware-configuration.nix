@@ -43,7 +43,6 @@ in
   fileSystems."/home" = {
     device = fslinux;
     fsType = "btrfs";
-    neededForBoot = true;
     options = [
       "subvol=home"
       "compress=zstd"

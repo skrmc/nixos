@@ -7,13 +7,12 @@
 
 {
   imports = [
-    ./system/btrfs.nix
     ./system/battery.nix
     ./system/fonts.nix
     ./system/neovim.nix
+    ./system/persist.nix
     ./system/programs.nix
     ./system/flatpak.nix
-    ./system/share.nix
   ];
   boot = {
     loader = {
