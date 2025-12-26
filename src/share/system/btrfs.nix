@@ -12,13 +12,13 @@
     mkdir -p /run/btrfs
     mount -t btrfs -o subvol=/ "${config.fileSystems."/".device}" /run/btrfs
 
-    mkdir -p /run/btrfs/old_roots
+    mkdir -p /run/btrfs/roots
 
     if [ -d /run/btrfs/root ]; then
-      mv /run/btrfs/root "/run/btrfs/old_roots/$(date -u +%Y%m%d-%H%M%S)"
+      mv /run/btrfs/root "/run/btrfs/roots/$(date -u +%Y%m%d-%H%M%S)"
     fi
 
-    for p in $(ls -1dt /run/btrfs/old_roots/* 2>/dev/null | tail -n +11); do
+    for p in $(ls -1dt /run/btrfs/roots/* 2>/dev/null | tail -n +11); do
       btrfs subvolume delete --recursive "$p"
     done
 

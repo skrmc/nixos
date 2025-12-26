@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./system/btrfs.nix
     ./system/battery.nix
     ./system/fonts.nix
     ./system/neovim.nix
