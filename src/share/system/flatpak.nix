@@ -32,32 +32,39 @@ in
   };
 
   systemd.services.flatpak-tasks = {
-    description = "Flatpak tasks (only on AC power, after network is online)";
-    after = [ "systemd-networkd-wait-online.service" ];
-    wantedBy = [ "multi-user.target" ];
     unitConfig.ConditionACPower = true;
 
+    serviceConfig.Type = "oneshot";
     path = [
+      pkgs.curl
       pkgs.flatpak
     ];
 
-    serviceConfig = {
-      Type = "oneshot";
-    };
-
     script = ''
       set -euo pipefail
+      url=https://flathub.org/repo/flathub.flatpakrepo
 
-      flatpak remote-add --if-not-exists --system flathub \
-        https://flathub.org/repo/flathub.flatpakrepo
+      curl -fsS --connect-timeout 2 --max-time 10 \
+        --retry 30 --retry-delay 2 --retry-all-errors --retry-max-time 300 \
+        "$url" >/dev/null
+
+      flatpak remote-add --if-not-exists --system flathub "$url"
 
       for app in ${lib.concatStringsSep " " flatpaks}; do
-        [ -z "$app" ] && continue
-        flatpak install --system -y --noninteractive --app --or-update flathub "$app"
+        [ -n "$app" ] && flatpak install --system -y --noninteractive --app --or-update flathub "$app"
       done
 
       flatpak uninstall --system --unused -y --noninteractive
       flatpak update --system -y --noninteractive
     '';
+  };
+
+  systemd.timers.flatpak-tasks = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      Unit = "flatpak-tasks.service";
+      OnBootSec = "5min";
+      RandomizedDelaySec = "2min";
+    };
   };
 }

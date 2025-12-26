@@ -79,8 +79,8 @@
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls --color=auto -lha";
+        bld = "sudo nixos-rebuild switch --flake";
         cln = "sudo nix-collect-garbage --delete-old";
-        bld = "sudo nixos-rebuild switch --flake /etc/nixos";
         rbk = "sudo nixos-rebuild switch --rollback";
       };
     };

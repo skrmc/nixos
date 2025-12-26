@@ -30,12 +30,10 @@
 
     files = [
       "/etc/machine-id"
+      "/etc/ssh/ssh_host_ed25519_key"
     ];
 
     directories = [
-      "/etc/ssh"
-      "/etc/nixos"
-
       "/var/log"
       "/var/lib/iwd"
       "/var/lib/nixos"
