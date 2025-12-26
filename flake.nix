@@ -6,7 +6,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager"; # release-25.05";
+    impermanence.url = "github:nix-community/impermanence";
+    impermanence.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
@@ -36,12 +39,12 @@
             };
           };
           modules = [
-            ./src/share
-            ./src/hosts/${host}
-            inputs.nixvim.nixosModules.nixvim
+            inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
+            inputs.nixvim.nixosModules.nixvim
+            ./src/hosts/${host}
+            ./src/share
             {
-              nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
             }
