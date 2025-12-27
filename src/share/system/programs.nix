@@ -29,9 +29,7 @@
     gcc
     gitui
     gnumake
-    # bun
-    # rustup
-    # uv
+    rustup
 
     # --- Utilities ---
     aria2
