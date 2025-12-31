@@ -1,0 +1,27 @@
+# Colors referenced from:
+# https://material-foundation.github.io/material-theme-builder
+
+[colors]
+0 = "000000"
+5 = "190E0B"
+10 = "251915"
+15 = "30231F"
+20 = "3B2D29"
+25 = "473834"
+30 = "53433F"
+35 = "5F4F4A"
+40 = "6C5B56"
+50 = "85736E"
+60 = "A08C87"
+70 = "BCA7A1"
+80 = "D8C2BC"
+90 = "F5DED8"
+95 = "FFEDE8"
+98 = "FFF8F6"
+99 = "FFFBFF"
+100 = "FFFFFF"
+
+[fonts]
+sans = "IBM Plex Sans"
+serif = "IBM Plex Serif"
+mono = "FiraCode Nerd Font"

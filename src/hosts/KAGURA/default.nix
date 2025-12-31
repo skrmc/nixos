@@ -1,0 +1,38 @@
+{ pkgs, user, ... }:
+{
+  networking.hostName = "KAGURA";
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    moonlight-qt
+    obsidian
+    vscode
+  ];
+
+  home-manager.users.${user} = {
+    wayland.windowManager.hyprland = {
+      settings = {
+        exec-once = [
+          "hyprctl hyprsunset temperature 5800"
+        ];
+        monitor = [
+          # "eDP-1, disable"
+          "eDP-1, highrr, auto, 1.25"
+          "HDMI-A-1, 1920x1080@180, auto, 1"
+          # "HDMI-A-1, 3840x2160@60, auto, 2.5"
+          # "DP-2, 2560x1440@240, auto, 1.33"
+        ];
+      };
+    };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+    ];
+  };
+}
