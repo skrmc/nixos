@@ -12,9 +12,16 @@
     users.${user} = {
       home.stateVersion = "25.05";
       imports = [
-        ./home/desktop.nix
+        ./home/theme.nix
         ./home/hyprland.nix
-        ./home/programs.nix
+        ./home/desktop.nix
+        ./home/tools.nix
+      ];
+    };
+    users.root = {
+      home.stateVersion = "25.05";
+      imports = [
+        ./home/tools.nix
       ];
     };
   };

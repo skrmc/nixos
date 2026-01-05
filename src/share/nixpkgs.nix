@@ -4,9 +4,14 @@
 
 {
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
   };
   nixpkgs = {
     config.allowUnfree = true;
@@ -17,18 +22,6 @@
           inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         # hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.stdenv.hostPlatform.system}.hyprexpo;
       })
-      # (final: prev: {
-      #   sway-unwrapped = prev.sway-unwrapped.overrideAttrs (old: {
-      #     postPatch = (old.postPatch or "") + ''
-      #       echo ">>> Applying fullscreen-as-maximize sed replacements to sway-unwrapped..."
-      #       find . -type f -name "*.c" -exec sed -i \
-      #         -e 's/wlr_xdg_toplevel_set_fullscreen/wlr_xdg_toplevel_set_maximized/g' \
-      #         -e 's/wlr_xwayland_surface_set_fullscreen/wlr_xwayland_surface_set_maximized/g' \
-      #         {} +
-      #       echo ">>> Done."
-      #     '';
-      #   });
-      # })
     ];
   };
 }

@@ -11,14 +11,14 @@
     mpv
     pavucontrol
     wl-clipboard
-    # wlsunset
-    # swaybg
     xdg-utils
-    xfce.thunar
-    xfce.thunar-volman
+    thunar
+    thunar-volman
     kdePackages.breeze
     kdePackages.kdenlive
     google-chrome
+    # wlsunset
+    # swaybg
 
     # --- Visuals ---
     bibata-cursors
