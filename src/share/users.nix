@@ -5,8 +5,8 @@
     mutableUsers = false;
     users = {
       ${user} = {
-        isNormalUser = true;
         uid = 1000;
+        isNormalUser = true;
         extraGroups = [
           "wheel"
           "tty"

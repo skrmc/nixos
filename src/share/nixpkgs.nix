@@ -16,6 +16,7 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
+      inputs.fenix.overlays.default
       (final: prev: {
         hyprland = inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.hyprland;
         xdg-desktop-portal-hyprland =

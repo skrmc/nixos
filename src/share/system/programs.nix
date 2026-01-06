@@ -29,6 +29,14 @@
     gcc
     gitui
     gnumake
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    rust-analyzer-nightly
 
     # --- Utilities ---
     aria2
