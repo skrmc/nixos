@@ -217,6 +217,7 @@
             enable = true;
             installRustc = false;
             installCargo = false;
+            package = pkgs.rust-analyzer-nightly;
           };
           # bashls.enable = true;
           # dockerls.enable = true;

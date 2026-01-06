@@ -36,7 +36,6 @@
       "rustc"
       "rustfmt"
     ])
-    rust-analyzer-nightly
 
     # --- Utilities ---
     aria2
