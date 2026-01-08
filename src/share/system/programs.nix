@@ -29,6 +29,7 @@
     gcc
     gitui
     gnumake
+    rust-analyzer-nightly
     (fenix.complete.withComponents [
       "cargo"
       "clippy"

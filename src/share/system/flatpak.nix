@@ -8,9 +8,10 @@ let
     "com.valvesoftware.Steam"
     "com.steamgriddb.SGDBoop"
     "com.discordapp.Discord"
-    "com.termius.Termius"
-    "com.spotify.Client"
+    "org.telegram.desktop"
     "com.tencent.WeChat"
+    "com.spotify.Client"
+    "com.termius.Termius"
   ];
 in
 {
