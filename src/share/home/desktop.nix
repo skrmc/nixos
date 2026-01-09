@@ -96,9 +96,10 @@
       enable = true;
       settings = {
         main = {
-          font = "${fonts.mono}:size=12";
-          selection-target = "both";
           pad = "20x20";
+          selection-target = "both";
+          font = "${fonts.mono}:size=12";
+          initial-window-size-chars = "72x24";
         };
         cursor = {
           style = "beam";
