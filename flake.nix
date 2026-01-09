@@ -16,7 +16,10 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/hyprland";
+    niri.url = "github:skrmc/niri";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    # hyprland.url = "github:hyprwm/hyprland";
   };
 
   outputs =

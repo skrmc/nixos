@@ -17,21 +17,6 @@ in
 {
   services.flatpak.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    # wlr.enable = true;
-    extraPortals = [
-      # pkgs.xdg-desktop-portal-gtk
-      # pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-    config.common.default = [
-      # "gtk"
-      # "wlr"
-      "hyprland"
-    ];
-  };
-
   systemd.services.flatpak-tasks = {
     unitConfig.ConditionACPower = true;
 
@@ -64,8 +49,8 @@ in
     wantedBy = [ "timers.target" ];
     timerConfig = {
       Unit = "flatpak-tasks.service";
-      OnBootSec = "5min";
-      RandomizedDelaySec = "2min";
+      OnBootSec = "2min";
+      RandomizedDelaySec = "10";
     };
   };
 }

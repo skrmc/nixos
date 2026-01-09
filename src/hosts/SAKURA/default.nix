@@ -37,20 +37,24 @@
 
   # Home Manager
   home-manager.users.${user} = {
-    wayland.windowManager.hyprland = {
-      settings = {
-        exec-once = [
-          "hyprctl hyprsunset temperature 6200"
-        ];
-        monitor = [
-          # "eDP-1, 2560x1600@165, auto, 1.6666"
-          # "eDP-1, 2560x1600@165, -1280x0, 2"
-          "eDP-1, disable"
-          # "DP-2, 2560x1440@240, auto, 1.3333"
-          # "HDMI-A-1, 2560x1440@240, auto, 1.3333"
-          "HDMI-A-1, 1920x1080@180, 0x0, 1"
-        ];
-      };
-    };
+    xdg.configFile."niri/outputs.kdl".text = ''
+      output "eDP-1" { off; }
+      output "HDMI-A-1" { mode "1920x1080"; }
+    '';
+    # wayland.windowManager.hyprland = {
+    #   settings = {
+    #     exec-once = [
+    #       "hyprctl hyprsunset temperature 6200"
+    #     ];
+    #     monitor = [
+    #       # "eDP-1, 2560x1600@165, auto, 1.6666"
+    #       # "eDP-1, 2560x1600@165, -1280x0, 2"
+    #       "eDP-1, disable"
+    #       # "DP-2, 2560x1440@240, auto, 1.3333"
+    #       # "HDMI-A-1, 2560x1440@240, auto, 1.3333"
+    #       "HDMI-A-1, 1920x1080@180, 0x0, 1"
+    #     ];
+    #   };
+    # };
   };
 }

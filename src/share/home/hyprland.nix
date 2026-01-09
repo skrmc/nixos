@@ -17,6 +17,16 @@ let
   ROUNDING = "8";
 in
 {
+  programs.quickshell.enable = true;
+  xdg.configFile = {
+    "quickshell" = {
+      force = true;
+      recursive = true;
+      source = ./config/quickshell;
+    };
+  };
+
+  # v0.53.1
   wayland.windowManager.hyprland = {
     enable = true;
     # plugins = with pkgs.hyprlandPlugins; [ hyprexpo ];
@@ -27,9 +37,6 @@ in
       };
       exec-once = [
         "fcitx5"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-
         "quickshell"
         "[workspace 1 silent] ${MENU}"
         "[workspace 10 silent; tile] foot -e btop"

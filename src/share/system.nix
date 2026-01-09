@@ -8,7 +8,7 @@
 {
   imports = [
     ./system/battery.nix
-    ./system/fonts.nix
+    ./system/desktop.nix
     ./system/nixvim.nix
     ./system/persist.nix
     ./system/programs.nix
@@ -153,9 +153,9 @@
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
 
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
+    # GTK_IM_MODULE = "fcitx";
+    # QT_IM_MODULE = "fcitx";
+    # XMODIFIERS = "@im=fcitx";
   };
 
   nix.settings = {

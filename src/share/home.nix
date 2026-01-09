@@ -12,8 +12,6 @@
     users.${user} = {
       home.stateVersion = "25.05";
       imports = [
-        ./home/theme.nix
-        ./home/hyprland.nix
         ./home/desktop.nix
         ./home/tools.nix
       ];

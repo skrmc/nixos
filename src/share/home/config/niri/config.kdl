@@ -1,0 +1,112 @@
+include "keybinds.kdl"
+include "outputs.kdl"
+include "layout.kdl"
+
+// Input device configuration.
+// Find the full list of options on the wiki:
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    touchpad {
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        accel-speed 0.2
+        accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    mouse {
+        accel-speed 0.2
+        accel-profile "flat"
+    }
+
+    // Uncomment this to make the mouse warp to the center of newly focused windows.
+    // warp-mouse-to-focus
+
+    // Focus windows and outputs automatically when moving the mouse into them.
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// spawn-at-startup "swaybg"
+
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+spawn-sh-at-startup "swaybg --image ~/.local/share/wallpapers/default.jpg --mode fill"
+
+hotkey-overlay { skip-at-startup; }
+
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
+prefer-no-csd
+
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+    workspace-switch {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    horizontal-view-movement {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    overview-open-close {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    window-open {
+        duration-ms 200
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    window-close { duration-ms 100; }
+}
+
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+window-rule {
+    match app-id="foot"
+    open-floating true
+}
+
+window-rule {
+    match is-focused=false
+    opacity 0.9
+}
+
+window-rule {
+    match is-floating=true is-focused=false
+    opacity 0.75
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+}

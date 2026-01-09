@@ -9,12 +9,60 @@
     brightnessctl
     hyprpicker
     playerctl
-    slurp
-    grim
+    # satty
+    # slurp
+    # grim
+
+    niri
+    swaybg
+    xwayland-satellite
   ];
 
+  xdg.configFile = {
+    "niri/config.kdl".source = ./config/niri/config.kdl;
+    "niri/keybinds.kdl".source = ./config/niri/keybinds.kdl;
+    "niri/layout.kdl".source = pkgs.replaceVars ./config/niri/layout.in.kdl {
+      error = "#${colors.error}ff";
+      active = "#${colors."50"}cc";
+      inactive = "#${colors."50"}44";
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+    };
+    font = {
+      name = fonts.sans;
+      size = 10;
+    };
+  };
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+    desktopEntries = {
+      btop = {
+        name = "Btop";
+        noDisplay = true;
+      };
+      fish = {
+        name = "Fish";
+        noDisplay = true;
+      };
+    };
+  };
+
   programs = {
-    quickshell.enable = true;
     fuzzel = {
       enable = true;
       settings = {
@@ -91,8 +139,12 @@
     };
   };
 
-  services.cliphist = {
-    enable = true;
-    allowImages = true;
+  services = {
+    mako.enable = true;
+    polkit-gnome.enable = true;
+    cliphist = {
+      enable = true;
+      allowImages = true;
+    };
   };
 }
