@@ -87,8 +87,8 @@
           counter = "${colors."70"}ff";
         };
         border = {
-          width = 3;
-          radius = 12;
+          width = 2;
+          radius = 8;
         };
       };
     };
@@ -141,8 +141,22 @@
   };
 
   services = {
-    mako.enable = true;
     polkit-gnome.enable = true;
+    mako = {
+      enable = true;
+      settings = {
+        markup = true;
+        actions = true;
+        default-timeout = 0;
+        font = "${fonts.sans} 10";
+        background-color = "#${colors."15"}cc";
+        border-color = "#${colors."70"}cc";
+        border-radius = 8;
+        border-size = 2;
+        max-icon-size = 32;
+        padding = "8,10";
+      };
+    };
     cliphist = {
       enable = true;
       allowImages = true;
