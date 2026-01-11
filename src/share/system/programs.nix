@@ -20,6 +20,11 @@
     # wlsunset
     # swaybg
 
+    # --- Android ---
+    android-tools
+    frida-tools
+    scrcpy
+
     # --- Visuals ---
     bibata-cursors
     papirus-icon-theme
@@ -40,12 +45,13 @@
 
     # --- Utilities ---
     aria2
+    cachix
     caligula
     clash-meta
     ffmpeg
     localsend
     ncdu
-    nixfmt-rfc-style
+    nixfmt
     powertop
     rclone
     sbctl
@@ -65,7 +71,6 @@
   };
 
   programs = {
-    adb.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
