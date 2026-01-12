@@ -119,8 +119,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+WheelScrollDown      { focus-column-right; }
-    Mod+WheelScrollUp        { focus-column-left; }
+    Mod+WheelScrollDown       { focus-column-right; }
+    Mod+WheelScrollUp         { focus-column-left; }
     Mod+Shift+WheelScrollDown { move-column-right; }
     Mod+Shift+WheelScrollUp   { move-column-left; }
 
@@ -170,11 +170,11 @@ binds {
     Mod+Shift+9 { move-column-to-index 9; }
 
     Mod+W       { toggle-window-floating; }
-    Mod+Shift+W { expand-column-to-available-width; }
-
-    Mod+F       { maximize-column; }
-    Mod+Shift+F { maximize-window-to-edges; }
-    Mod+Ctrl+F  { fullscreen-window; }
+    Mod+Shift+W { set-column-width "95%"; }
+    
+    Mod+F       { maximize-window-to-edges; } // { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
 
     Mod+Shift+S { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-window; }
