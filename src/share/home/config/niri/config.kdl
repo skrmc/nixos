@@ -6,7 +6,6 @@ include "layout.kdl"
 // - foot (terminal emulator)
 // - fuzzel (application launcher)
 // - swaybg (wallpaper setter)
-// - hyprpicker (color picker)
 // - thunar (file manager)
 
 // Input device configuration.

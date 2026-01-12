@@ -49,6 +49,7 @@
     caligula
     clash-meta
     ffmpeg
+    imagemagick
     localsend
     ncdu
     nixfmt

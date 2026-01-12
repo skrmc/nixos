@@ -7,7 +7,6 @@
 {
   home.packages = with pkgs; [
     brightnessctl
-    hyprpicker
     playerctl
     # satty
     # slurp
@@ -153,7 +152,6 @@
         border-color = "#${colors."70"}cc";
         border-radius = 8;
         border-size = 2;
-        max-icon-size = 32;
         padding = "8,10";
       };
     };
