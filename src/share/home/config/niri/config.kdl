@@ -101,6 +101,7 @@ animations {
 
 window-rule {
     match app-id="foot"
+    match app-id="thunar"
     open-floating true
 }
 

@@ -25,8 +25,8 @@ binds {
     // For example, this is a standard bind to toggle the screen reader (orca).
     // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
@@ -166,6 +166,8 @@ binds {
     Mod+Shift+7 { move-column-to-index 7; }
     Mod+Shift+8 { move-column-to-index 8; }
     Mod+Shift+9 { move-column-to-index 9; }
+
+    Mod+Shift+D { spawn "makoctl" "mode" "-t" "do-not-disturb"; }
 
     Mod+W       { toggle-window-floating; }
     Mod+Shift+W { set-column-width "95%"; }

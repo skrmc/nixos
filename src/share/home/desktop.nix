@@ -146,6 +146,7 @@
       settings = {
         markup = true;
         actions = true;
+        max-visible = 3;
         default-timeout = 0;
         font = "${fonts.sans} 10";
         background-color = "#${colors."15"}cc";
@@ -153,6 +154,10 @@
         border-radius = 8;
         border-size = 2;
         padding = "8,10";
+
+        "mode=do-not-disturb" = {
+          invisible = 1;
+        };
       };
     };
     cliphist = {
