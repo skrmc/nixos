@@ -105,10 +105,10 @@ window-rule {
     open-floating true
 }
 
-window-rule {
-    match is-focused=false
-    opacity 0.9
-}
+// window-rule {
+//     match is-focused=false
+//     opacity 0.9
+// }
 
 window-rule {
     match is-floating=true is-focused=false

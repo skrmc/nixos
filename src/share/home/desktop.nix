@@ -98,7 +98,7 @@
           pad = "20x20";
           selection-target = "both";
           font = "${fonts.mono}:size=12";
-          initial-window-size-chars = "72x24";
+          initial-window-size-chars = "80x24";
         };
         cursor = {
           style = "beam";
