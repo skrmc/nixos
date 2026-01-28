@@ -23,8 +23,8 @@
     #   enable = true;
     #   pkiBundle = "/var/lib/sbctl";
     # };
-    kernelParams = [ "consoleblank=300" ];
-    supportedFilesystems = [ "ntfs" ];
+    kernelParams = lib.mkDefault [ "consoleblank=300" ];
+    supportedFilesystems = lib.mkDefault [ "ntfs" ];
   };
 
   # Containers and Virtualization
