@@ -13,9 +13,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -39,7 +36,6 @@
           modules = [
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
-            inputs.nixvim.nixosModules.nixvim
             ./src/hosts/${host}
             ./src/share
             {

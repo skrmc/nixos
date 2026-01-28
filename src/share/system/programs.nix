@@ -32,8 +32,14 @@
     # --- Development ---
     gh
     gcc
+    gdb
     gitui
     gnumake
+    nixfmt
+
+    clang
+    clang-tools
+
     rust-analyzer-nightly
     (fenix.complete.withComponents [
       "cargo"
@@ -52,7 +58,6 @@
     imagemagick
     localsend
     ncdu
-    nixfmt
     powertop
     rclone
     sbctl

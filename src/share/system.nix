@@ -9,7 +9,6 @@
   imports = [
     ./system/battery.nix
     ./system/desktop.nix
-    ./system/nixvim.nix
     ./system/persist.nix
     ./system/programs.nix
     ./system/flatpak.nix
@@ -24,6 +23,7 @@
     #   enable = true;
     #   pkiBundle = "/var/lib/sbctl";
     # };
+    kernelParams = [ "consoleblank=300" ];
     supportedFilesystems = [ "ntfs" ];
   };
 
