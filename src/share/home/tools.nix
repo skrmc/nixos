@@ -10,6 +10,7 @@
     enable = true;
     settings = {
       theme = "sakura";
+      editor.true-color = true;
       editor.clipboard-provider = "termcode";
     };
     themes.sakura = {
