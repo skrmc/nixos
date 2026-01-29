@@ -1,8 +1,14 @@
 { pkgs, user, ... }:
-
+let
+  keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB8z6wE615ikEDjQdvGjMzpchxosnnk0DsgAOuInxHN8"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhWdus6cCN85OBuNEsGzwx8p7qYPPyfJoH3uIsEP5IG"
+  ];
+in
 {
   users = {
     mutableUsers = false;
+    users.root.openssh.authorizedKeys.keys = keys;
     users.${user} = {
       uid = 1000;
       isNormalUser = true;
@@ -11,9 +17,7 @@
         "tty"
       ];
       hashedPasswordFile = "/persist/etc/secrets/${user}.hash";
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5tJBSAhiSzNa055Uw4mdqo2m/16FjUH+rfsnC+l9b6"
-      ];
+      openssh.authorizedKeys.keys = keys;
     };
   };
 
