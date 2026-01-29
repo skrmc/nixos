@@ -26,6 +26,11 @@
       inactive = "#${colors."50"}44";
     };
   };
+  xdg.dataFile = {
+    "sounds/detach.wav".source = ./assets/sounds/detach.wav;
+    "sounds/attach.wav".source = ./assets/sounds/attach.wav;
+    "wallpapers/enanan.jpg".source = ./assets/wallpapers/enanan.jpg;
+  };
 
   home.pointerCursor = {
     gtk.enable = true;
