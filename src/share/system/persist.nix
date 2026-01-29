@@ -34,6 +34,7 @@
     ];
 
     directories = [
+      "/root"
       "/var/log"
       "/var/lib/iwd"
       "/var/lib/nixos"
