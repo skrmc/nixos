@@ -1,5 +1,3 @@
-# /etc/nixos/flake.nix
-
 {
   description = "NixOS configuration";
 
@@ -16,9 +14,12 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri.url = "github:skrmc/niri";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland.url = "github:hyprwm/hyprland";
+    # niri.url = "github:skrmc/niri";
+    # niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "github:hyprwm/hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
   };
 
   outputs =

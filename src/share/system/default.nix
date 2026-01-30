@@ -7,11 +7,13 @@
 
 {
   imports = [
-    ./system/battery.nix
-    ./system/desktop.nix
-    ./system/persist.nix
-    ./system/programs.nix
-    ./system/flatpak.nix
+    ./base/nixpkgs.nix
+    ./base/users.nix
+    ./hardware/battery.nix
+    ./session/desktop.nix
+    ./base/persist.nix
+    ./session/programs.nix
+    ./session/flatpak.nix
   ];
   boot = {
     loader = {

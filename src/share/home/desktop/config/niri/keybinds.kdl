@@ -16,7 +16,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: foot"      { spawn "foot"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+E hotkey-overlay-title="Open File Manager: thunar"  { spawn "thunar"; }
+    Mod+E hotkey-overlay-title="Open File Manager: nautilus"  { spawn "nautilus"; }
     Mod+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -178,18 +178,17 @@ binds {
 
     Mod+Shift+D { spawn "makoctl" "mode" "-t" "do-not-disturb"; }
 
-    Mod+W       { toggle-window-floating; }
-    Mod+Shift+W { set-column-width "95%"; }
-    
+    Mod+W       { expand-column-to-available-width; }
     Mod+F       { maximize-window-to-edges; } // { maximize-column; }
+    Mod+Ctrl+F  { toggle-window-floating; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F  { expand-column-to-available-width; }
 
     Mod+Shift+S { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-window; }
 
     // Switches focus between the current and the previous workspace.
     Mod+Tab { focus-workspace-previous; }
+    Mod+Shift+Tab { focus-window-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.

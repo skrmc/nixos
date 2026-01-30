@@ -1,6 +1,24 @@
 { pkgs, fonts, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    # --- Desktop ---
+    mpv
+    pavucontrol
+    wl-clipboard
+    xdg-utils
+    nautilus
+    kdePackages.breeze
+    kdePackages.kdenlive
+    google-chrome
+    # wlsunset
+    # swaybg
+
+    # --- Visuals ---
+    bibata-cursors
+    papirus-icon-theme
+  ];
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -43,5 +61,22 @@
       "gnome"
       # "hyprland"
     ];
+  };
+
+  programs = {
+    dconf.enable = true;
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "foot";
+    };
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-vaapi
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    };
   };
 }

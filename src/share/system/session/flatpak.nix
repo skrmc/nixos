@@ -1,5 +1,3 @@
-# /etc/nixos/src/share/system/flatpak.nix
-
 { lib, pkgs, ... }:
 
 let

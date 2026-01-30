@@ -10,7 +10,7 @@ let
   MOD = "SUPER";
   TERM = "foot";
   MENU = "fuzzel";
-  FILE = "thunar";
+  FILE = "nautilus";
   BORDER = "2";
   GAPS_IN = "2";
   GAPS_OUT = "4";
@@ -51,7 +51,7 @@ in
       };
       animations = {
         bezier = [
-          "bounce, 0.38, 1.21, 0.22, 1"
+          "bounce, 0.4, 1.2, 0.2, 1"
         ];
         animation = [
           "global, 1, 3, default"

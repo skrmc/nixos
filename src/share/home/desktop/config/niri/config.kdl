@@ -6,7 +6,7 @@ include "layout.kdl"
 // - foot (terminal emulator)
 // - fuzzel (application launcher)
 // - swaybg (wallpaper setter)
-// - thunar (file manager)
+// - nautilus (file manager)
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -34,7 +34,7 @@ input {
     // warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
-    focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="10%"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -100,20 +100,26 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
 window-rule {
-    match app-id="foot"
-    match app-id="thunar"
-    open-floating true
+    match is-urgent=false
+    open-focused false
 }
 
 // window-rule {
-//     match is-focused=false
-//     opacity 0.9
+//     match app-id="foot"
+//     match app-id="org.gnome.Nautilus"
+//     open-floating true
+//     open-focused true
 // }
 
 window-rule {
     match is-floating=true is-focused=false
     opacity 0.75
 }
+
+// window-rule {
+//     match is-focused=false
+//     opacity 0.9
+// }
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)

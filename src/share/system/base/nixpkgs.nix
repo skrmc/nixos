@@ -1,5 +1,3 @@
-# /etc/nixos/src/share/overlays.nix
-
 {
   pkgs,
   inputs,
@@ -26,10 +24,12 @@
     overlays = [
       inputs.fenix.overlays.default
       (final: prev: {
-        niri = inputs.niri.packages.${final.stdenv.hostPlatform.system}.niri;
-        # hyprland = inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.hyprland;
-        # xdg-desktop-portal-hyprland = inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-        # hyprlandPlugins.hyprexpo = inputs.hyprland-plugins.packages.${final.stdenv.hostPlatform.system}.hyprexpo;
+        # niri = inputs.niri.packages.${final.stdenv.hostPlatform.system}.niri;
+        hyprland = inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.hyprland;
+        xdg-desktop-portal-hyprland =
+          inputs.hyprland.packages.${final.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        hyprlandPlugins.hyprexpo =
+          inputs.hyprland-plugins.packages.${final.stdenv.hostPlatform.system}.hyprexpo;
       })
     ];
   };

@@ -7,27 +7,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # --- Desktop ---
-    mpv
-    pavucontrol
-    wl-clipboard
-    xdg-utils
-    thunar
-    thunar-volman
-    kdePackages.breeze
-    kdePackages.kdenlive
-    google-chrome
-    # wlsunset
-    # swaybg
-
     # --- Android ---
     android-tools
     frida-tools
     scrcpy
-
-    # --- Visuals ---
-    bibata-cursors
-    papirus-icon-theme
 
     # --- Development ---
     gh
@@ -116,17 +99,6 @@
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
-    };
-    # --- Desktop ---
-    dconf.enable = true;
-    obs-studio = {
-      enable = true;
-      enableVirtualCamera = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        obs-vaapi
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-      ];
     };
   };
 }

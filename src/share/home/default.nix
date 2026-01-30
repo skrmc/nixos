@@ -1,5 +1,3 @@
-# /etc/nixos/src/share/home.nix
-
 {
   colors,
   fonts,
@@ -12,14 +10,14 @@
     users.root = {
       home.stateVersion = "25.05";
       imports = [
-        ./home/tools.nix
+        ./tools.nix
       ];
     };
     users.${user} = {
       home.stateVersion = "25.05";
       imports = [
-        ./home/desktop.nix
-        ./home/tools.nix
+        ./desktop
+        ./tools.nix
       ];
     };
   };
