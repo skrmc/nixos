@@ -6,7 +6,6 @@
   ...
 }:
 {
-  boot.loader.timeout = 3;
   networking.hostName = "SAKURA";
   imports = [
     "${inputs.self}/src/share/modules/hardware/nvidia.nix"

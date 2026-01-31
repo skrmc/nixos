@@ -6,6 +6,11 @@
 }:
 
 {
+  imports = [
+    ./wayland
+    # ./xserver
+  ];
+
   environment.systemPackages = with pkgs; [
     # --- Desktop ---
     mpv
@@ -142,11 +147,6 @@
   };
 
   home-manager.users.${user} = {
-    imports = [
-      ./wayland
-      # ./xsession
-    ];
-
     home.packages = with pkgs; [
       brightnessctl
       playerctl
