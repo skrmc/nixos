@@ -8,7 +8,7 @@
 {
   networking.hostName = "SAKUYA";
   imports = [
-    "${inputs.self}/src/share/system/hardware/nvidia.nix"
+    "${inputs.self}/src/share/modules/hardware/nvidia.nix"
     ./hardware-configuration.nix
   ];
 
