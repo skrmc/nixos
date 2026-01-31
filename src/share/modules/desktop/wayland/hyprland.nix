@@ -1,8 +1,6 @@
 {
   user,
   pkgs,
-  fonts,
-  colors,
   ...
 }:
 let
@@ -10,7 +8,7 @@ let
   TERM = "foot";
   MENU = "fuzzel";
   FILE = "nautilus";
-  BORDER = "2";
+  BORDER = "1";
   GAPS_IN = "2";
   GAPS_OUT = "4";
   ROUNDING = "8";
@@ -86,8 +84,6 @@ in
           "gaps_in" = "${GAPS_IN}";
           "gaps_out" = "${GAPS_OUT}";
           "border_size" = "${BORDER}";
-          "col.active_border" = "rgba(${colors."50"}cc)";
-          "col.inactive_border" = "rgba(${colors."50"}44)";
         };
         gesture = "3, horizontal, scale: 1.5, workspace";
         binds = {
@@ -193,9 +189,7 @@ in
         misc = {
           enable_swallow = true;
           swallow_regex = "${TERM}";
-          font_family = fonts.sans;
           disable_hyprland_logo = true;
-          background_color = "0x${colors."0"}";
         };
         # plugin = {
         #   hyprexpo = {

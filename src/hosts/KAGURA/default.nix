@@ -5,12 +5,6 @@
     ./hardware-configuration.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    moonlight-qt
-    obsidian
-    vscode
-  ];
-
   home-manager.users.${user} = {
     # xdg.configFile."niri/outputs.kdl".text = ''
     #   output "eDP-1" {}

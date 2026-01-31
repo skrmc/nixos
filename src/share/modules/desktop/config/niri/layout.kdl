@@ -56,11 +56,6 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         on
 
-        width 2
-        active-color "@active@"
-        inactive-color "@inactive@"
-
-        // Color of the border around windows that request your attention.
-        urgent-color "@error@"
+        width 1
     }
 }

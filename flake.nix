@@ -11,6 +11,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -25,18 +28,16 @@
   outputs =
     { self, ... }@inputs:
     let
-      theme = builtins.fromTOML (builtins.readFile ./theme.toml);
       mkSystem =
         host: user:
         inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs host user;
-            colors = theme.colors;
-            fonts = theme.fonts;
           };
           modules = [
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
             ./src/hosts/${host}
             ./src/share
             {

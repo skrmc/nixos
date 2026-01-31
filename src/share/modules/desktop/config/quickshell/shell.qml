@@ -20,7 +20,6 @@ Variants {
 
   PanelWindow {
     id: bg
-    color: "black"
     screen: modelData
     required property var modelData
     anchors { top: true; bottom: true; left: true; right: true }
