@@ -29,7 +29,7 @@ in
     "quickshell" = {
       force = true;
       recursive = true;
-      source = ./config/quickshell;
+      source = ../config/quickshell;
     };
   };
 
