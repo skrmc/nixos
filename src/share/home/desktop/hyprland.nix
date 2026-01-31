@@ -1,5 +1,3 @@
-# /etc/nixos/src/share/home/hyprland.nix
-
 {
   pkgs,
   fonts,
@@ -17,6 +15,15 @@ let
   ROUNDING = "8";
 in
 {
+  home.packages = with pkgs; [
+    hyprpicker
+    hyprsunset
+
+    satty
+    slurp
+    grim
+  ];
+
   programs.quickshell.enable = true;
   xdg.configFile = {
     "quickshell" = {
@@ -81,6 +88,10 @@ in
         "col.inactive_border" = "rgba(${colors."50"}44)";
       };
       gesture = "3, horizontal, scale: 1.5, workspace";
+      binds = {
+        scroll_event_delay = 50;
+        disable_keybind_grabbing = true;
+      };
       bind = [
         "${MOD}, RETURN, exec, ${TERM}"
         "${MOD}, E, exec, ${FILE}"
@@ -117,6 +128,7 @@ in
         "${MOD}, RIGHT, workspace, +1"
         "${MOD}, mouse_up, workspace, +1"
         "${MOD}, mouse_down, workspace, -1"
+
         "${MOD} SHIFT, 1, movetoworkspace, 1"
         "${MOD} SHIFT, 2, movetoworkspace, 2"
         "${MOD} SHIFT, 3, movetoworkspace, 3"
@@ -129,6 +141,9 @@ in
         "${MOD} SHIFT, 0, movetoworkspace, 10"
         "${MOD} SHIFT, LEFT, movetoworkspace, -1"
         "${MOD} SHIFT, RIGHT, movetoworkspace, +1"
+        "${MOD} SHIFT, mouse_up, movetoworkspace, +1"
+        "${MOD} SHIFT, mouse_down, movetoworkspace, -1"
+
         "${MOD}, TAB, togglespecialworkspace, scratch"
         "${MOD} SHIFT, TAB, movetoworkspace, special:scratch"
         "${MOD}, ESCAPE, movetoworkspacesilent, special:scratch"
@@ -171,7 +186,7 @@ in
         "match:title .*File.*, float on"
         "match:fullscreen [^0], immediate on"
         "match:float true, match:focus false, opacity 0.75"
-        "match:class ${TERM}, float on, size 768 512, center on"
+        "match:class ${TERM}, float on, center on"
       ];
       misc = {
         enable_swallow = true;

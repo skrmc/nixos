@@ -12,9 +12,6 @@
   home.packages = with pkgs; [
     brightnessctl
     playerctl
-    # satty
-    # slurp
-    # grim
   ];
   xdg.dataFile = {
     "sounds/detach.wav".source = ./assets/sounds/detach.wav;
@@ -93,7 +90,7 @@
           pad = "20x20";
           selection-target = "both";
           font = "${fonts.mono}:size=12";
-          initial-window-size-chars = "80x24";
+          initial-window-size-chars = "90x30";
         };
         cursor = {
           style = "beam";

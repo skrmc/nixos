@@ -12,6 +12,7 @@
       theme = "sakura";
       editor.true-color = true;
       editor.clipboard-provider = "termcode";
+      editor.cursor-shape.insert = "underline";
     };
     themes.sakura = {
       inherits = "rose_pine_moon";

@@ -1,5 +1,3 @@
-# /etc/nixos/src/share/home/niri.nix
-
 {
   pkgs,
   colors,
