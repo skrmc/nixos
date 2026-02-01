@@ -8,7 +8,7 @@ let
   TERM = "foot";
   MENU = "fuzzel";
   FILE = "nautilus";
-  BORDER = "1";
+  BORDER = "2";
   GAPS_IN = "2";
   GAPS_OUT = "4";
   ROUNDING = "8";
@@ -141,10 +141,11 @@ in
           "${MOD} SHIFT, RIGHT, movetoworkspace, +1"
           "${MOD} SHIFT, mouse_up, movetoworkspace, +1"
           "${MOD} SHIFT, mouse_down, movetoworkspace, -1"
+          "${MOD}, ESCAPE, movetoworkspacesilent, +1"
 
-          "${MOD}, TAB, togglespecialworkspace, scratch"
-          "${MOD} SHIFT, TAB, movetoworkspace, special:scratch"
-          "${MOD}, ESCAPE, movetoworkspacesilent, special:scratch"
+          "${MOD}, TAB, togglespecialworkspace, tab"
+          "${MOD} SHIFT, TAB, movetoworkspace, special:tab"
+
           "${MOD} SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "${MOD} SHIFT, C, exec, hyprpicker -a"
           "${MOD}, V, exec, cliphist list | ${MENU} --dmenu | cliphist decode | wl-copy"

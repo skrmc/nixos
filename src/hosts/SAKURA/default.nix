@@ -14,10 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
-    moonlight-qt
     texliveFull
-    obsidian
-    vscode
   ];
 
   programs.obs-studio.package = (

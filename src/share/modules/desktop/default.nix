@@ -105,9 +105,15 @@
       pavucontrol
       kdePackages.breeze
       kdePackages.kdenlive
+      blender
+      gimp3
+      prismlauncher
       google-chrome
       moonlight-qt
       mpv
+      localsend
+      scrcpy
+      spice-gtk
     ];
 
     services.polkit-gnome.enable = true;

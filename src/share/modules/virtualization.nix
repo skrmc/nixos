@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     # virt-manager
-    spice-gtk
     quickemu
     qemu
   ];

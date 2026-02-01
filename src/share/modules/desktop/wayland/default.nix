@@ -19,7 +19,7 @@
             width = 30;
           };
           border = {
-            width = 1;
+            width = 2;
             radius = 8;
           };
         };
@@ -56,7 +56,7 @@
           max-visible = 3;
           default-timeout = 0;
           border-radius = 8;
-          border-size = 1;
+          border-size = 2;
           padding = "8,10";
 
           "mode=do-not-disturb" = {

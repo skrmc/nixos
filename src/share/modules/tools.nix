@@ -4,7 +4,6 @@
     # --- Android ---
     android-tools
     frida-tools
-    scrcpy
 
     # --- Development ---
     gh
@@ -31,9 +30,10 @@
     cachix
     caligula
     clash-meta
+    evtest
     ffmpeg
     imagemagick
-    localsend
+    libnotify
     ncdu
     powertop
     rclone
