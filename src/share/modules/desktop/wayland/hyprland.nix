@@ -184,8 +184,14 @@ in
         windowrule = [
           "match:title .*File.*, float on"
           "match:fullscreen [^0], immediate on"
-          "match:float true, match:focus false, opacity 0.75"
           "match:class ${TERM}, float on, center on"
+          "match:float true, match:focus false, opacity 0.75"
+          "match:float 0, match:workspace w[tv1]s[0], rounding 0"
+          "match:float 0, match:workspace w[tv1]s[0], border_size 0"
+        ];
+        workspace = [
+          "w[tv1]s[0], gapsout:0, gapsin:0"
+          "f[1]s[0], gapsout:0, gapsin:0"
         ];
         misc = {
           enable_swallow = true;
