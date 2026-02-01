@@ -24,10 +24,6 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    waydroid = {
-      enable = true;
-      package = pkgs.waydroid-nftables;
-    };
     # libvirtd = {
     #   enable = true;
     #   qemu = {

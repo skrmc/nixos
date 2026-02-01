@@ -8,7 +8,7 @@ let
   TERM = "foot";
   MENU = "fuzzel";
   FILE = "nautilus";
-  BORDER = "2";
+  BORDER = "1";
   GAPS_IN = "2";
   GAPS_OUT = "4";
   ROUNDING = "8";

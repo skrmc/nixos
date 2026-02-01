@@ -41,7 +41,6 @@
       "/var/lib/bluetooth"
       "/var/lib/tailscale"
       "/var/lib/containers"
-      "/var/lib/waydroid"
       "/var/lib/flatpak"
       "/var/lib/samba"
     ];
