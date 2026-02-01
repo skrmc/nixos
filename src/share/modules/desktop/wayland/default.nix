@@ -1,4 +1,5 @@
 {
+  pkgs,
   user,
   ...
 }:
@@ -8,7 +9,12 @@
     # ./niri.nix
   ];
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   home-manager.users.${user} = {
+    home.packages = with pkgs; [
+      wl-clipboard
+    ];
     programs = {
       fuzzel = {
         enable = true;

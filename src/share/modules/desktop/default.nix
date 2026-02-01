@@ -68,15 +68,6 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "wayland";
-
-    # GTK_IM_MODULE = "fcitx";
-    # QT_IM_MODULE = "fcitx";
-    # XMODIFIERS = "@im=fcitx";
-  };
-
   programs = {
     dconf.enable = true;
     nautilus-open-any-terminal = {
@@ -98,7 +89,6 @@
     home.packages = with pkgs; [
       brightnessctl
       playerctl
-      wl-clipboard
       xdg-utils
 
       nautilus
@@ -114,12 +104,8 @@
       localsend
       scrcpy
       spice-gtk
+      vscode
     ];
-
-    services.polkit-gnome.enable = true;
-
-    programs.obsidian.enable = true;
-    programs.vscode.enable = true;
 
     xdg = {
       dataFile = {
