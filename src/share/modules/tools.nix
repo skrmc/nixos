@@ -87,6 +87,7 @@
     };
     tmux = {
       enable = true;
+      escapeTime = 0;
       historyLimit = 5000;
     };
     zoxide = {

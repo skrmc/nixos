@@ -4,10 +4,11 @@
 }:
 
 {
+  home-manager.users.${user}.home.stateVersion = "25.05";
+  home-manager.users.root.home.stateVersion = "25.05";
+
   home-manager.sharedModules = [
     {
-      home.stateVersion = "25.05";
-
       stylix = {
         autoEnable = true;
         targets = {
