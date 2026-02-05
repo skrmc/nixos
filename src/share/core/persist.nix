@@ -36,13 +36,7 @@
     directories = [
       "/root"
       "/var/log"
-      "/var/lib/iwd"
-      "/var/lib/nixos"
-      "/var/lib/bluetooth"
-      "/var/lib/tailscale"
-      "/var/lib/containers"
-      "/var/lib/flatpak"
-      "/var/lib/samba"
+      "/var/lib"
     ];
   };
 

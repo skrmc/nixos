@@ -88,7 +88,7 @@ in
         gesture = "3, horizontal, scale: 1.5, workspace";
         binds = {
           scroll_event_delay = 50;
-          disable_keybind_grabbing = true;
+          # disable_keybind_grabbing = true;
         };
         bind = [
           "${MOD}, RETURN, exec, ${TERM}"
