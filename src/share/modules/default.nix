@@ -2,9 +2,8 @@
   imports = [
     ./desktop
     ./tools.nix
-    ./virtualization.nix
     ./networking.nix
-    ./flatpak.nix
+    ./virtualization.nix
     ./hardware/battery.nix
   ];
 }

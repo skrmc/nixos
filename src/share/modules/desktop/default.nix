@@ -9,6 +9,7 @@
   imports = [
     ./wayland
     # ./xserver
+    ./flatpak.nix
   ];
 
   xdg.portal = {
