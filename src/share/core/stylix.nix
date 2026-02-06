@@ -33,7 +33,6 @@
         desktop = 10;
         applications = 10;
         terminal = 12;
-        popups = 13;
       };
     };
 

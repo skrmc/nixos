@@ -2,6 +2,7 @@
 
 let
   flatpaks = [
+    "io.github.flattool.Warehouse"
     "com.github.tchx84.Flatseal"
     "com.valvesoftware.Steam"
     "com.steamgriddb.SGDBoop"

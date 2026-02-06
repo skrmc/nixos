@@ -75,5 +75,8 @@
         allowImages = true;
       };
     };
+
+    stylix.targets.fuzzel.fonts.override.sizes.popups = 13;
+    stylix.targets.mako.fonts.override.sizes.popups = 10;
   };
 }
