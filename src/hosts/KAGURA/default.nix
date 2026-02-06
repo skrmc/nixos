@@ -1,7 +1,13 @@
-{ pkgs, user, ... }:
+{
+  pkgs,
+  user,
+  inputs,
+  ...
+}:
 {
   networking.hostName = "KAGURA";
   imports = [
+    "${inputs.self}/src/share/modules/desktop"
     ./hardware-configuration.nix
   ];
 

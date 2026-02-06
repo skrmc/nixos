@@ -8,6 +8,7 @@
 {
   networking.hostName = "SAKURA";
   imports = [
+    "${inputs.self}/src/share/modules/desktop"
     "${inputs.self}/src/share/modules/hardware/nvidia.nix"
     ./hardware-configuration.nix
   ];

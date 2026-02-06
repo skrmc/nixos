@@ -1,6 +1,5 @@
 {
   imports = [
-    ./desktop
     ./tools.nix
     ./networking.nix
     ./virtualization.nix
