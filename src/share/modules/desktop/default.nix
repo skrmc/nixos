@@ -5,18 +5,19 @@
   ...
 }:
 
+let
+  xdgPortalConfig = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config.common.default = [ "gtk" ];
+  };
+in
 {
   imports = [
     ./wayland
     # ./xserver
     ./flatpak.nix
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    config.common.default = [ "gtk" ];
-  };
 
   i18n.inputMethod = {
     type = "fcitx5";
@@ -86,7 +87,11 @@
     };
   };
 
+  xdg.portal = xdgPortalConfig;
+
   home-manager.users.${user} = {
+    xdg.portal = xdgPortalConfig;
+
     home.packages = with pkgs; [
       brightnessctl
       playerctl
