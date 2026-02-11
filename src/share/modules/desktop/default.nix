@@ -58,17 +58,17 @@ in
     };
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
   programs = {
     dconf.enable = true;
@@ -103,14 +103,16 @@ in
       kdePackages.kdenlive
       blender
       gimp3
-      prismlauncher
-      google-chrome
+      localsend
       moonlight-qt
       mpv
-      localsend
+      prismlauncher
       scrcpy
       spice-gtk
+
       vscode
+      obsidian
+      google-chrome
     ];
 
     xdg = {
