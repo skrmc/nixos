@@ -46,7 +46,6 @@
   users.defaultUserShell = pkgs.fish;
 
   hardware.uinput.enable = true;
-  users.users.${user}.extraGroups = [ "uinput" ];
   services.sunshine = {
     enable = true;
     capSysAdmin = true;

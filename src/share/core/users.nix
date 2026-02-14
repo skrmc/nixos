@@ -15,6 +15,10 @@ in
       extraGroups = [
         "wheel"
         "tty"
+        "audio"
+        "video"
+        "input"
+        "uinput"
       ];
       hashedPasswordFile = "/persist/etc/secrets/${user}.hash";
       openssh.authorizedKeys.keys = keys;

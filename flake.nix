@@ -17,6 +17,9 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
+    xremap.url = "github:xremap/nix-flake";
+    xremap.inputs.nixpkgs.follows = "nixpkgs";
+
     # niri.url = "github:skrmc/niri";
     # niri.inputs.nixpkgs.follows = "nixpkgs";
 

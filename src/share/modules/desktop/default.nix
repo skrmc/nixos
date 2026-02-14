@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   user,
@@ -90,13 +91,34 @@ in
   xdg.portal = xdgPortalConfig;
 
   home-manager.users.${user} = {
+    imports = [ inputs.xremap.homeManagerModules.default ];
+
+    services.xremap = {
+      enable = true;
+      mouse = true;
+      watch = true;
+      yamlConfig = ''
+        modmap:
+          - name: Push to Talk
+            remap:
+              BTN_EXTRA: &push_to_talk
+                skip_key_event: true
+                press:
+                  - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "0"]
+                  - launch: ["${pkgs.pipewire}/bin/pw-play", "/home/${user}/.local/share/sounds/attach.wav"]
+                release:
+                  - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "1"]
+                  - launch: ["${pkgs.pipewire}/bin/pw-play", "/home/${user}/.local/share/sounds/detach.wav"]
+              BTN_SIDE: *push_to_talk
+      '';
+    };
+
     xdg.portal = xdgPortalConfig;
 
     home.packages = with pkgs; [
       brightnessctl
       playerctl
       xdg-utils
-      xremap
 
       nautilus
       pavucontrol
