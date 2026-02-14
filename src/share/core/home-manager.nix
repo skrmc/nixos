@@ -12,8 +12,9 @@
       stylix = {
         autoEnable = true;
         targets = {
-          vscode.enable = false;
+          gtk.flatpakSupport.enable = false;
           blender.enable = false;
+          vscode.enable = false;
         };
       };
     }

@@ -96,6 +96,7 @@ in
       brightnessctl
       playerctl
       xdg-utils
+      xremap
 
       nautilus
       pavucontrol

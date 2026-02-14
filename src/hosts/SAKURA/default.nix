@@ -29,8 +29,18 @@
   ];
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="Integrated Camera" exclusive_caps=1
+    options v4l2loopback devices=1 card_label="Integrated Camera" exclusive_caps=1
   '';
+
+  systemd.services.rfkill-unblock = {
+    description = "Unblock rfkill at boot";
+    wantedBy = [ "multi-user.target" ];
+    before = [ "iwd.service" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.util-linux}/bin/rfkill unblock all
+    '';
+  };
 
   # Home Manager
   home-manager.users.${user} = {
