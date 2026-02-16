@@ -4,8 +4,6 @@ let
   flatpaks = [
     "io.github.flattool.Warehouse"
     "com.github.tchx84.Flatseal"
-    "com.valvesoftware.Steam"
-    "com.steamgriddb.SGDBoop"
     "com.discordapp.Discord"
     "org.telegram.desktop"
     "com.tencent.WeChat"

@@ -86,6 +86,7 @@ in
         obs-pipewire-audio-capture
       ];
     };
+    steam.enable = true;
   };
 
   xdg.portal = xdgPortalConfig;
