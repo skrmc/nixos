@@ -1,53 +1,28 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 let
   flatpaks = [
     "io.github.flattool.Warehouse"
     "com.github.tchx84.Flatseal"
-    "com.discordapp.Discord"
-    "org.telegram.desktop"
-    "com.tencent.WeChat"
-    "com.spotify.Client"
+
     "com.termius.Termius"
+
+    "org.telegram.desktop"
+    "com.discordapp.Discord"
+    "com.tencent.WeChat"
+
+    "com.github.johnfactotum.Foliate"
+    "com.spotify.Client"
   ];
 in
 {
-  services.flatpak.enable = true;
-
-  systemd.services.flatpak-tasks = {
-    unitConfig.ConditionACPower = true;
-
-    serviceConfig.Type = "oneshot";
-    path = [
-      pkgs.curl
-      pkgs.flatpak
-    ];
-
-    script = ''
-      set -euo pipefail
-      url=https://flathub.org/repo/flathub.flatpakrepo
-
-      curl -fsS --connect-timeout 2 --max-time 10 \
-        --retry 30 --retry-delay 2 --retry-all-errors --retry-max-time 300 \
-        "$url" >/dev/null
-
-      flatpak remote-add --if-not-exists --system flathub "$url"
-
-      for app in ${lib.concatStringsSep " " flatpaks}; do
-        [ -n "$app" ] && flatpak install --system -y --noninteractive --app --or-update flathub "$app"
-      done
-
-      flatpak uninstall --system --unused -y --noninteractive
-      flatpak update --system -y --noninteractive
-    '';
-  };
-
-  systemd.timers.flatpak-tasks = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      Unit = "flatpak-tasks.service";
-      OnBootSec = "2min";
-      RandomizedDelaySec = "10";
+  services.flatpak = {
+    enable = true;
+    packages = flatpaks;
+    uninstallUnused = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
     };
   };
 }

@@ -1,4 +1,5 @@
 {
+  inputs,
   user,
   ...
 }:
@@ -8,13 +9,27 @@
   home-manager.users.root.home.stateVersion = "25.05";
 
   home-manager.sharedModules = [
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     {
       stylix = {
         autoEnable = true;
         targets = {
-          gtk.flatpakSupport.enable = false;
+          # gtk.flatpakSupport.enable = false;
           blender.enable = false;
           vscode.enable = false;
+        };
+      };
+
+      services.flatpak = {
+        enable = true;
+        overrides.global = {
+          Context = {
+            sockets = [ "wayland" ];
+            filesystems = [ "xdg-public-share" ];
+          };
+          Environment = {
+            ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+          };
         };
       };
     }
