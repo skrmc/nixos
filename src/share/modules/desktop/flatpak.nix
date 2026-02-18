@@ -11,7 +11,6 @@ let
     "com.discordapp.Discord"
     "com.tencent.WeChat"
 
-    "com.github.johnfactotum.Foliate"
     "com.spotify.Client"
   ];
 in

@@ -100,8 +100,7 @@ in
           "${MOD} SHIFT, F, fullscreenstate, 0 2"
           "${MOD}, D, exec, pkill ${MENU} || ${MENU}"
           "${MOD}, J, togglesplit"
-          "${MOD}, P, pseudo"
-          "${MOD}, T, pin"
+          "${MOD}, P, pin"
           "${MOD}, M, exit"
           "${MOD}, UP, movefocus, u"
           "${MOD}, DOWN, movefocus, d"
@@ -141,10 +140,10 @@ in
           "${MOD} SHIFT, RIGHT, movetoworkspace, +1"
           "${MOD} SHIFT, mouse_up, movetoworkspace, +1"
           "${MOD} SHIFT, mouse_down, movetoworkspace, -1"
-          "${MOD}, ESCAPE, movetoworkspacesilent, +1"
 
           "${MOD}, TAB, togglespecialworkspace, tab"
           "${MOD} SHIFT, TAB, movetoworkspace, special:tab"
+          "${MOD}, ESCAPE, movetoworkspacesilent, special:tab"
 
           "${MOD} SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "${MOD} SHIFT, C, exec, hyprpicker -a"

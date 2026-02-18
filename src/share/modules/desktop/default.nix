@@ -142,6 +142,7 @@ in
       prismlauncher
       scrcpy
       spice-gtk
+      foliate
 
       vscode
       obsidian

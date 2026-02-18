@@ -49,7 +49,7 @@
     packages = with pkgs; [
       ibm-plex
       open-sans
-      font-awesome
+      lxgw-wenkai
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
