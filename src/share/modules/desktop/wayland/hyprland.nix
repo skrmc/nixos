@@ -15,6 +15,8 @@ let
 in
 {
   home-manager.users.${user} = {
+    stylix.targets.hyprland.enable = true;
+
     home.packages = with pkgs; [
       hyprpicker
       hyprsunset

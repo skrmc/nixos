@@ -12,11 +12,12 @@
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     {
       stylix = {
-        autoEnable = true;
+        autoEnable = false;
         targets = {
-          # gtk.flatpakSupport.enable = false;
-          blender.enable = false;
-          vscode.enable = false;
+          helix.enable = true;
+          yazi.enable = true;
+          btop.enable = true;
+          fish.enable = true;
         };
       };
 

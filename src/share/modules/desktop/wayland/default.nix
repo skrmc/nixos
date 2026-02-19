@@ -76,7 +76,16 @@
       };
     };
 
-    stylix.targets.fuzzel.fonts.override.sizes.popups = 13;
-    stylix.targets.mako.fonts.override.sizes.popups = 10;
+    stylix.targets = {
+      foot.enable = true;
+      fuzzel = {
+        enable = true;
+        fonts.override.sizes.popups = 13;
+      };
+      mako = {
+        enable = true;
+        fonts.override.sizes.popups = 10;
+      };
+    };
   };
 }
