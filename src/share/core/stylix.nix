@@ -48,10 +48,6 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       ibm-plex
-      open-sans
-      lxgw-wenkai
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
       noto-fonts-color-emoji
       nerd-fonts.fira-code
     ];

@@ -45,7 +45,6 @@ in
           force_zero_scaling = true;
         };
         exec-once = [
-          "fcitx5"
           "quickshell"
           "[workspace 1 silent] ${MENU}"
           "[workspace 10 silent; tile] foot -e btop"
