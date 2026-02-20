@@ -14,10 +14,10 @@
       stylix = {
         autoEnable = false;
         targets = {
+          # fish.enable = true;
           helix.enable = true;
           yazi.enable = true;
           btop.enable = true;
-          fish.enable = true;
         };
       };
 

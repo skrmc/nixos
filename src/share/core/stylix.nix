@@ -4,7 +4,26 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+
+    base16Scheme = {
+      base00 = "#1e1818";
+      base01 = "#231b1b";
+      base02 = "#2a2323";
+      base03 = "#7a6d6d";
+      base04 = "#9b8a8a";
+      base05 = "#f8f4f4"; # Text
+      base06 = "#f8f4f4"; # Text
+      base07 = "#614646"; # Highlight
+      base08 = "#f0bba8";
+      base09 = "#f0d8a8";
+      base0A = "#f0bba8";
+      base0B = "#f0d8a8";
+      base0C = "#f0d8a8";
+      base0D = "#f0bba8"; # Border
+      base0E = "#f0d8a8";
+      base0F = "#614646"; # Highlight
+    };
 
     cursor = {
       package = pkgs.bibata-cursors;
