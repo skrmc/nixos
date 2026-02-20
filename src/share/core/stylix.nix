@@ -8,8 +8,8 @@
 
     base16Scheme = {
       base00 = "#1e1818";
-      base01 = "#231b1b";
-      base02 = "#2a2323";
+      base01 = "#2a2222";
+      base02 = "#332929";
       base03 = "#7a6d6d";
       base04 = "#9b8a8a";
       base05 = "#f8f4f4"; # Text
