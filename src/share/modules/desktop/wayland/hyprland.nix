@@ -94,6 +94,7 @@ in
         bind = [
           "${MOD}, RETURN, exec, ${TERM}"
           "${MOD}, E, exec, ${FILE}"
+          "${MOD} SHIFT, E, exit"
           "${MOD}, Q, killactive"
           "${MOD}, C, centerwindow"
           "${MOD}, W, togglefloating"
@@ -102,7 +103,6 @@ in
           "${MOD}, D, exec, pkill ${MENU} || ${MENU}"
           "${MOD}, J, togglesplit"
           "${MOD}, P, pin"
-          "${MOD}, M, exit"
           "${MOD}, UP, movefocus, u"
           "${MOD}, DOWN, movefocus, d"
           "${MOD}, LEFT, movefocus, l"
