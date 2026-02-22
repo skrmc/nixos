@@ -14,10 +14,10 @@
       stylix = {
         autoEnable = false;
         targets = {
+          btop.enable = true;
           # fish.enable = true;
           helix.enable = true;
           yazi.enable = true;
-          btop.enable = true;
         };
       };
 
@@ -44,7 +44,7 @@
         helix = {
           enable = true;
           settings = {
-            editor.true-color = true;
+            # editor.true-color = true;
             editor.lsp.display-inlay-hints = true;
             editor.clipboard-provider = "termcode";
             editor.cursor-shape.insert = "underline";

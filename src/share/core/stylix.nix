@@ -4,26 +4,26 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
 
-    base16Scheme = {
-      base00 = "#1e1818";
-      base01 = "#2a2222";
-      base02 = "#332929";
-      base03 = "#7a6d6d";
-      base04 = "#9b8a8a";
-      base05 = "#f8f4f4"; # Text
-      base06 = "#f8f4f4"; # Text
-      base07 = "#614646"; # Highlight
-      base08 = "#f0bba8";
-      base09 = "#f0d8a8";
-      base0A = "#f0bba8";
-      base0B = "#f0d8a8";
-      base0C = "#f0d8a8";
-      base0D = "#f0bba8"; # Border
-      base0E = "#f0d8a8";
-      base0F = "#614646"; # Highlight
-    };
+    # base16Scheme = {
+    #   base00 = "#000000"; # Default background
+    #   base01 = "#000000"; # Alternate background
+    #   base02 = "#000000"; # Selection background
+    #   base03 = "#000000"; # Muted text
+    #   base04 = "#000000"; # Alternate text
+    #   base05 = "#000000"; # Default text
+    #   base06 = "#000000"; # Foreground (Not often used)
+    #   base07 = "#000000"; # Foreground (Not often used)
+    #   base08 = "#000000"; # Red (Error)
+    #   base09 = "#000000"; # Orange (Urgent)
+    #   base0A = "#000000"; # Yellow (Warning)
+    #   base0B = "#000000"; # Green (Success)
+    #   base0C = "#000000";
+    #   base0D = "#000000";
+    #   base0E = "#000000";
+    #   base0F = "#000000";
+    # };
 
     cursor = {
       package = pkgs.bibata-cursors;
