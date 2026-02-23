@@ -47,7 +47,7 @@
             # editor.true-color = true;
             editor.lsp.display-inlay-hints = true;
             editor.clipboard-provider = "termcode";
-            editor.cursor-shape.insert = "underline";
+            editor.cursor-shape.insert = "bar";
           };
         };
         btop = {

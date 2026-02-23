@@ -36,7 +36,7 @@
           main = {
             pad = "20x20";
             selection-target = "both";
-            initial-window-size-chars = "90x30";
+            initial-window-size-pixels = "810x540";
           };
           cursor = {
             style = "beam";
