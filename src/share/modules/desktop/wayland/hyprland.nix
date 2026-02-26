@@ -42,7 +42,7 @@ in
       settings = {
         xwayland = {
           enabled = true;
-          force_zero_scaling = true;
+          # force_zero_scaling = true;
         };
         exec-once = [
           "quickshell"

@@ -65,7 +65,7 @@ in
         modmap:
           - name: Push to Talk
             remap:
-              BTN_EXTRA:
+              KEY_F24:
                 skip_key_event: true
                 press: &ptt_press
                   - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "0"]
@@ -73,11 +73,6 @@ in
                 release: &ptt_release
                   - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "1"]
                   - launch: ["${pkgs.pipewire}/bin/pw-play", "/home/${user}/.local/share/sounds/detach.wav"]
-
-              BTN_SIDE:
-                skip_key_event: true
-                press: *ptt_press
-                release: *ptt_release
 
               KEY_LEFTALT:
                 press: *ptt_press

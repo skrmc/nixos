@@ -56,15 +56,18 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        stdenv.cc.cc
-        curl
-        openssl
+        alsa-lib
         attr
-        libssh
-        util-linux
-        systemd
+        cacert
+        curl
         glib
         libglvnd
+        libssh
+        openssl
+        stdenv.cc.cc
+        systemd
+        util-linux
+        zlib
       ];
     };
     fish = {
