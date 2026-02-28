@@ -55,8 +55,8 @@
     in
     {
       nixosConfigurations.SAKURA = mkSystem "SAKURA" "anon";
-      nixosConfigurations.KAGURA = mkSystem "KAGURA" "anon";
+      nixosConfigurations.SAKUTA = mkSystem "SAKUTA" "anon";
       nixosConfigurations.SAKUYA = mkSystem "SAKUYA" "anon";
-      nixosConfigurations.HARUKA = mkSystem "HARUKA" "anon";
+      nixosConfigurations.KAGURA = mkSystem "KAGURA" "anon";
     };
 }
