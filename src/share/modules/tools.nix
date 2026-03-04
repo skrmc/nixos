@@ -11,6 +11,9 @@
     gdb
     gitui
     gnumake
+    cmake
+    pkg-config
+    python314
     nixfmt
 
     clang
