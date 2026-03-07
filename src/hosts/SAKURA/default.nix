@@ -7,6 +7,12 @@
 }:
 {
   networking.hostName = "SAKURA";
+  profiles.secureBoot.lanzaboote = {
+    enable = true;
+    autoGenerateKeys = true;
+    autoEnrollKeys = true;
+  };
+
   imports = [
     "${inputs.self}/src/share/modules/desktop"
     "${inputs.self}/src/share/modules/hardware/nvidia.nix"
