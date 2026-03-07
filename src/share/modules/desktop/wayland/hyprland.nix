@@ -8,6 +8,11 @@ let
   TERM = "foot";
   MENU = "fuzzel";
   FILE = "nautilus";
+
+  SCREENSHOT_OUTPUT = "~/Pictures/Screenshots/$(date '+%Y%m%d-%H:%M:%S').png";
+  SCREENSHOT_SATTY = "satty --filename - --fullscreen --output-filename ${SCREENSHOT_OUTPUT}";
+  SCREENSHOT_AREA = "grimblast --freeze save area - | ${SCREENSHOT_SATTY}";
+  SCREENSHOT_SCREEN = "grimblast save screen - | ${SCREENSHOT_SATTY}";
   BORDER = "1";
   GAPS_IN = "2";
   GAPS_OUT = "4";
@@ -21,9 +26,8 @@ in
       hyprpicker
       hyprsunset
 
+      grimblast
       satty
-      slurp
-      grim
     ];
 
     programs.quickshell.enable = true;
@@ -146,7 +150,7 @@ in
           "${MOD} SHIFT, TAB, movetoworkspace, special:tab"
           "${MOD}, ESCAPE, movetoworkspacesilent, special:tab"
 
-          "${MOD} SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+          "${MOD} SHIFT, S, exec, ${SCREENSHOT_AREA}"
           "${MOD} SHIFT, C, exec, hyprpicker -a"
           "${MOD}, V, exec, cliphist list | ${MENU} --dmenu | cliphist decode | wl-copy"
         ];
@@ -159,9 +163,9 @@ in
           "${MOD}, Z, movewindow"
         ];
         bindl = [
+          ", Print, exec, ${SCREENSHOT_SCREEN}"
           ", XF86AudioMute, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
           "${MOD}+SHIFT, M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
-          ", Print, exec, grim - | wl-copy"
           "${MOD}+SHIFT, B, exec, playerctl previous"
           "${MOD}+SHIFT, P, exec, playerctl play-pause"
           ", XF86AudioPlay, exec, playerctl play-pause"
