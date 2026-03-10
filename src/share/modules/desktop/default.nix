@@ -84,7 +84,7 @@ in
 
     stylix.targets = {
       gtk.enable = true;
-      qt.enable = true;
+      # qt.enable = true;
     };
 
     home.packages = with pkgs; [

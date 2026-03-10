@@ -16,6 +16,10 @@
     python314
     nixfmt
 
+    tinymist
+    typst
+    typstyle
+
     clang
     clang-tools
 
