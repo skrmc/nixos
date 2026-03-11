@@ -1,9 +1,15 @@
 {
+  lib,
   user,
   pkgs,
   ...
 }:
 {
+  xdg.portal = {
+    extraPortals = lib.mkForce [ pkgs.xdg-desktop-portal-gnome ];
+    config.common.default = lib.mkForce [ "gnome" ];
+  };
+
   home-manager.users.${user} = {
     home.packages = with pkgs; [
       niri

@@ -1,18 +1,9 @@
 {
   inputs,
-  lib,
   pkgs,
   user,
   ...
 }:
-
-let
-  xdgPortalConfig = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    config.common.default = [ "gtk" ];
-  };
-in
 {
   imports = [
     ./i18n
@@ -51,7 +42,11 @@ in
     steam.enable = true;
   };
 
-  xdg.portal = xdgPortalConfig;
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config.common.default = [ "gtk" ];
+  };
 
   home-manager.users.${user} = {
     imports = [ inputs.xremap.homeManagerModules.default ];
@@ -79,8 +74,6 @@ in
                 release: *ptt_release
       '';
     };
-
-    xdg.portal = xdgPortalConfig;
 
     stylix.targets = {
       gtk.enable = true;

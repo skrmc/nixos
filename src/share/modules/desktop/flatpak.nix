@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 let
   flatpaks = [
@@ -15,6 +15,8 @@ let
   ];
 in
 {
+  xdg.portal.enable = lib.mkForce true;
+
   services.flatpak = {
     enable = true;
     packages = flatpaks;
