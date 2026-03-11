@@ -12,10 +12,10 @@
   ];
 
   home-manager.users.${user} = {
-    # xdg.configFile."niri/outputs.kdl".text = ''
-    #   output "eDP-1" {}
-    #   output "HDMI-A-1" {}
-    # '';
+    xdg.configFile."niri/outputs.kdl".text = ''
+      output "eDP-1" {}
+      output "HDMI-A-1" {}
+    '';
     wayland.windowManager.hyprland = {
       settings = {
         monitor = [

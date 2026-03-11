@@ -5,8 +5,8 @@
 }:
 {
   imports = [
-    ./hyprland.nix
-    # ./niri.nix
+    # ./hyprland.nix
+    ./niri.nix
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
