@@ -25,8 +25,8 @@
     xremap.url = "github:xremap/nix-flake";
     xremap.inputs.nixpkgs.follows = "nixpkgs";
 
-    # niri.url = "github:skrmc/niri";
-    # niri.inputs.nixpkgs.follows = "nixpkgs";
+    niri.url = "github:skrmc/niri";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
 
     # hyprland.url = "github:hyprwm/hyprland";
     # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";

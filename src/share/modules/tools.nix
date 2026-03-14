@@ -40,10 +40,12 @@
     evtest
     ffmpeg
     imagemagick
+    jq
     libnotify
     ncdu
     powertop
     rclone
+    ripgrep
     sbctl
     tree
     unzip
@@ -90,7 +92,7 @@
     git = {
       enable = true;
       config = {
-        user.name = "SAKURA";
+        user.name = "Yejia";
         user.email = "Yejia995@gmail.com";
       };
     };
