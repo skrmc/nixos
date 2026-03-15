@@ -1,0 +1,93 @@
+include "keybinds.kdl"
+include "outputs.kdl"
+include "layout.kdl"
+
+// Apps:
+// - foot (terminal emulator)
+// - fuzzel (application launcher)
+// - swaybg (wallpaper setter)
+// - nautilus (file manager)
+
+hotkey-overlay { skip-at-startup; }
+prefer-no-csd
+
+input {
+    touchpad {
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        accel-speed 0.2
+        accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    mouse {
+        accel-speed 0.2
+        accel-profile "flat"
+    }
+
+    // warp-mouse-to-focus
+
+    focus-follows-mouse max-scroll-amount="20%"
+}
+
+// spawn-at-startup "swaybg"
+spawn-sh-at-startup "swaybg --image ~/.local/share/wallpapers/default.jpg --mode fill"
+
+// screenshot-path null
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+    workspace-switch {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    horizontal-view-movement {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    overview-open-close {
+        duration-ms 300
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    window-movement {
+        duration-ms 200
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    window-open {
+        duration-ms 200
+        curve "cubic-bezier" 0.4 1.2 0.2 1
+    }
+
+    window-close { duration-ms 100; }
+}
+
+// window-rule {
+//     match is-urgent=false
+//     open-focused false
+// }
+
+// window-rule {
+//     match app-id="foot"
+//     open-floating true
+//     open-focused true
+// }
+
+window-rule {
+    match is-floating=true is-focused=false
+    opacity 0.75
+}
+
+window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+}

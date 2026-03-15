@@ -1,0 +1,25 @@
+layout {
+    gaps 4
+
+    center-focused-column "on-overflow"
+    always-center-single-column
+
+    default-column-width {}
+
+    preset-column-widths {
+        proportion 0.96
+        proportion 0.64
+    }
+
+    preset-window-heights {
+        proportion 0.4
+        proportion 1.0
+    }
+
+    focus-ring { off; }
+
+    border {
+        on
+        width 1
+    }
+}

@@ -16,10 +16,6 @@
     python314
     nixfmt
 
-    tinymist
-    typst
-    typstyle
-
     clang
     clang-tools
 
@@ -50,6 +46,7 @@
     tree
     unzip
     zip
+    zlib
   ];
 
   users.defaultUserShell = pkgs.fish;
