@@ -8,7 +8,7 @@ let
     "com.termius.Termius"
 
     "org.telegram.desktop"
-    "com.discordapp.Discord"
+    "dev.vencord.Vesktop"
     "com.tencent.WeChat"
 
     "com.spotify.Client"
