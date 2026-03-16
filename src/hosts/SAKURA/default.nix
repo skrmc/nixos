@@ -19,11 +19,6 @@
     ./hardware-configuration.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.full
-    texliveFull
-  ];
-
   programs.obs-studio.package = (
     pkgs.obs-studio.override {
       cudaSupport = true;

@@ -12,6 +12,10 @@
     ./flatpak.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    texliveFull
+  ];
+
   security.polkit.enable = true;
   security.rtkit.enable = true;
 

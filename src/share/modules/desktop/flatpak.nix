@@ -1,4 +1,8 @@
-{ lib, ... }:
+{
+  lib,
+  user,
+  ...
+}:
 
 let
   flatpaks = [
@@ -24,6 +28,14 @@ in
     update.auto = {
       enable = true;
       onCalendar = "weekly";
+    };
+  };
+
+  home-manager.users.${user} = {
+    services.flatpak.enable = true;
+    services.flatpak.overrides.global.Context = {
+      sockets = [ "wayland" ];
+      filesystems = [ "xdg-public-share" ];
     };
   };
 }

@@ -20,19 +20,6 @@
           yazi.enable = true;
         };
       };
-
-      services.flatpak = {
-        enable = true;
-        overrides.global = {
-          Context = {
-            sockets = [ "wayland" ];
-            filesystems = [ "xdg-public-share" ];
-          };
-          Environment = {
-            ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-          };
-        };
-      };
     }
     {
       home.sessionVariables = {

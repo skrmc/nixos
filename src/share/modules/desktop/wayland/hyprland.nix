@@ -30,15 +30,6 @@ in
       satty
     ];
 
-    programs.quickshell.enable = true;
-    xdg.configFile = {
-      "quickshell" = {
-        force = true;
-        recursive = true;
-        source = ../config/quickshell;
-      };
-    };
-
     # v0.53.1
     wayland.windowManager.hyprland = {
       enable = true;
@@ -49,7 +40,6 @@ in
           force_zero_scaling = true;
         };
         exec-once = [
-          "quickshell"
           "[workspace 1 silent] ${MENU}"
           "[workspace 10 silent; tile] foot -e btop"
           # "find $HOME/.local/share/wallpapers -maxdepth 1 -type f -print | head -n1 | xargs -r swaybg -m fill -i"
@@ -183,7 +173,6 @@ in
         ];
         layerrule = [
           "match:namespace selection, no_anim on"
-          "match:namespace (quickshell)(.*), no_anim on"
         ];
         windowrule = [
           "match:title .*File.*, float on"
