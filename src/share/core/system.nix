@@ -34,5 +34,5 @@
     download-buffer-size = 1073741824; # 1GB
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

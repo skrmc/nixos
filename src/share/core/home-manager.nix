@@ -5,8 +5,8 @@
 }:
 
 {
-  home-manager.users.${user}.home.stateVersion = "25.05";
-  home-manager.users.root.home.stateVersion = "25.05";
+  home-manager.users.${user}.home.stateVersion = "25.11";
+  home-manager.users.root.home.stateVersion = "25.11";
 
   home-manager.sharedModules = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak

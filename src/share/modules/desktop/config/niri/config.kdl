@@ -19,15 +19,13 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        accel-speed 0.2
-        accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
     mouse {
-        accel-speed 0.2
-        accel-profile "flat"
+        accel-speed -0.8
+        accel-profile "adaptive"
     }
 
     // warp-mouse-to-focus

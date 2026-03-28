@@ -46,8 +46,9 @@
   # Home Manager
   home-manager.users.${user} = {
     xdg.configFile."niri/outputs.kdl".text = ''
-      output "eDP-1" { mode "2560x1600"; scale 1.6; } // variable-refresh-rate; }
-      output "HDMI-A-1" { mode "1920x1080"; } // variable-refresh-rate; }
+      output "eDP-1" { off; }
+      output "HDMI-A-1" { mode "1920x1080"; }
+      // output "eDP-1" { mode "2560x1600"; scale 1.6; }
     '';
     wayland.windowManager.hyprland = {
       settings = {
