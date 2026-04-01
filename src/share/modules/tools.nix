@@ -30,6 +30,7 @@
 
     # --- Utilities ---
     aria2
+    bubblewrap
     cachix
     caligula
     clash-meta
