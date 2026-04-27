@@ -87,6 +87,7 @@
     home.packages = with pkgs; [
       brightnessctl
       playerctl
+      wl-mirror
       xdg-utils
 
       nautilus
