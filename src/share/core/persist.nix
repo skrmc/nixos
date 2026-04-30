@@ -1,18 +1,20 @@
 {
   config,
   pkgs,
+  utils,
   ...
 }:
+let
+  device = "${utils.escapeSystemdPath config.fileSystems."/".device}.device";
+in
 {
   boot.initrd.supportedFilesystems = [ "btrfs" ];
   boot.initrd.systemd.services.rollback-root = {
     description = "Rollback btrfs root subvolume";
-    requiredBy = [ "initrd-root-fs.target" ];
-    after = [ "initrd-root-device.target" ];
-    before = [
-      "sysroot.mount"
-      "initrd-root-fs.target"
-    ];
+    wantedBy = [ "initrd.target" ];
+    wants = [ device ];
+    after = [ device ];
+    before = [ "sysroot.mount" ];
     path = with pkgs; [
       btrfs-progs
       coreutils
