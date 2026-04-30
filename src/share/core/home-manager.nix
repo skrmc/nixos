@@ -20,42 +20,35 @@
           yazi.enable = true;
         };
       };
+
+      home.sessionVariables = {
+        EDITOR = "hx";
+        VISUAL = "hx";
+      };
+
+      programs = {
+        helix = {
+          enable = true;
+          settings = {
+            # editor.true-color = true;
+            # editor.cursor-shape.insert = "bar";
+            editor.lsp.display-inlay-hints = true;
+            editor.clipboard-provider = "termcode";
+          };
+        };
+        btop = {
+          enable = true;
+          settings.theme_background = false;
+        };
+        bash.enable = true;
+        fish.enable = true;
+        yazi = {
+          enable = true;
+          shellWrapperName = "y";
+          enableBashIntegration = true;
+          enableFishIntegration = true;
+        };
+      };
     }
-    (
-      { config, ... }:
-      {
-        gtk.gtk4.theme = config.gtk.theme;
-        xdg.userDirs.setSessionVariables = true;
-
-        home.sessionVariables = {
-          EDITOR = "hx";
-          VISUAL = "hx";
-        };
-
-        programs = {
-          helix = {
-            enable = true;
-            settings = {
-              # editor.true-color = true;
-              # editor.cursor-shape.insert = "bar";
-              editor.lsp.display-inlay-hints = true;
-              editor.clipboard-provider = "termcode";
-            };
-          };
-          btop = {
-            enable = true;
-            settings.theme_background = false;
-          };
-          bash.enable = true;
-          fish.enable = true;
-          yazi = {
-            enable = true;
-            shellWrapperName = "y";
-            enableBashIntegration = true;
-            enableFishIntegration = true;
-          };
-        };
-      }
-    )
   ];
 }

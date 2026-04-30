@@ -9,18 +9,13 @@ let
 in
 {
   boot.initrd.supportedFilesystems = [ "btrfs" ];
+  boot.initrd.systemd.initrdBin = [ pkgs.findutils ];
   boot.initrd.systemd.services.rollback-root = {
     description = "Rollback btrfs root subvolume";
     wantedBy = [ "initrd.target" ];
     wants = [ device ];
     after = [ device ];
     before = [ "sysroot.mount" ];
-    path = with pkgs; [
-      btrfs-progs
-      coreutils
-      findutils
-      util-linux
-    ];
     unitConfig.DefaultDependencies = false;
     serviceConfig.Type = "oneshot";
     script = ''
