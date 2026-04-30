@@ -5,8 +5,8 @@
 }:
 
 {
-  home-manager.users.${user}.home.stateVersion = "25.11";
-  home-manager.users.root.home.stateVersion = "25.11";
+  home-manager.users.${user}.home.stateVersion = "26.05";
+  home-manager.users.root.home.stateVersion = "26.05";
 
   home-manager.sharedModules = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
@@ -21,35 +21,41 @@
         };
       };
     }
-    {
-      home.sessionVariables = {
-        EDITOR = "hx";
-        VISUAL = "hx";
-      };
+    (
+      { config, ... }:
+      {
+        gtk.gtk4.theme = config.gtk.theme;
+        xdg.userDirs.setSessionVariables = true;
 
-      programs = {
-        helix = {
-          enable = true;
-          settings = {
-            # editor.true-color = true;
-            # editor.cursor-shape.insert = "bar";
-            editor.lsp.display-inlay-hints = true;
-            editor.clipboard-provider = "termcode";
+        home.sessionVariables = {
+          EDITOR = "hx";
+          VISUAL = "hx";
+        };
+
+        programs = {
+          helix = {
+            enable = true;
+            settings = {
+              # editor.true-color = true;
+              # editor.cursor-shape.insert = "bar";
+              editor.lsp.display-inlay-hints = true;
+              editor.clipboard-provider = "termcode";
+            };
+          };
+          btop = {
+            enable = true;
+            settings.theme_background = false;
+          };
+          bash.enable = true;
+          fish.enable = true;
+          yazi = {
+            enable = true;
+            shellWrapperName = "y";
+            enableBashIntegration = true;
+            enableFishIntegration = true;
           };
         };
-        btop = {
-          enable = true;
-          settings.theme_background = false;
-        };
-        bash.enable = true;
-        fish.enable = true;
-        yazi = {
-          enable = true;
-          shellWrapperName = "y";
-          enableBashIntegration = true;
-          enableFishIntegration = true;
-        };
-      };
-    }
+      }
+    )
   ];
 }
