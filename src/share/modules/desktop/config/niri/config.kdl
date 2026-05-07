@@ -25,7 +25,7 @@ input {
 
     mouse {
         // accel-profile "flat"
-        accel-speed -1.0
+        accel-speed -0.75
     }
 
     // warp-mouse-to-focus

@@ -85,7 +85,7 @@ binds {
 
     Mod+M       { maximize-column; }
     Mod+F       { maximize-window-to-edges; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F { toggle-windowed-fullscreen; }
 
     Mod+Shift+S { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-window; }
