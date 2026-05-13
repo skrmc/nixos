@@ -80,14 +80,13 @@ binds {
     Mod+Shift+D { spawn "makoctl" "mode" "-t" "do-not-disturb"; }
 
     Mod+W       { toggle-window-floating; }
-    Mod+Shift+W { expand-column-to-available-width; }
-
 
     Mod+M       { maximize-column; }
     Mod+F       { maximize-window-to-edges; }
     Mod+Shift+F { toggle-windowed-fullscreen; }
 
     Mod+Shift+S { screenshot; }
+    Mod+Shift+W { screenshot-window; }
     Mod+Shift+Ctrl+S { screenshot-window; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
