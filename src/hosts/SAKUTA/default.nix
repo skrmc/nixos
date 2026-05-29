@@ -22,15 +22,4 @@
       cudaSupport = true;
     }
   );
-
-  # Home Manager
-  home-manager.users.${user}.wayland.windowManager.hyprland = {
-    settings = {
-      monitor = [
-        "eDP-1, 2560x1600@165, auto, 1.25"
-        # "eDP-1, disable"
-        # "HDMI-A-1, 1920x1080@180, auto, 1"
-      ];
-    };
-  };
 }
