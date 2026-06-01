@@ -1,5 +1,5 @@
 include "keybinds.kdl"
-include "outputs.kdl"
+include "outputs.kdl" optional=true
 include "layout.kdl"
 
 // Apps:

@@ -42,25 +42,4 @@
       ${pkgs.util-linux}/bin/rfkill unblock all
     '';
   };
-
-  # Home Manager
-  home-manager.users.${user} = {
-    xdg.configFile."niri/outputs.kdl".text = ''
-      output "eDP-1" { off; }
-      output "HDMI-A-1" { mode "2560x1440"; scale 1.2; }
-      // output "PNP(SAC) G4Q L56051794302" { mode "2560x1440"; scale 1.2; }
-    '';
-    wayland.windowManager.hyprland = {
-      settings = {
-        # exec-once = [
-        #   "hyprctl hyprsunset temperature 6200"
-        # ];
-        monitor = [
-          # "eDP-1, disable"
-          "eDP-1, 2560x1600@165, auto, 1.6"
-          # "HDMI-A-1, 1920x1080@180, 0x0, 1"
-        ];
-      };
-    };
-  };
 }
