@@ -7,6 +7,8 @@
 }:
 {
   networking.hostName = "SAKUYA";
+  profiles.virt.enable = true;
+
   imports = [
     "${inputs.self}/src/share/modules/hardware/nvidia.nix"
     ./hardware-configuration.nix

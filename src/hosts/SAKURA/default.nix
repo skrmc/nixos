@@ -7,10 +7,17 @@
 }:
 {
   networking.hostName = "SAKURA";
-  profiles.secureBoot.lanzaboote = {
-    enable = true;
-    autoGenerateKeys = true;
-    autoEnrollKeys = true;
+  profiles = {
+    dev.enable = true;
+    virt.enable = true;
+    android.enable = true;
+    creative.enable = true;
+    gaming.enable = true;
+    secureBoot.lanzaboote = {
+      enable = true;
+      autoGenerateKeys = true;
+      autoEnrollKeys = true;
+    };
   };
 
   imports = [

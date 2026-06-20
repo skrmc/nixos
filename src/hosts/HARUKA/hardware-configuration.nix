@@ -60,19 +60,15 @@ in
   ];
 
   boot.initrd.availableKernelModules = [
-    "nvme"
+    "virtio_pci"
     "xhci_pci"
-    "thunderbolt"
     "usbhid"
     "usb_storage"
-    "sd_mod"
-    "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   networking.useDHCP = lib.mkDefault true;
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }

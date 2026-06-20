@@ -1,39 +1,11 @@
 { pkgs, user, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # --- Android ---
-    android-tools
-    frida-tools
-
-    # --- Development ---
-    gh
-    gcc
-    gdb
-    gitui
-    gnumake
-    cmake
-    pkg-config
-    python314
-    nixfmt
-
-    clang
-    clang-tools
-
-    rust-analyzer-nightly
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-
     # --- Utilities ---
     aria2
     bubblewrap
     cachix
     caligula
-    clash-meta
     evtest
     ffmpeg
     imagemagick
@@ -53,11 +25,6 @@
   users.defaultUserShell = pkgs.fish;
 
   hardware.uinput.enable = true;
-  services.sunshine = {
-    enable = true;
-    capSysAdmin = true;
-    openFirewall = true;
-  };
 
   programs = {
     nix-ld = {

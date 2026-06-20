@@ -61,5 +61,6 @@
       nixosConfigurations.SAKUTA = mkSystem "SAKUTA" "anon";
       nixosConfigurations.SAKUYA = mkSystem "SAKUYA" "anon";
       nixosConfigurations.KAGURA = mkSystem "KAGURA" "anon";
+      nixosConfigurations.HARUKA = mkSystem "HARUKA" "anon";
     };
 }

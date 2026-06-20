@@ -12,10 +12,6 @@
     ./flatpak.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    texliveFull
-  ];
-
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
@@ -43,7 +39,6 @@
         obs-pipewire-audio-capture
       ];
     };
-    steam.enable = true;
   };
 
   xdg.portal = {
@@ -93,20 +88,13 @@
       nautilus
       pavucontrol
       kdePackages.breeze
-      kdePackages.kdenlive
-      blender
-      gimp3
       localsend
-      moonlight-qt
-      mpv
-      prismlauncher
-      scrcpy
       spice-gtk
       foliate
 
       vscode
       obsidian
-      google-chrome
+      firefox
     ];
 
     xdg = {

@@ -1,9 +1,9 @@
 {
   imports = [
     ./lanzaboote.nix
+    ./profiles
     ./tools.nix
     ./networking.nix
-    ./virtualization.nix
     ./hardware/battery.nix
   ];
 }
