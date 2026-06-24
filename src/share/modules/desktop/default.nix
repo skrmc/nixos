@@ -94,7 +94,7 @@
 
       vscode
       obsidian
-      firefox
+      google-chrome
     ];
 
     xdg = {
