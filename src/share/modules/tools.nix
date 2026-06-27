@@ -8,7 +8,9 @@
     caligula
     evtest
     ffmpeg
+    hostapd
     imagemagick
+    iw
     jq
     libnotify
     ncdu
@@ -18,6 +20,7 @@
     sbctl
     tree
     unzip
+    xxd
     zip
     zlib
   ];
