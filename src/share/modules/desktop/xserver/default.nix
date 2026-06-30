@@ -33,25 +33,34 @@ in
     programs.nautilus-open-any-terminal.terminal = lib.mkForce "alacritty";
 
     home-manager.users.${user} = {
-      xsession.windowManager.i3 = {
+      xsession = {
         enable = true;
-        config = {
-          modifier = "Mod4";
-          terminal = "alacritty";
-          menu = "dmenu_run -i";
-          keybindings = lib.mkOptionDefault {
-            "Mod4+space" = null;
-            "Mod4+q" = "kill";
+        windowManager.i3 = {
+          enable = true;
+          config = {
+            modifier = "Mod4";
+            terminal = "alacritty";
+            menu = "dmenu_run -i";
+            keybindings = lib.mkOptionDefault {
+              "Mod4+space" = null;
+              "Mod4+q" = "kill";
+              "Mod4+v" = "exec --no-startup-id ${pkgs.clipmenu}/bin/clipmenu -i";
+            };
+            window.titlebar = false;
+            floating.titlebar = false;
+            bars = [
+              {
+                statusCommand = "${pkgs.i3status}/bin/i3status";
+              }
+            ];
+            defaultWorkspace = "workspace number 1";
           };
-          window.titlebar = false;
-          floating.titlebar = false;
-          bars = [
-            {
-              statusCommand = "${pkgs.i3status}/bin/i3status";
-            }
-          ];
-          defaultWorkspace = "workspace number 1";
         };
+      };
+
+      services.clipmenu = {
+        enable = true;
+        launcher = "${pkgs.dmenu}/bin/dmenu";
       };
 
       stylix.targets = {
