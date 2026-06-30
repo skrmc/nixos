@@ -1,0 +1,13 @@
+My NixOS configuration flake.
+
+Layout:
+
+  flake.nix      flake inputs, outputs, checks, etc.
+  src/hosts/     per-machine NixOS configurations
+  src/share/     shared modules used by multiple hosts
+
+Usage:
+
+  nix fmt
+  nix flake check
+  sudo nixos-rebuild switch --flake .#HOST
