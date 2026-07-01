@@ -31,6 +31,7 @@ in
                 CloudPinyinIndex = 2;
               };
               cloudpinyin.globalSection.Backend = "Google";
+              punctuation.globalSection.HalfWidthPuncAfterLetterOrNumber = "False";
             };
             globalOptions = {
               "Hotkey/TriggerKeys"."0" = "Super+space";
