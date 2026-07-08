@@ -13,6 +13,7 @@ in
   profiles = {
     personal.enable = true;
     laptop.enable = true;
+    rust.enable = true;
   };
   desktop = "xserver";
   hardware.graphics.enable = true;

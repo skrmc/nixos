@@ -20,9 +20,11 @@
     iw
     jq
     libnotify
+    lsof
     ncdu
     nixfmt
     pkg-config
+    poppler-utils
     powertop
     python314
     rclone

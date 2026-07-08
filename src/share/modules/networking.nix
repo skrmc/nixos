@@ -5,7 +5,7 @@
   networking = {
     useDHCP = true;
     useNetworkd = true;
-    # firewall.enable = false;
+    firewall.enable = false;
     wireless.iwd.enable = true;
   };
 
