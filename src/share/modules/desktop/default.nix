@@ -36,11 +36,13 @@ in
     services = {
       blueman.enable = true;
       flatpak.enable = true;
+      gvfs.enable = true;
       pipewire = {
         enable = true;
         alsa.enable = true;
         pulse.enable = true;
       };
+      udisks2.enable = true;
     };
 
     programs = {

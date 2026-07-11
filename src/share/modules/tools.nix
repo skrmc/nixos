@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   environment.systemPackages = with pkgs; [
     aria2
@@ -42,6 +42,7 @@
   hardware.uinput.enable = true;
 
   programs = {
+    direnv.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -58,6 +59,10 @@
         util-linux
         zlib
       ];
+    };
+    nh = {
+      enable = true;
+      flake = "/home/${user}/.config/nixos";
     };
     fish = {
       enable = true;

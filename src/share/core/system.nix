@@ -23,14 +23,26 @@
   swapDevices = lib.mkForce [ ];
 
   services.openssh.enable = true;
+  services.fwupd.enable = true;
 
-  environment.sessionVariables.NIX_PAGER = "cat";
+  environment = {
+    localBinInPath = true;
+    sessionVariables.NIX_PAGER = "cat";
+  };
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    download-buffer-size = 1073741824; # 1GB
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    optimise.automatic = true;
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      download-buffer-size = 1073741824; # 1GB
+    };
   };
 }
