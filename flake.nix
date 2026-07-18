@@ -69,6 +69,7 @@
       hosts = [
         "SAKURA"
         "SAKUYA"
+        "SAKUNA"
         "KAGURA"
         "HARUKA"
       ];
