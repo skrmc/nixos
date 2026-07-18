@@ -7,7 +7,6 @@ layout {
     default-column-width { proportion 0.64; }
 
     preset-column-widths {
-        proportion 0.96
         proportion 0.64
     }
 
