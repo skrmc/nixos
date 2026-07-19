@@ -14,8 +14,8 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       docker-compose
-      quickemu
-      qemu
+      # quickemu
+      # qemu
     ];
 
     users.users.${user}.extraGroups = [ "kvm" ];

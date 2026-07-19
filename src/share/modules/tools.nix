@@ -5,8 +5,8 @@
     bubblewrap
     cachix
     caligula
-    clang
-    clang-tools
+    # clang
+    # clang-tools
     cmake
     evtest
     ffmpeg

@@ -13,7 +13,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user}.home.packages = with pkgs; [
-      blender
+      # blender
       gimp3
       kdePackages.kdenlive
     ];

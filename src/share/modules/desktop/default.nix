@@ -55,8 +55,8 @@ in
         enable = true;
         enableVirtualCamera = true;
         plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
           obs-vaapi
-          obs-backgroundremoval
           obs-pipewire-audio-capture
         ];
       };
@@ -105,7 +105,6 @@ in
 
         nautilus
         pavucontrol
-        kdePackages.breeze
         localsend
         spice-gtk
         foliate
