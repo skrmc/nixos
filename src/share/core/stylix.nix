@@ -41,8 +41,8 @@
         name = "IBM Plex Sans";
       };
       monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
@@ -68,7 +68,7 @@
     packages = with pkgs; [
       ibm-plex
       noto-fonts-color-emoji
-      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
     ];
   };
 }
