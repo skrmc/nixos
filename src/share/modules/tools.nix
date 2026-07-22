@@ -9,6 +9,7 @@
     # clang-tools
     cmake
     evtest
+    file
     ffmpeg
     gcc
     gdb
