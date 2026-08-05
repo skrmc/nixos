@@ -3,10 +3,12 @@
   environment.systemPackages = with pkgs; [
     aria2
     bubblewrap
+    cachix
     caligula
     evtest
     file
     ffmpeg
+    gh
     hostapd
     imagemagick
     iw
@@ -14,8 +16,10 @@
     libnotify
     lsof
     ncdu
+    nixfmt
     poppler-utils
     powertop
+    python314
     rclone
     ripgrep
     sbctl

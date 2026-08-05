@@ -12,20 +12,17 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      cachix
       # clang
       # clang-tools
       cmake
       gcc
       gdb
-      gh
       gitui
       gnumake
       go
-      nixfmt
       pkg-config
-      python314
       rust-analyzer-nightly
+      sqlc
       zlib
       (fenix.complete.withComponents [
         "cargo"
