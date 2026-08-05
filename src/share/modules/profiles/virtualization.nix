@@ -6,10 +6,10 @@
   ...
 }:
 let
-  cfg = config.profiles.virt;
+  cfg = config.profiles.virtualization;
 in
 {
-  options.profiles.virt.enable = lib.mkEnableOption "virtualization tools";
+  options.profiles.virtualization.enable = lib.mkEnableOption "virtualization tools";
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

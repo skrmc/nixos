@@ -13,7 +13,7 @@
 
   profiles = {
     personal.enable = true;
-    virt.enable = true;
+    virtualization.enable = true;
   };
 
   imports = [

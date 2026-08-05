@@ -5,14 +5,28 @@
   ...
 }:
 let
-  cfg = config.profiles.rust;
+  cfg = config.profiles.development;
 in
 {
-  options.profiles.rust.enable = lib.mkEnableOption "Rust development tools";
+  options.profiles.development.enable = lib.mkEnableOption "development tools";
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      cachix
+      # clang
+      # clang-tools
+      cmake
+      gcc
+      gdb
+      gh
+      gitui
+      gnumake
+      go
+      nixfmt
+      pkg-config
+      python314
       rust-analyzer-nightly
+      zlib
       (fenix.complete.withComponents [
         "cargo"
         "clippy"

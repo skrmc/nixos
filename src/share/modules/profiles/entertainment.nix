@@ -6,10 +6,10 @@
   ...
 }:
 let
-  cfg = config.profiles.gaming;
+  cfg = config.profiles.entertainment;
 in
 {
-  options.profiles.gaming.enable = lib.mkEnableOption "gaming and game streaming";
+  options.profiles.entertainment.enable = lib.mkEnableOption "gaming and entertainment tools";
 
   config = lib.mkIf cfg.enable {
     programs.steam.enable = true;

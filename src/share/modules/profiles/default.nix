@@ -2,9 +2,9 @@
   imports = [
     ./android.nix
     ./creative.nix
-    ./gaming.nix
+    ./development.nix
+    ./entertainment.nix
     ./personal.nix
-    ./rust.nix
-    ./virt.nix
+    ./virtualization.nix
   ];
 }

@@ -13,11 +13,11 @@
 
   profiles = {
     personal.enable = true;
-    rust.enable = true;
-    virt.enable = true;
+    development.enable = true;
+    virtualization.enable = true;
     android.enable = true;
     creative.enable = true;
-    gaming.enable = true;
+    entertainment.enable = true;
     laptop.enable = true;
   };
   desktop = "wayland";

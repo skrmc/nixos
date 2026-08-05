@@ -3,19 +3,10 @@
   environment.systemPackages = with pkgs; [
     aria2
     bubblewrap
-    cachix
     caligula
-    # clang
-    # clang-tools
-    cmake
     evtest
     file
     ffmpeg
-    gcc
-    gdb
-    gh
-    gitui
-    gnumake
     hostapd
     imagemagick
     iw
@@ -23,11 +14,8 @@
     libnotify
     lsof
     ncdu
-    nixfmt
-    pkg-config
     poppler-utils
     powertop
-    python314
     rclone
     ripgrep
     sbctl
@@ -35,7 +23,6 @@
     unzip
     xxd
     zip
-    zlib
   ];
 
   users.defaultUserShell = pkgs.fish;

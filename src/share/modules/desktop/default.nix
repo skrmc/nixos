@@ -108,7 +108,7 @@ in
         spice-gtk
         foliate
 
-        chromium
+        google-chrome
         obsidian
         vscode
       ];
