@@ -14,6 +14,7 @@ in
     personal.enable = true;
     laptop.enable = true;
     development.enable = true;
+    virtualization.enable = true;
   };
   desktop = "xserver";
   hardware.graphics.enable = true;
