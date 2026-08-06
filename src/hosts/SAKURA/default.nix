@@ -16,6 +16,7 @@
   profiles = {
     personal.enable = true;
     development.enable = true;
+    container.enable = true;
     virtualization.enable = true;
     android.enable = true;
     creative.enable = true;

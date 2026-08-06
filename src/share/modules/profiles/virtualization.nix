@@ -12,21 +12,16 @@ in
   options.profiles.virtualization.enable = lib.mkEnableOption "virtualization tools";
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      docker-compose
-      # quickemu
-      # qemu
+    programs.virt-manager.enable = true;
+
+    users.users.${user}.extraGroups = [
+      "kvm"
+      "libvirtd"
     ];
 
-    users.users.${user}.extraGroups = [ "kvm" ];
-
-    virtualisation = {
-      containers.enable = true;
-      podman = {
-        enable = true;
-        dockerCompat = true;
-        defaultNetwork.settings.dns_enabled = true;
-      };
+    virtualisation.libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };
   };
 }
