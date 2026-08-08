@@ -37,11 +37,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    niri = {
-      url = "github:skrmc/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "";
-    };
+    # niri = {
+    #   url = "github:skrmc/niri";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.rust-overlay.follows = "";
+    # };
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

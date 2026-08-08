@@ -20,7 +20,7 @@
     config.allowUnfree = true;
     overlays = [
       inputs.fenix.overlays.default
-      inputs.niri.overlays.default
+      # inputs.niri.overlays.default
     ];
   };
 }

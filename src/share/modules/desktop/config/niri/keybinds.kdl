@@ -57,13 +57,13 @@ binds {
     Mod+Shift+J     { move-workspace-down; }
     Mod+Shift+K     { move-workspace-up; }
 
-    Mod+WheelScrollDown       { focus-tiling; focus-column-right; }
-    Mod+WheelScrollUp         { focus-tiling; focus-column-left; }
+    Mod+WheelScrollDown       { focus-column-right; }
+    Mod+WheelScrollUp         { focus-column-left; }
     Mod+Shift+WheelScrollDown { focus-workspace-down; }
     Mod+Shift+WheelScrollUp   { focus-workspace-up; }
 
-    Mod+1 { focus-tiling; focus-column-left; }
-    Mod+2 { focus-tiling; focus-column-right; }
+    Mod+1 { focus-column-left; }
+    Mod+2 { focus-column-right; }
 
     Mod+Shift+1 { move-column-left; }
     Mod+Shift+2 { move-column-right; }
@@ -95,7 +95,8 @@ binds {
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
-    Mod+R       { switch-preset-column-width; center-column; }
+    Mod+R       { center-column; }
+    // Mod+R    { switch-preset-column-width; center-column; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R  { reset-window-height; }
 
