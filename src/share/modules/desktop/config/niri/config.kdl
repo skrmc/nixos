@@ -80,7 +80,7 @@ animations {
 // }
 
 window-rule {
-    match is-floating=true is-focused=false
+    match is-floating=true // is-focused=false
     opacity 0.75
 }
 

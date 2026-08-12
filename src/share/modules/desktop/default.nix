@@ -45,6 +45,10 @@ in
     };
 
     programs = {
+      appimage = {
+        enable = true;
+        binfmt = true;
+      };
       dconf.enable = true;
       nautilus-open-any-terminal = {
         enable = true;
