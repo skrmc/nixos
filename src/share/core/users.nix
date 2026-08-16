@@ -12,6 +12,7 @@
         "video"
         "input"
         "uinput"
+        "dialout"
       ];
     };
   };
