@@ -41,8 +41,8 @@
         name = "IBM Plex Sans";
       };
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
@@ -67,8 +67,8 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       ibm-plex
+      maple-mono.NF
       noto-fonts-color-emoji
-      nerd-fonts.jetbrains-mono
     ];
   };
 }

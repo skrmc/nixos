@@ -43,7 +43,6 @@ in
             menu = "dmenu_run -i";
             keybindings = lib.mkOptionDefault {
               "Mod4+space" = null;
-              "Mod4+q" = "kill";
               "Mod4+v" = "exec --no-startup-id ${pkgs.clipmenu}/bin/clipmenu -i";
             };
             window.titlebar = false;
