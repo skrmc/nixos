@@ -15,8 +15,9 @@
     supportedFilesystems = lib.mkDefault [ "ntfs" ];
   };
 
+  time.timeZone = "America/Chicago";
   # time.timeZone = "America/New_York";
-  time.timeZone = "Asia/Shanghai";
+  # time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
 
   zramSwap.enable = true;
