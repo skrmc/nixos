@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   inputs,
   user,
   ...
@@ -37,16 +36,6 @@
 
   programs.obs-studio.package = pkgs.obs-studio.override {
     cudaSupport = true;
-  };
-
-  boot = {
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
-    kernelModules = [ "v4l2loopback" ];
-    extraModprobeConfig = ''
-      options v4l2loopback devices=1 card_label="Integrated Camera" exclusive_caps=1
-    '';
   };
 
   systemd.services.rfkill-unblock = {

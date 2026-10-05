@@ -64,7 +64,6 @@ in
   ];
 
   boot = {
-    kernelParams = lib.mkForce [ "consoleblank=60" ];
     initrd = {
       availableKernelModules = [
         "nvme"

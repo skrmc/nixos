@@ -69,7 +69,7 @@
     git = {
       enable = true;
       config = {
-        user.name = "Yejia";
+        user.name = "Yejia Zhang";
         user.email = "Yejia995@gmail.com";
       };
     };

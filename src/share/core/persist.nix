@@ -15,7 +15,8 @@ in
       services.rollback-root = {
         description = "Rollback btrfs root subvolume";
         wantedBy = [ "initrd.target" ];
-        wants = [ device ];
+        requiredBy = [ "sysroot.mount" ];
+        requires = [ device ];
         after = [ device ];
         before = [ "sysroot.mount" ];
         unitConfig.DefaultDependencies = false;
@@ -27,6 +28,7 @@ in
           mkdir -p "$storage"
           mount -t btrfs -o subvol=/ "${config.fileSystems."/".device}" "$storage"
 
+          mkdir -p "$storage/root-archive"
           if [ -e "$storage/root" ]; then
               mv "$storage/root" "$storage/root-archive/$(date -u +%Y%m%d-%H%M%S)"
           fi
@@ -48,6 +50,7 @@ in
     files = [
       "/etc/machine-id"
       "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_rsa_key"
     ];
 
     directories = [

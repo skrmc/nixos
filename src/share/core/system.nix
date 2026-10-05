@@ -11,8 +11,8 @@
     #   enable = true;
     #   pkiBundle = "/var/lib/sbctl";
     # };
-    kernelParams = lib.mkDefault [ "consoleblank=300" ];
-    supportedFilesystems = lib.mkDefault [ "ntfs" ];
+    kernelParams = [ "consoleblank=60" ];
+    supportedFilesystems = [ "ntfs" ];
   };
 
   time.timeZone = "America/Chicago";
@@ -23,7 +23,13 @@
   zramSwap.enable = true;
   swapDevices = lib.mkForce [ ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
   services.fwupd.enable = true;
 
   environment = {

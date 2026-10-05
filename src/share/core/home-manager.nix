@@ -13,8 +13,8 @@
         };
 
         home.sessionVariables = {
-          EDITOR = "hx";
-          VISUAL = "hx";
+          EDITOR = "nano";
+          VISUAL = "nano";
         };
 
         programs = {

@@ -12,7 +12,6 @@ in
 
   profiles = {
     personal.enable = true;
-    laptop.enable = true;
     development.enable = true;
     container.enable = true;
   };
