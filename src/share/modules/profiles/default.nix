@@ -6,6 +6,7 @@
     ./development.nix
     ./entertainment.nix
     ./personal.nix
+    ./sunshine.nix
     ./virtualization.nix
   ];
 }
