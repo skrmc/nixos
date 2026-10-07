@@ -14,8 +14,8 @@ in
       stylix.targets.fcitx5.enable = true;
 
       i18n.inputMethod = {
-        type = "fcitx5";
         enable = true;
+        type = "fcitx5";
         fcitx5 = {
           waylandFrontend = cfg == "wayland";
           addons = with pkgs; [
@@ -40,12 +40,12 @@ in
             inputMethod = {
               GroupOrder."0" = "Default";
               "Groups/0" = {
-                "Name" = "Default";
+                Name = "Default";
                 "Default Layout" = "us";
-                "DefaultIM" = "keyboard-us";
+                DefaultIM = "keyboard-us";
               };
-              "Groups/0/Items/0"."Name" = "keyboard-us";
-              "Groups/0/Items/1"."Name" = "pinyin";
+              "Groups/0/Items/0".Name = "keyboard-us";
+              "Groups/0/Items/1".Name = "pinyin";
             };
           };
         };

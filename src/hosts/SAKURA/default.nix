@@ -1,10 +1,7 @@
+{ pkgs, user, ... }:
 {
-  pkgs,
-  inputs,
-  user,
-  ...
-}:
-{
+  imports = [ ./hardware-configuration.nix ];
+
   networking.hostName = "SAKURA";
   system.stateVersion = "25.11";
   home-manager.users = {
@@ -21,6 +18,7 @@
     creative.enable = true;
     entertainment.enable = true;
     laptop.enable = true;
+    nvidia.enable = true;
     secureBoot.lanzaboote = {
       enable = true;
       autoGenerateKeys = true;
@@ -29,22 +27,15 @@
   };
   desktop = "wayland";
 
-  imports = [
-    "${inputs.self}/src/share/modules/hardware/nvidia.nix"
-    ./hardware-configuration.nix
-  ];
-
-  programs.obs-studio.package = pkgs.obs-studio.override {
-    cudaSupport = true;
-  };
+  programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };
 
   systemd.services.rfkill-unblock = {
     description = "Unblock rfkill at boot";
     wantedBy = [ "multi-user.target" ];
     before = [ "iwd.service" ];
-    serviceConfig.Type = "oneshot";
-    script = ''
-      ${pkgs.util-linux}/bin/rfkill unblock all
-    '';
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.util-linux}/bin/rfkill unblock all";
+    };
   };
 }

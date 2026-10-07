@@ -1,9 +1,4 @@
-{
-  inputs,
-  user,
-  ...
-}:
-
+{ inputs, user, ... }:
 {
   nix.settings = {
     trusted-users = [ user ];
@@ -18,9 +13,6 @@
   };
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      inputs.fenix.overlays.default
-      # inputs.niri.overlays.default
-    ];
+    overlays = [ inputs.fenix.overlays.default ];
   };
 }

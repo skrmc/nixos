@@ -12,18 +12,11 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      # clang
-      # clang-tools
-      cmake
-      gcc
       gdb
       gitui
-      gnumake
       go
-      pkg-config
       rust-analyzer-nightly
       sqlc
-      zlib
       (fenix.complete.withComponents [
         "cargo"
         "clippy"

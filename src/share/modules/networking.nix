@@ -1,16 +1,24 @@
 {
-  services.resolved.enable = true;
-  services.tailscale.enable = true;
+  services = {
+    resolved.enable = true;
+    tailscale.enable = true;
+  };
 
   networking = {
     useDHCP = true;
     useNetworkd = true;
-    firewall.enable = false;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+    };
     wireless.iwd.enable = true;
   };
 
   systemd.network = {
     enable = true;
-    wait-online.enable = true;
+    wait-online = {
+      enable = true;
+      anyInterface = true;
+    };
   };
 }

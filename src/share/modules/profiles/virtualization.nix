@@ -21,7 +21,7 @@ in
 
     virtualisation.libvirtd = {
       enable = true;
-      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
     };
   };
 }

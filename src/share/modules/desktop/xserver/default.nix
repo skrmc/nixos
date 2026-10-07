@@ -30,7 +30,13 @@ in
       ];
     };
 
-    programs.nautilus-open-any-terminal.terminal = lib.mkForce "alacritty";
+    programs.nautilus-open-any-terminal.terminal = "alacritty";
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = [ "gtk" ];
+    };
 
     home-manager.users.${user} = {
       xsession = {
@@ -47,11 +53,7 @@ in
             };
             window.titlebar = false;
             floating.titlebar = false;
-            bars = [
-              {
-                statusCommand = "${pkgs.i3status}/bin/i3status";
-              }
-            ];
+            bars = [ { statusCommand = "${pkgs.i3status}/bin/i3status"; } ];
             defaultWorkspace = "workspace number 1";
           };
         };

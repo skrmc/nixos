@@ -25,12 +25,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    boot.loader.systemd-boot.enable = lib.mkForce false;
-    boot.lanzaboote = {
-      enable = true;
-      inherit (cfg) pkiBundle;
-      autoGenerateKeys.enable = cfg.autoGenerateKeys;
-      autoEnrollKeys.enable = cfg.autoEnrollKeys;
+    boot = {
+      loader.systemd-boot.enable = lib.mkForce false;
+      lanzaboote = {
+        enable = true;
+        inherit (cfg) pkiBundle;
+        autoGenerateKeys.enable = cfg.autoGenerateKeys;
+        autoEnrollKeys.enable = cfg.autoEnrollKeys;
+      };
     };
   };
 }

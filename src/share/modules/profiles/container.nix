@@ -11,9 +11,7 @@ in
   options.profiles.container.enable = lib.mkEnableOption "container tools";
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      docker-compose
-    ];
+    environment.systemPackages = [ pkgs.docker-compose ];
 
     virtualisation = {
       containers.enable = true;

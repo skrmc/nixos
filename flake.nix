@@ -32,17 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # xremap = {
-    #   url = "github:xremap/nix-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # niri = {
-    #   url = "github:skrmc/niri";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.rust-overlay.follows = "";
-    # };
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -90,10 +79,6 @@
             stylix.nixosModules.stylix
             ./src/hosts/${host}
             ./src/share
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
           ];
         };
     in

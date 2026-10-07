@@ -10,16 +10,18 @@ let
 in
 {
   config = lib.mkIf (cfg == "wayland") {
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      TERMINAL = "foot";
+    };
 
-    xdg.portal = {
-      extraPortals = lib.mkForce [ pkgs.xdg-desktop-portal-gnome ];
-      config.common.default = lib.mkForce [ "gnome" ];
+    programs = {
+      niri.enable = true;
+      nautilus-open-any-terminal.terminal = "foot";
     };
 
     home-manager.users.${user} = {
       home.packages = with pkgs; [
-        niri
         swaybg
         wl-clipboard
         wl-mirror
@@ -95,7 +97,7 @@ in
         };
       };
 
-      xdg.configFile."niri" = {
+      xdg.configFile.niri = {
         force = true;
         recursive = true;
         source = ../config/niri;

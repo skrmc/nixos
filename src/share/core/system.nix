@@ -1,5 +1,4 @@
 { lib, ... }:
-
 {
   boot = {
     loader = {
@@ -7,10 +6,6 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # lanzaboote = {
-    #   enable = true;
-    #   pkiBundle = "/var/lib/sbctl";
-    # };
     kernelParams = [ "consoleblank=60" ];
     supportedFilesystems = [ "ntfs" ];
   };
@@ -23,14 +18,16 @@
   zramSwap.enable = true;
   swapDevices = lib.mkForce [ ];
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
     };
+    fwupd.enable = true;
   };
-  services.fwupd.enable = true;
 
   environment = {
     localBinInPath = true;
@@ -38,11 +35,6 @@
   };
 
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
     optimise.automatic = true;
     settings = {
       experimental-features = [

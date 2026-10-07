@@ -1,45 +1,12 @@
-{
-  pkgs,
-  user,
-  ...
-}:
+{ pkgs, user, ... }:
 let
   dpi = 168;
 in
 {
+  imports = [ ./hardware-configuration.nix ];
+
   networking.hostName = "HARUKA";
   system.stateVersion = "25.11";
-
-  profiles = {
-    personal.enable = true;
-    development.enable = true;
-    container.enable = true;
-  };
-  desktop = "xserver";
-  hardware.graphics.enable = true;
-  services = {
-    spice-vdagentd.enable = true;
-    xserver = {
-      inherit dpi;
-      inputClassSections = [
-        ''
-          Identifier "libinput horizontal scrolling disabled"
-          MatchDriver "libinput"
-          Option "HorizontalScrolling" "off"
-        ''
-      ];
-    };
-    libinput = {
-      mouse = {
-        naturalScrolling = true;
-        horizontalScrolling = false;
-      };
-      touchpad = {
-        naturalScrolling = true;
-        horizontalScrolling = false;
-      };
-    };
-  };
   home-manager.users = {
     ${user} = {
       home.stateVersion = "26.05";
@@ -53,7 +20,28 @@ in
     };
     root.home.stateVersion = "26.05";
   };
-  imports = [
-    ./hardware-configuration.nix
-  ];
+
+  profiles = {
+    personal.enable = true;
+    development.enable = true;
+    container.enable = true;
+  };
+  desktop = "xserver";
+
+  hardware.graphics.enable = true;
+
+  services = {
+    spice-vdagentd.enable = true;
+    xserver.dpi = dpi;
+    libinput = {
+      mouse = {
+        naturalScrolling = true;
+        horizontalScrolling = false;
+      };
+      touchpad = {
+        naturalScrolling = true;
+        horizontalScrolling = false;
+      };
+    };
+  };
 }

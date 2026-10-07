@@ -1,9 +1,7 @@
+{ user, ... }:
 {
-  inputs,
-  user,
-  ...
-}:
-{
+  imports = [ ./hardware-configuration.nix ];
+
   networking.hostName = "SAKUYA";
   system.stateVersion = "25.11";
   home-manager.users = {
@@ -14,12 +12,8 @@
   profiles = {
     personal.enable = true;
     container.enable = true;
+    nvidia.enable = true;
   };
-
-  imports = [
-    "${inputs.self}/src/share/modules/hardware/nvidia.nix"
-    ./hardware-configuration.nix
-  ];
 
   # systemd.services.startup-tasks = {
   #   wantedBy = [ "multi-user.target" ];

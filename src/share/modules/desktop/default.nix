@@ -27,7 +27,6 @@ in
   };
 
   config = lib.mkIf (cfg != null) {
-    security.polkit.enable = true;
     security.rtkit.enable = true;
 
     hardware.bluetooth.enable = true;
@@ -49,11 +48,7 @@ in
         enable = true;
         binfmt = true;
       };
-      dconf.enable = true;
-      nautilus-open-any-terminal = {
-        enable = true;
-        terminal = "foot";
-      };
+      nautilus-open-any-terminal.enable = true;
       obs-studio = {
         enable = true;
         enableVirtualCamera = true;
@@ -65,39 +60,7 @@ in
       };
     };
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-      config.common.default = [ "gtk" ];
-    };
-
     home-manager.users.${user} = {
-      # imports = [ inputs.xremap.homeManagerModules.default ];
-
-      # services.xremap = {
-      #   enable = true;
-      #   mouse = true;
-      #   watch = true;
-      #
-      #   yamlConfig = ''
-      #     modmap:
-      #       - name: Push to Talk
-      #         remap:
-      #           KEY_F24:
-      #             skip_key_event: true
-      #             press: &ptt_press
-      #               - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "0"]
-      #               - launch: ["${pkgs.pipewire}/bin/pw-play", "/home/${user}/.local/share/sounds/attach.wav"]
-      #             release: &ptt_release
-      #               - launch: ["${pkgs.wireplumber}/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "1"]
-      #               - launch: ["${pkgs.pipewire}/bin/pw-play", "/home/${user}/.local/share/sounds/detach.wav"]
-      #
-      #           KEY_LEFTALT:
-      #             press: *ptt_press
-      #             release: *ptt_release
-      #   '';
-      # };
-
       stylix.targets.gtk.enable = true;
       # stylix.targets.qt.enable = true;
 

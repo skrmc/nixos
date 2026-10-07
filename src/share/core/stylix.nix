@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   stylix = {
     enable = true;

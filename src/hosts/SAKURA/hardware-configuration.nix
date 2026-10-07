@@ -17,6 +17,7 @@ in
       options = [
         "subvol=root"
         "compress=zstd"
+        "noatime"
       ];
     };
 

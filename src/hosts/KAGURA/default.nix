@@ -1,9 +1,7 @@
+{ pkgs, user, ... }:
 {
-  pkgs,
-  user,
-  ...
-}:
-{
+  imports = [ ./hardware-configuration.nix ];
+
   networking.hostName = "KAGURA";
   system.stateVersion = "25.11";
   home-manager.users = {
@@ -21,15 +19,9 @@
     laptop.enable = true;
   };
   desktop = "wayland";
-  imports = [
-    ./hardware-configuration.nix
-  ];
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-vaapi-driver
-    ];
+    extraPackages = [ pkgs.intel-media-driver ];
   };
 }

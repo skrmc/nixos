@@ -55,6 +55,11 @@
     nh = {
       enable = true;
       flake = "/home/${user}/.config/nixos";
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 5 --keep-since 30d";
+      };
     };
     fish = {
       enable = true;
@@ -62,15 +67,15 @@
         ls = "ls --color=auto";
         ll = "ls --color=auto -lha";
         bld = "sudo nixos-rebuild switch --flake";
-        cln = "sudo nix-collect-garbage --delete-old";
+        cln = "nh clean all";
         rbk = "sudo nixos-rebuild switch --rollback";
       };
     };
     git = {
       enable = true;
-      config = {
-        user.name = "Yejia Zhang";
-        user.email = "Yejia995@gmail.com";
+      config.user = {
+        name = "Yejia Zhang";
+        email = "Yejia995@gmail.com";
       };
     };
     tmux = {
