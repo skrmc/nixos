@@ -1,9 +1,16 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
 {
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
 
     # base16Scheme = {
     #   base00 = "#000000"; # Default background
@@ -69,5 +76,13 @@
       maple-mono.NF
       noto-fonts-color-emoji
     ];
+  };
+
+  home-manager.users.${user} = lib.mkIf (config.desktop != null) {
+    stylix.targets.gtk.enable = true;
+    # stylix.targets.qt.enable = true;
+
+    dconf.settings."org/gnome/desktop/interface".color-scheme =
+      if config.stylix.polarity == "dark" then "prefer-dark" else "default";
   };
 }

@@ -61,9 +61,6 @@ in
     };
 
     home-manager.users.${user} = {
-      stylix.targets.gtk.enable = true;
-      # stylix.targets.qt.enable = true;
-
       home.packages = with pkgs; [
         brightnessctl
         playerctl

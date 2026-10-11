@@ -3,7 +3,7 @@
     ./nixpkgs.nix
     ./users.nix
     ./persist.nix
-    ./stylix.nix
+    ./theme.nix
     ./system.nix
     ./home-manager.nix
   ];
