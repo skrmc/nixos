@@ -48,6 +48,7 @@ in
         enable = true;
         binfmt = true;
       };
+      localsend.enable = true;
       nautilus-open-any-terminal.enable = true;
       obs-studio = {
         enable = true;
@@ -68,7 +69,6 @@ in
 
         nautilus
         pavucontrol
-        localsend
 
         google-chrome
         obsidian

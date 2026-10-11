@@ -1,6 +1,12 @@
 {
   services = {
-    resolved.enable = true;
+    resolved = {
+      enable = true;
+      settings.Resolve = {
+        LLMNR = false;
+        MulticastDNS = false;
+      };
+    };
     tailscale.enable = true;
   };
 
