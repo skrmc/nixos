@@ -35,6 +35,7 @@
           };
           bash.enable = true;
           fish.enable = true;
+          fzf.enable = true;
           yazi = {
             enable = true;
             shellWrapperName = "y";

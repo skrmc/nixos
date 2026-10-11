@@ -35,6 +35,7 @@
 
   programs = {
     direnv.enable = true;
+    nix-index-database.comma.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -66,22 +67,32 @@
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls --color=auto -lha";
-        bld = "sudo nixos-rebuild switch --flake";
+        bld = "nh os switch";
         cln = "nh clean all";
-        rbk = "sudo nixos-rebuild switch --rollback";
       };
     };
     git = {
       enable = true;
-      config.user = {
-        name = "Yejia Zhang";
-        email = "Yejia995@gmail.com";
+      config = {
+        user = {
+          name = "Yejia Zhang";
+          email = "Yejia995@gmail.com";
+        };
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+        pull.rebase = true;
       };
     };
     tmux = {
       enable = true;
       escapeTime = 0;
-      historyLimit = 5000;
+      historyLimit = 10000;
+      terminal = "tmux-256color";
+      extraConfig = ''
+        set -g mouse on
+        set -g renumber-windows on
+        set -g set-clipboard on
+      '';
     };
     zoxide = {
       enable = true;

@@ -27,7 +27,11 @@
       };
     };
     fwupd.enable = true;
+    earlyoom.enable = true;
+    journald.settings.Journal.SystemMaxUse = "500M";
   };
+
+  documentation.man.cache.enable = false;
 
   environment = {
     localBinInPath = true;
@@ -42,6 +46,7 @@
         "flakes"
       ];
       download-buffer-size = 1073741824; # 1GB
+      warn-dirty = false;
     };
   };
 }

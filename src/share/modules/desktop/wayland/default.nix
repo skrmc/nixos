@@ -51,6 +51,7 @@ in
               selection-target = "both";
               initial-window-size-pixels = "960x640";
             };
+            scrollback.lines = 10000;
             cursor = {
               style = "beam";
               blink = "yes";

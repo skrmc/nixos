@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +50,7 @@
       impermanence,
       home-manager,
       stylix,
+      nix-index-database,
       treefmt-nix,
       ...
     }:
@@ -77,6 +83,7 @@
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
+            nix-index-database.nixosModules.nix-index
             ./src/hosts/${host}
             ./src/share
           ];
