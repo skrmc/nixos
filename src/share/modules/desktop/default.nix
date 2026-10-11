@@ -69,8 +69,6 @@ in
         nautilus
         pavucontrol
         localsend
-        spice-gtk
-        foliate
 
         google-chrome
         obsidian

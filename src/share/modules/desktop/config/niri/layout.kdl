@@ -18,8 +18,8 @@ layout {
 
     focus-ring { off; }
 
-    border {
-        on
-        width 1
-    }
+    // border {
+    //     on
+    //     width 1
+    // }
 }

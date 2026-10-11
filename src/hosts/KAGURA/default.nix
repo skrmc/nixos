@@ -14,8 +14,6 @@
     development.enable = true;
     container.enable = true;
     android.enable = true;
-    creative.enable = true;
-    entertainment.enable = true;
     laptop.enable = true;
   };
   desktop = "wayland";

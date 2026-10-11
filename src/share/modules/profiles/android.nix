@@ -13,8 +13,8 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       android-tools
-      frida-tools
-      scrcpy
+      # frida-tools
+      # scrcpy
     ];
   };
 }
