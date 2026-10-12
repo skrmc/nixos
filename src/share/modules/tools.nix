@@ -78,6 +78,7 @@
           name = "Yejia Zhang";
           email = "Yejia995@gmail.com";
         };
+        core.pager = "cat";
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         pull.rebase = true;
