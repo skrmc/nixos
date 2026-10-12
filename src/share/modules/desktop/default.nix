@@ -79,7 +79,6 @@ in
         dataFile = {
           "sounds/detach.wav".source = ./assets/sounds/detach.wav;
           "sounds/attach.wav".source = ./assets/sounds/attach.wav;
-          "wallpapers/enanan.jpg".source = ./assets/wallpapers/enanan.jpg;
         };
         userDirs = {
           enable = true;
