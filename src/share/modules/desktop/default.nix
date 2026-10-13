@@ -57,6 +57,7 @@ in
           wlrobs
           obs-vaapi
           obs-pipewire-audio-capture
+          obs-source-record
         ];
       };
     };
