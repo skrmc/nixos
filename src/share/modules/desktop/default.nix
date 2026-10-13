@@ -27,7 +27,10 @@ in
   };
 
   config = lib.mkIf (cfg != null) {
-    security.rtkit.enable = true;
+    security = {
+      rtkit.enable = true;
+      soteria.enable = true;
+    };
 
     hardware.bluetooth.enable = true;
 
