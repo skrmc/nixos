@@ -16,7 +16,16 @@ in
     };
 
     programs = {
-      niri.enable = true;
+      niri = {
+        enable = true;
+        package = pkgs.niri.overrideAttrs (old: {
+          patches = (old.patches or [ ]) ++ [
+            ../patches/niri/floating-on-top.patch
+            ../patches/niri/focus-column-tiling.patch
+          ];
+          doCheck = false;
+        });
+      };
       nautilus-open-any-terminal.terminal = "foot";
     };
 

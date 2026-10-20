@@ -1,0 +1,17 @@
+diff --git a/src/layout/workspace.rs b/src/layout/workspace.rs
+index 49548a8..9021ddd 100644
+--- a/src/layout/workspace.rs
++++ b/src/layout/workspace.rs
+@@ -1680,11 +1680,7 @@ impl<W: LayoutElement> Workspace<W> {
+     }
+ 
+     pub fn is_floating_visible(&self) -> bool {
+-        // If the focus is on a fullscreen scrolling window, hide the floating windows.
+-        matches!(
+-            self.floating_is_active,
+-            FloatingActive::Yes | FloatingActive::NoButRaised
+-        ) || !self.render_above_top_layer()
++        true
+     }
+ 
+     pub fn store_unmap_snapshot_if_empty(

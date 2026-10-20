@@ -80,11 +80,6 @@ animations {
 // }
 
 window-rule {
-    match is-floating=true is-focused=false
-    opacity 0.8
-}
-
-window-rule {
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true

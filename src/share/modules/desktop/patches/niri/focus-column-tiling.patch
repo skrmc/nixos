@@ -1,0 +1,26 @@
+diff --git a/src/layout/workspace.rs b/src/layout/workspace.rs
+index 49548a8..cb85145 100644
+--- a/src/layout/workspace.rs
++++ b/src/layout/workspace.rs
+@@ -906,19 +906,11 @@ impl<W: LayoutElement> Workspace<W> {
+     }
+ 
+     pub fn focus_left(&mut self) -> bool {
+-        if self.floating_is_active.get() {
+-            self.floating.focus_left()
+-        } else {
+-            self.scrolling.focus_left()
+-        }
++        self.scrolling.focus_left()
+     }
+ 
+     pub fn focus_right(&mut self) -> bool {
+-        if self.floating_is_active.get() {
+-            self.floating.focus_right()
+-        } else {
+-            self.scrolling.focus_right()
+-        }
++        self.scrolling.focus_right()
+     }
+ 
+     pub fn focus_column_first(&mut self) {
