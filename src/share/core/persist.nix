@@ -26,7 +26,6 @@ in
         };
         script = ''
           set -euo pipefail
-          shopt -s nullglob
           storage="/run/btrfs"
 
           mkdir -p "$storage"
@@ -34,16 +33,14 @@ in
 
           mkdir -p "$storage/root-archive"
           if [ -e "$storage/root" ]; then
-              id=$(btrfs inspect-internal rootid "$storage/root")
-              mv "$storage/root" "$storage/root-archive/$(date -u +%Y%m%d-%H%M%S)-$id"
+              mv "$storage/root" "$storage/root-archive/$(btrfs inspect-internal rootid "$storage/root")"
           fi
 
           btrfs subvolume snapshot "$storage/root-blank" "$storage/root"
 
-          for d in "$storage"/root-archive/*; do
-              echo "$(btrfs inspect-internal rootid "$d") $d"
-          done | sort -n | head -n -10 | cut -d' ' -f2- \
-              | xargs -r -d '\n' btrfs subvolume delete --recursive
+          cd "$storage/root-archive"
+          ls | sort -n | head -n -10 | xargs -r btrfs subvolume delete --recursive
+          cd /
 
           umount "$storage"
         '';
