@@ -14,7 +14,6 @@ in
       initrdBin = [ pkgs.findutils ];
       services.rollback-root = {
         description = "Rollback btrfs root subvolume";
-        wantedBy = [ "initrd.target" ];
         requiredBy = [ "sysroot.mount" ];
         requires = [ device ];
         after = [ device ];
@@ -39,7 +38,8 @@ in
           btrfs subvolume snapshot "$storage/root-blank" "$storage/root"
 
           cd "$storage/root-archive"
-          ls | sort -n | head -n -10 | xargs -r btrfs subvolume delete --recursive
+          ls | sort -n | head -n -10 | xargs -r btrfs subvolume delete --recursive \
+              || echo "<4>failed to prune root archives" >&2
           cd /
 
           umount "$storage"
