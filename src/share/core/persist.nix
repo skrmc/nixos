@@ -20,9 +20,13 @@ in
         after = [ device ];
         before = [ "sysroot.mount" ];
         unitConfig.DefaultDependencies = false;
-        serviceConfig.Type = "oneshot";
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+        };
         script = ''
           set -euo pipefail
+          shopt -s nullglob
           storage="/run/btrfs"
 
           mkdir -p "$storage"
@@ -30,13 +34,16 @@ in
 
           mkdir -p "$storage/root-archive"
           if [ -e "$storage/root" ]; then
-              mv "$storage/root" "$storage/root-archive/$(date -u +%Y%m%d-%H%M%S)"
+              id=$(btrfs inspect-internal rootid "$storage/root")
+              mv "$storage/root" "$storage/root-archive/$(date -u +%Y%m%d-%H%M%S)-$id"
           fi
 
-          find "$storage/root-archive" -mindepth 1 -maxdepth 1 \
-              | sort | head -n -10 | xargs -r btrfs subvolume delete --recursive
-
           btrfs subvolume snapshot "$storage/root-blank" "$storage/root"
+
+          for d in "$storage"/root-archive/*; do
+              echo "$(btrfs inspect-internal rootid "$d") $d"
+          done | sort -n | head -n -10 | cut -d' ' -f2- \
+              | xargs -r -d '\n' btrfs subvolume delete --recursive
 
           umount "$storage"
         '';
