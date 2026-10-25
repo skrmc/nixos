@@ -1,0 +1,54 @@
+diff --git a/src/backend/tty.rs b/src/backend/tty.rs
+index 5368c7e..8a15662 100644
+--- a/src/backend/tty.rs
++++ b/src/backend/tty.rs
+@@ -68,6 +68,7 @@ use crate::niri::{Niri, RedrawState, State};
+ use crate::render_helpers::debug::draw_damage;
+ use crate::render_helpers::renderer::AsGlesRenderer;
+ use crate::render_helpers::{resources, shaders, RenderCtx, RenderTarget};
++use crate::utils::spawning::spawn;
+ use crate::utils::{get_monotonic_time, is_laptop_panel, logical_output, PanelOrientation};
+ 
+ const SUPPORTED_COLOR_FORMATS: [Fourcc; 4] = [
+@@ -387,6 +388,7 @@ struct Surface {
+     /// Plot name for the presentation misprediction plot.
+     presentation_misprediction_plot_name: tracy_client::PlotName,
+     sequence_delta_plot_name: tracy_client::PlotName,
++    scanout_since: Option<Duration>,
+ }
+ 
+ pub struct SurfaceDmabufFeedback {
+@@ -1537,6 +1539,7 @@ impl Tty {
+             time_since_presentation_plot_name,
+             presentation_misprediction_plot_name,
+             sequence_delta_plot_name,
++            scanout_since: None,
+         };
+ 
+         let res = device.surfaces.insert(crtc, surface);
+@@ -1931,6 +1934,25 @@ impl Tty {
+         let drm_compositor = &mut surface.compositor;
+         match drm_compositor.render_frame::<_, _>(&mut renderer, &elements, [0.; 4], flags) {
+             Ok(res) => {
++                let is_scanout = matches!(res.primary_element, PrimaryPlaneElement::Element(_));
++                match (surface.scanout_since, is_scanout) {
++                    (None, true) => surface.scanout_since = Some(get_monotonic_time()),
++                    (Some(since), false) => {
++                        surface.scanout_since = None;
++                        let secs = get_monotonic_time().saturating_sub(since).as_secs();
++                        let connector = &surface.name.connector;
++                        info!("direct scanout on {connector} ended after {secs}s");
++                        if secs >= 5 {
++                            let body = format!("{connector}: {}m {}s", secs / 60, secs % 60);
++                            spawn(
++                                vec!["notify-send".to_owned(), "Direct scanout".to_owned(), body],
++                                None,
++                            );
++                        }
++                    }
++                    _ => (),
++                }
++
+                 let needs_sync = res.needs_sync()
+                     || self
+                         .config

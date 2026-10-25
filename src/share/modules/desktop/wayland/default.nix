@@ -22,6 +22,7 @@ in
           patches = (old.patches or [ ]) ++ [
             ../patches/niri/floating-on-top.patch
             ../patches/niri/focus-column-tiling.patch
+            ../patches/niri/scanout-notify.patch
           ];
           doCheck = false;
         });
