@@ -7,7 +7,6 @@
       isNormalUser = true;
       extraGroups = [
         "wheel"
-        "tty"
         "audio"
         "video"
         "input"

@@ -3,7 +3,7 @@ let
   cfg = config.profiles.sunshine;
 in
 {
-  options.profiles.sunshine.enable = lib.mkEnableOption "Sunshine game streaming host";
+  options.profiles.sunshine.enable = lib.mkEnableOption "Sunshine game streaming";
 
   config = lib.mkIf cfg.enable {
     services.sunshine = {

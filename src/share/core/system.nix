@@ -3,7 +3,10 @@
   boot = {
     loader = {
       timeout = lib.mkDefault 0;
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = lib.mkDefault 10;
+      };
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [ "consoleblank=60" ];
@@ -21,7 +24,9 @@
   services = {
     openssh = {
       enable = true;
+      openFirewall = false;
       settings = {
+        PermitRootLogin = "no";
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
       };

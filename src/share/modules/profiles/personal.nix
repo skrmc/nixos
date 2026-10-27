@@ -12,17 +12,14 @@ let
   ];
 in
 {
-  options.profiles.personal.enable = lib.mkEnableOption "personal authentication and local login preferences";
+  options.profiles.personal.enable = lib.mkEnableOption "personal login settings";
 
   config = lib.mkIf cfg.enable {
     security.sudo.wheelNeedsPassword = false;
 
-    users.users = {
-      root.openssh.authorizedKeys.keys = keys;
-      ${user} = {
-        hashedPasswordFile = "/persist/etc/secrets/${user}.hash";
-        openssh.authorizedKeys.keys = keys;
-      };
+    users.users.${user} = {
+      hashedPasswordFile = "/persist/etc/secrets/${user}.hash";
+      openssh.authorizedKeys.keys = keys;
     };
 
     services.getty.autologinUser = user;

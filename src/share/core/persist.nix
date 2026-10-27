@@ -30,12 +30,22 @@ in
           mkdir -p "$storage"
           mount -t btrfs -o subvol=/ "${config.fileSystems."/".device}" "$storage"
 
+          if [ ! -d "$storage/root-blank" ]; then
+              echo "<3>root-blank subvolume missing, keeping current root" >&2
+              umount "$storage"
+              exit 0
+          fi
+
+          if [ -e "$storage/root-new" ]; then
+              btrfs subvolume delete --recursive "$storage/root-new"
+          fi
+          btrfs subvolume snapshot "$storage/root-blank" "$storage/root-new"
+
           mkdir -p "$storage/root-archive"
           if [ -e "$storage/root" ]; then
               mv "$storage/root" "$storage/root-archive/$(btrfs inspect-internal rootid "$storage/root")"
           fi
-
-          btrfs subvolume snapshot "$storage/root-blank" "$storage/root"
+          mv "$storage/root-new" "$storage/root"
 
           cd "$storage/root-archive"
           ls | sort -n | head -n -10 | xargs -r btrfs subvolume delete --recursive \

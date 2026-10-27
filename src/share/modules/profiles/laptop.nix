@@ -3,7 +3,7 @@ let
   cfg = config.profiles.laptop;
 in
 {
-  options.profiles.laptop.enable = lib.mkEnableOption "laptop-specific power management";
+  options.profiles.laptop.enable = lib.mkEnableOption "laptop power management";
 
   config = lib.mkIf cfg.enable {
     services.tlp = {

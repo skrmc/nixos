@@ -25,10 +25,7 @@ in
     hardware = {
       graphics = {
         enable = true;
-        extraPackages = with pkgs; [
-          libva-vdpau-driver
-          nvidia-vaapi-driver
-        ];
+        extraPackages = [ pkgs.nvidia-vaapi-driver ];
       };
       nvidia-container-toolkit.enable = true;
       nvidia = {

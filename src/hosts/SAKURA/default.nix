@@ -1,4 +1,9 @@
-{ pkgs, user, ... }:
+{
+  lib,
+  pkgs,
+  user,
+  ...
+}:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -24,6 +29,8 @@
     };
   };
   desktop = "wayland";
+
+  services.tlp.settings.STOP_CHARGE_THRESH_BAT0 = lib.mkForce 1;
 
   programs = {
     obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };

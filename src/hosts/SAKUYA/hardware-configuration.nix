@@ -5,61 +5,7 @@
   ...
 }:
 
-let
-  fsefi = "/dev/disk/by-label/EFI";
-  fslinux = "/dev/disk/by-label/Linux";
-in
 {
-  fileSystems = {
-    "/" = {
-      device = fslinux;
-      fsType = "btrfs";
-      options = [
-        "subvol=root"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
-
-    "/nix" = {
-      device = fslinux;
-      fsType = "btrfs";
-      options = [
-        "subvol=nix"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
-
-    "/persist" = {
-      device = fslinux;
-      fsType = "btrfs";
-      neededForBoot = true;
-      options = [
-        "subvol=persist"
-        "compress=zstd"
-      ];
-    };
-
-    "/home" = {
-      device = fslinux;
-      fsType = "btrfs";
-      options = [
-        "subvol=home"
-        "compress=zstd"
-      ];
-    };
-
-    "/boot" = {
-      device = fsefi;
-      fsType = "vfat";
-      options = [ "umask=0077" ];
-    };
-  };
-
-  # Headless laptop configuration
-  services.logind.settings.Login.HandleLidSwitch = "ignore";
-
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

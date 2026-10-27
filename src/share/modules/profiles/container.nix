@@ -13,13 +13,10 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.docker-compose ];
 
-    virtualisation = {
-      containers.enable = true;
-      podman = {
-        enable = true;
-        dockerCompat = true;
-        defaultNetwork.settings.dns_enabled = true;
-      };
+    virtualisation.podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 }

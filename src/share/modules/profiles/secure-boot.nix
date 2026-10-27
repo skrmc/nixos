@@ -11,17 +11,17 @@ in
   imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
   options.profiles.secureBoot.lanzaboote = {
-    enable = lib.mkEnableOption "Lanzaboote-backed Secure Boot";
+    enable = lib.mkEnableOption "Secure Boot via Lanzaboote";
 
     pkiBundle = lib.mkOption {
       type = lib.types.str;
       default = "/var/lib/sbctl";
-      description = "Persistent directory used to store Secure Boot PKI material.";
+      description = "Directory holding the Secure Boot PKI bundle.";
     };
 
-    autoGenerateKeys = lib.mkEnableOption "automatic Secure Boot key generation when the PKI bundle is empty";
+    autoGenerateKeys = lib.mkEnableOption "automatic key generation when the PKI bundle is empty";
 
-    autoEnrollKeys = lib.mkEnableOption "automatic Secure Boot key enrollment on the next reboot";
+    autoEnrollKeys = lib.mkEnableOption "automatic key enrollment on the next boot";
   };
 
   config = lib.mkIf cfg.enable {
@@ -30,6 +30,7 @@ in
       lanzaboote = {
         enable = true;
         inherit (cfg) pkiBundle;
+        inherit (config.boot.loader.systemd-boot) configurationLimit;
         autoGenerateKeys.enable = cfg.autoGenerateKeys;
         autoEnrollKeys.enable = cfg.autoEnrollKeys;
       };

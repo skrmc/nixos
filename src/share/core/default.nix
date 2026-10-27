@@ -1,5 +1,6 @@
 {
   imports = [
+    ./filesystems.nix
     ./nixpkgs.nix
     ./users.nix
     ./persist.nix
