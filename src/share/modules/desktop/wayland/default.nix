@@ -86,8 +86,7 @@ in
             border-radius = 8;
             border-size = 2;
             padding = "8,10";
-
-            "mode=do-not-disturb".invisible = 1;
+            on-button-middle = "dismiss-all";
           };
         };
         cliphist = {
