@@ -1,6 +1,7 @@
-{ user, ... }:
+{ pkgs, user, ... }:
 {
   users = {
+    defaultUserShell = pkgs.fish;
     mutableUsers = false;
     users.${user} = {
       uid = 1000;

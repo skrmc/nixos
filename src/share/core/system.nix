@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot = {
     loader = {
@@ -20,6 +20,29 @@
 
   zramSwap.enable = true;
   swapDevices = lib.mkForce [ ];
+  hardware.uinput.enable = true;
+
+  programs = {
+    fish.enable = true;
+    git.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        alsa-lib
+        attr
+        cacert
+        curl
+        glib
+        libglvnd
+        libssh
+        openssl
+        stdenv.cc.cc
+        systemd
+        util-linux
+        zlib
+      ];
+    };
+  };
 
   services = {
     openssh = {
@@ -39,6 +62,27 @@
   documentation.man.cache.enable = false;
 
   environment = {
+    systemPackages = with pkgs; [
+      bubblewrap
+      cachix
+      caligula
+      evtest
+      file
+      hostapd
+      iw
+      jq
+      libnotify
+      lsof
+      ncdu
+      powertop
+      python314
+      ripgrep
+      sbctl
+      tree
+      unzip
+      xxd
+      zip
+    ];
     localBinInPath = true;
     sessionVariables.NIX_PAGER = "cat";
   };

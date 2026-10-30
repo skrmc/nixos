@@ -19,16 +19,7 @@ in
       windowManager.i3.enable = true;
     };
 
-    environment = {
-      sessionVariables.TERMINAL = "alacritty";
-      systemPackages = with pkgs; [
-        arandr
-        xclip
-        xev
-        xkill
-        xrandr
-      ];
-    };
+    environment.sessionVariables.TERMINAL = "alacritty";
 
     programs.nautilus-open-any-terminal.terminal = "alacritty";
 
@@ -39,6 +30,14 @@ in
     };
 
     home-manager.users.${user} = {
+      home.packages = with pkgs; [
+        arandr
+        xclip
+        xev
+        xkill
+        xrandr
+      ];
+
       xsession = {
         enable = true;
         windowManager.i3 = {

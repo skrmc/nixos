@@ -15,4 +15,17 @@
     config.allowUnfree = true;
     overlays = [ inputs.fenix.overlays.default ];
   };
+
+  programs = {
+    nix-index-database.comma.enable = true;
+    nh = {
+      enable = true;
+      flake = "/home/${user}/.config/nixos";
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 5 --keep-since 30d";
+      };
+    };
+  };
 }

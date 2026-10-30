@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -11,7 +12,7 @@ in
   options.profiles.development.enable = lib.mkEnableOption "development tools";
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+    home-manager.users.${user}.home.packages = with pkgs; [
       gdb
       gitui
       go
