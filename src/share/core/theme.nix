@@ -47,8 +47,8 @@
         name = "IBM Plex Sans";
       };
       monospace = {
-        package = pkgs.maple-mono.NF;
-        name = "Maple Mono NF";
+        package = pkgs.maple-mono.NF-CN;
+        name = "Maple Mono NF CN";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
@@ -73,7 +73,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       ibm-plex
-      maple-mono.NF
+      maple-mono.NF-CN
       noto-fonts-color-emoji
     ];
   };
